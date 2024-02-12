@@ -6,10 +6,7 @@ using UnityEngine;
 
 public class PingleCheatPanelMuflus : MonoBehaviour
 {
-  public int skill3_duration = 80;
-  public float skill3_speed = 7.0f;
   public Transform spawn_point = null;
-  public GameObject dash_vfx = null;
   public GameObject skill1_vfx = null;
 
   public GameObject skill2_vfx_init = null;
@@ -19,6 +16,11 @@ public class PingleCheatPanelMuflus : MonoBehaviour
   public int fly_duration = 120;
   public float fly_distance = 10.0f;
   public AnimationCurve fly_x_curve = null;
+
+  public GameObject dash_vfx = null;
+  public int skill3_duration = 80;
+  public float skill3_speed = 7.0f;
+  public float skill3_start_delay = 0.2f;
 
   private Character character_instance = null;
   private List<GameObject> pool = new List<GameObject>();
@@ -59,7 +61,7 @@ public class PingleCheatPanelMuflus : MonoBehaviour
       activateSkill2();
 
     if ( GUI.Button( new Rect( 400, 100, 80, 80 ), "Skill_3" ) )
-      return;
+      activateSkill3();
   }
 
   private void activateSkill1()
@@ -93,7 +95,7 @@ public class PingleCheatPanelMuflus : MonoBehaviour
 
     if ( skill2_vfx_trail != null )
     {
-      cached_vfx = Instantiate( skill2_vfx_trail, skill2_vfx_trail_root.transform.position, skill2_vfx_trail_root.transform.rotation );
+      cached_vfx = Instantiate( skill2_vfx_trail, skill2_vfx_trail_root );
       pool.Add( cached_vfx );
     }
 
@@ -109,13 +111,15 @@ public class PingleCheatPanelMuflus : MonoBehaviour
       yield return null;
     }
 
+    character_instance.CharacterAnimator.ResetTrigger("Skill2");
+
+    yield return new WaitForSeconds( 0.3f );
     if ( skill2_vfx_final != null )
     {
       cached_vfx = Instantiate( skill2_vfx_final, character_instance.transform.position, character_instance.transform.rotation );
       pool.Add( cached_vfx );
     }
 
-    character_instance.CharacterAnimator.ResetTrigger("Skill2");
     yield return new WaitForSeconds( 3.2f );
     clearPool();
   }
@@ -136,11 +140,14 @@ public class PingleCheatPanelMuflus : MonoBehaviour
 
   private IEnumerator skill3()
   {
-    GameObject spawned_dash_vfx = Instantiate(dash_vfx, character_instance.transform.position, Quaternion.Euler(0.0f, 90.0f, 0.0f), character_instance.transform);
+    GameObject spawned_dash_vfx = null;
+
+    if(dash_vfx != null)
+      spawned_dash_vfx = Instantiate(dash_vfx, character_instance.transform);
 
     character_instance.CharacterAnimator.SetTrigger("Skill3");
 
-    yield return new WaitForSeconds(1.0f);
+    yield return new WaitForSeconds(skill3_start_delay);
     Vector3 new_pos = character_instance.transform.position;
 
     for( int i = 0; i < skill3_duration; i++ )
