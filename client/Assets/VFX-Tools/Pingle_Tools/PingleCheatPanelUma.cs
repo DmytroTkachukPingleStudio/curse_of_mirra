@@ -4,18 +4,15 @@ using System.Collections.Generic;
 using MoreMountains.TopDownEngine;
 using UnityEngine;
 
-public class PingleCheatPanelMuflus : MonoBehaviour
+public class PingleCheatPanelUma : MonoBehaviour
 {
-    public Transform spawn_point = null;
     public GameObject skill1_vfx = null;
 
-    public GameObject skill2_vfx_init = null;
-    public GameObject skill2_vfx_trail = null;
-    public Transform skill2_vfx_trail_root = null;
-    public GameObject skill2_vfx_final = null;
-    public int fly_duration = 120;
-    public float fly_distance = 10.0f;
-    public AnimationCurve fly_x_curve = null;
+    public GameObject skill2_vfx = null;
+    public Transform skill2_vfx_root = null;
+    public GameObject skill2_vfx_floor = null;
+    public Renderer character_renderer = null;
+    public Transform spawn_point = null;
 
     public GameObject dash_vfx = null;
     public int skill3_duration = 80;
@@ -31,7 +28,9 @@ public class PingleCheatPanelMuflus : MonoBehaviour
         Application.targetFrameRate = 60;
         character_instance = FindObjectOfType<Character>();
         resetAnims();
-        character_instance.transform.position = spawn_point == null ? Vector3.zero : spawn_point.position;
+
+        character_renderer.enabled = true;
+        character_instance.transform.position = spawn_point.position;
     }
 
     private void resetAnims()
@@ -43,13 +42,21 @@ public class PingleCheatPanelMuflus : MonoBehaviour
         character_instance.CharacterAnimator.ResetTrigger("Walking");
     }
 
+    private void clearPool()
+    {
+        foreach(GameObject go in pool)
+            Destroy(go);
+
+        pool.Clear();
+    }
+
     private void OnGUI()
     {
         if ( GUI.Button(new Rect( 100, 100, 80, 80 ), "init") )
             init();
 
         if ( GUI.Button(new Rect( 200, 100, 80, 80 ), "Skill_1") )
-            return;
+            activateSkill1();
 
         if ( GUI.Button(new Rect( 300, 100, 80, 80 ), "Skill_2") )
             activateSkill2();
@@ -63,9 +70,8 @@ public class PingleCheatPanelMuflus : MonoBehaviour
         resetAnims();
         clearPool();
         character_instance.CharacterAnimator.SetTrigger("Skill1");
-
         GameObject cached_vfx = null;
-        cached_vfx = Instantiate( skill1_vfx );
+        cached_vfx = Instantiate(skill1_vfx, character_instance.transform);
         pool.Add( cached_vfx );
     }
 
@@ -79,53 +85,31 @@ public class PingleCheatPanelMuflus : MonoBehaviour
 
     private IEnumerator skill2()
     {
-        GameObject cached_vfx = null;
         character_instance.CharacterAnimator.SetTrigger("Skill2");
 
-        if (skill2_vfx_init != null)
-        {
-            cached_vfx = Instantiate(skill2_vfx_init, character_instance.transform.position, character_instance.transform.rotation);
-            pool.Add(cached_vfx);
-        }
+        yield return new WaitForSeconds(0.2f);
 
-        if (skill2_vfx_trail != null)
-        {
-            cached_vfx = Instantiate(skill2_vfx_trail, skill2_vfx_trail_root);
-            pool.Add( cached_vfx );
-        }
+        GameObject cached_vfx = null;
 
-        Vector3 old_pos = character_instance.transform.position;
-        yield return new WaitForSeconds(0.3f);
+        if( skill2_vfx != null )
+            cached_vfx = Instantiate(skill2_vfx, skill2_vfx_root.position, skill2_vfx_root.rotation);
 
-        for(int i = 0; i < fly_duration; i++)
-        {
-            Vector3 new_pos = character_instance.transform.position;
-            new_pos.x = Mathf.Lerp(old_pos.x, old_pos.x + fly_distance, fly_x_curve.Evaluate((float)i / (float)fly_duration));
+        pool.Add( cached_vfx );
 
-            character_instance.transform.position = new_pos;
-            yield return null;
-        }
+        if( skill2_vfx_floor != null )
+            cached_vfx = Instantiate(skill2_vfx_floor, character_instance.transform);
 
+        pool.Add( cached_vfx );
+
+        yield return new WaitForSeconds(0.1f);
+        character_renderer.enabled = false;
+
+        yield return new WaitForSeconds(1.2f);
         character_instance.CharacterAnimator.ResetTrigger("Skill2");
+        yield return new WaitForSeconds(1.2f);
 
-        yield return new WaitForSeconds(0.3f);
-
-        if (skill2_vfx_final != null)
-        {
-            cached_vfx = Instantiate(skill2_vfx_final, character_instance.transform.position, character_instance.transform.rotation);
-            pool.Add(cached_vfx);
-        }
-
-      yield return new WaitForSeconds(3.2f);
-      clearPool();
-    }
-
-    private void clearPool()
-    {
-        foreach(GameObject go in pool)
-            Destroy(go);
-
-        pool.Clear();
+        character_renderer.enabled = true;
+        clearPool();
     }
 
     private void activateSkill3()
@@ -138,15 +122,16 @@ public class PingleCheatPanelMuflus : MonoBehaviour
     {
         GameObject spawned_dash_vfx = null;
 
-        if(dash_vfx != null)
-            spawned_dash_vfx = Instantiate(dash_vfx, character_instance.transform);
-
         character_instance.CharacterAnimator.SetTrigger("Skill3");
 
         yield return new WaitForSeconds(skill3_start_delay);
+
+        if(dash_vfx != null)
+            spawned_dash_vfx = Instantiate(dash_vfx, character_instance.transform);
+
         Vector3 new_pos = character_instance.transform.position;
 
-        for( int i = 0; i < skill3_duration; i++ )
+        for(int i = 0; i < skill3_duration; i++)
         {
             new_pos = character_instance.transform.position;
             new_pos.x += skill3_speed * Time.deltaTime;
@@ -162,7 +147,7 @@ public class PingleCheatPanelMuflus : MonoBehaviour
         character_instance.CharacterAnimator.SetTrigger("Walking");
         yield return new WaitForSeconds(1.0f);
 
-        character_instance.CharacterAnimator.ResetTrigger("Walking");
         Destroy(spawned_dash_vfx);
+        character_instance.CharacterAnimator.ResetTrigger("Walking");
     }
 }
