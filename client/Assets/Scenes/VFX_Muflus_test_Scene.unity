@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657916, g: 0.49641615, b: 0.5748179, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402337, g: 0.49316758, b: 0.5722343, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -172,7 +172,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.34193662, g: 0.52570814, b: 0.6415094, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -1875,6 +1875,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &784331877 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2516552699787638440, guid: 6751985a991154bbbbe6c7071528f3d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 344634494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,6 +2161,11 @@ PrefabInstance:
       propertyPath: skill3_speed
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 5866056992554921741, guid: 909fe292d4df88f40ae747068bdac1f9,
+        type: 3}
+      propertyPath: dash_vfx_root
+      value: 
+      objectReference: {fileID: 784331877}
     - target: {fileID: 5866056992554921741, guid: 909fe292d4df88f40ae747068bdac1f9,
         type: 3}
       propertyPath: skill2_vfx_init

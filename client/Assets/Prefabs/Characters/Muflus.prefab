@@ -555,6 +555,8 @@ MonoBehaviour:
   placeholder_transform_pairs:
   - placement_holder: {fileID: 11400000, guid: d260661848b81c248b1a609e40e39b11, type: 2}
     look_up_transform: {fileID: 8410051266074264502}
+  - placement_holder: {fileID: 11400000, guid: e9e6a59c5c19313498368e33987939e4, type: 2}
+    look_up_transform: {fileID: 9089439972076665668}
 --- !u!1 &4035131063984225864
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +567,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9089439972076665668}
   m_Layer: 0
-  m_Name: BladeRoot
+  m_Name: PlaceHolder_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

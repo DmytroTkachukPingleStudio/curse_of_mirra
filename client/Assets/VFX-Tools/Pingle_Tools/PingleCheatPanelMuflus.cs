@@ -18,6 +18,7 @@ public class PingleCheatPanelMuflus : MonoBehaviour
     public AnimationCurve fly_x_curve = null;
 
     public GameObject dash_vfx = null;
+    public Transform dash_vfx_root = null;
     public int skill3_duration = 80;
     public float skill3_speed = 7.0f;
     public float skill3_start_delay = 0.2f;
@@ -112,7 +113,7 @@ public class PingleCheatPanelMuflus : MonoBehaviour
 
         if (skill2_vfx_final != null)
         {
-            cached_vfx = Instantiate(skill2_vfx_final, character_instance.transform.position, character_instance.transform.rotation);
+            cached_vfx = Instantiate(skill2_vfx_final, dash_vfx_root.transform.position, dash_vfx_root.transform.rotation);
             pool.Add(cached_vfx);
         }
 
@@ -139,7 +140,11 @@ public class PingleCheatPanelMuflus : MonoBehaviour
         GameObject spawned_dash_vfx = null;
 
         if(dash_vfx != null)
-            spawned_dash_vfx = Instantiate(dash_vfx, character_instance.transform);
+        {
+            spawned_dash_vfx = Instantiate(dash_vfx, dash_vfx_root.transform);
+            spawned_dash_vfx.transform.rotation = character_instance.transform.rotation;
+
+        }
 
         character_instance.CharacterAnimator.SetTrigger("Skill3");
 
