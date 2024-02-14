@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Muflus_Swirl_04
+  m_Name: M_Muflus_Swirl_05
   m_Shader: {fileID: -6465566751694194690, guid: 05260f185cc4758469c16e795b053beb,
     type: 3}
   m_ValidKeywords:
@@ -61,7 +61,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 1
-    - _Alpha_Clip: 0.3
+    - _Alpha_Clip: 0
     - _Back_Edge_Mask_Power: 1.5
     - _Blend: 0
     - _CastShadows: 1
@@ -72,10 +72,10 @@ Material:
     - _Distortion_Texture_Channel_Picker: 0
     - _DstBlend: 10
     - _Edges_Mask_Power: 0.25
-    - _Erode_Feather: 0.5
+    - _Erode_Feather: 1
     - _Fresnel_Power: 1
     - _Front_Edge_Mask_Offset: -0.6
-    - _Highlight: 0.2
+    - _Highlight: 0
     - _Invert_Fresnel: 1
     - _Main_Texture_Channel_Picker: 0
     - _Main_Texture_Distortion_Multiply: 0.5
@@ -97,9 +97,9 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Color: {r: 1, g: 0.33333334, b: 0, a: 0}
+    - _Color: {r: 0.248, g: 0.082666665, b: 0, a: 0}
     - _Distortion_UV_Controls: {r: 1, g: 0.5, b: -0.5, a: 0}
-    - _Main_Texture_UV_Controls: {r: 4, g: 1, b: -0.7, a: -1}
+    - _Main_Texture_UV_Controls: {r: 2, g: 1, b: 0, a: 0}
     - _Sphere_Mask_Controls: {r: 1.65, g: 0.65, b: 0, a: 0}
     - _Sphere_Mask_Head_Controls: {r: 1, g: 1, b: 0, a: 0}
     - _Taper_Texture: {r: 2, g: 1, b: 0, a: 0}

@@ -1920,7 +1920,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":1.0,"g":0.0833333358168602,"b":0.0,"a":0.0}'
+      m_SerializableObject: '{"r":1.0,"g":0.01666666753590107,"b":0.0,"a":0.0}'
     m_Space: 2147483647
   m_Property:
     name: _Color_B
@@ -2090,7 +2090,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":1.4980392456054688,"g":0.49934643507003786,"b":0.0,"a":0.0}'
+      m_SerializableObject: '{"r":1.4980392456054688,"g":0.24967321753501893,"b":0.0,"a":0.0}'
     m_Space: 2147483647
   m_Property:
     name: _Color_Emission
@@ -5387,7 +5387,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":2.9960784912109377,"g":0.501960813999176,"b":0.0,"a":1.0}'
+      m_SerializableObject: '{"r":2.9960784912109377,"g":0.24967321753501893,"b":0.0,"a":1.0}'
     m_Space: 2147483647
   m_Property:
     name: _Color
@@ -8667,7 +8667,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":1.0,"g":0.3576470613479614,"b":0.30000001192092898,"a":0.0}'
+      m_SerializableObject: '{"r":1.0,"g":0.32143789529800417,"b":0.29803919792175295,"a":0.0}'
     m_Space: 2147483647
   m_Property:
     name: _Color_B
@@ -15939,7 +15939,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"r":5.992156982421875,"g":1.003921627998352,"b":0.0,"a":1.0}'
+      m_SerializableObject: '{"r":5.992156982421875,"g":0.49934643507003786,"b":0.0,"a":1.0}'
     m_Space: 2147483647
   m_Property:
     name: _Color

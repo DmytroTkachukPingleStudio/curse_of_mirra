@@ -97,7 +97,7 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Color: {r: 1, g: 0.5, b: 0, a: 0}
+    - _Color: {r: 1, g: 0.16666667, b: 0, a: 0}
     - _Distortion_UV_Controls: {r: 2, g: 0.5, b: -0.5, a: 0}
     - _Main_Texture_UV_Controls: {r: 3, g: 0.5, b: -1, a: 0}
     - _Sphere_Mask_Controls: {r: 1.65, g: 0.65, b: 0, a: 0}
