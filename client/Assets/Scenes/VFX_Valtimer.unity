@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402337, g: 0.49316758, b: 0.5722343, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657916, g: 0.49641615, b: 0.5748179, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn_point: {fileID: 626042433}
-  skill1_vfx: {fileID: 5269552939558784490, guid: 015c9c225f6bc314c9f2b849f8b9de09,
+  skill1_vfx: {fileID: 4688357669528238486, guid: a16caed76454c314792694be1ab6b4dc,
     type: 3}
   skill1_init_delay: 0.8
   projectile_speed: 12

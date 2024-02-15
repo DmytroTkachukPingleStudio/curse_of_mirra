@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Projectile_Dome_01
+  m_Name: M_Projectile_Dome_03
   m_Shader: {fileID: -6465566751694194690, guid: 936c6bb5479b4254d8372464012eee01,
     type: 3}
   m_ValidKeywords:
@@ -54,16 +54,17 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
+    - _Alpha_Clip: 0.1
     - _Blend: 0
     - _CastShadows: 1
     - _Color_Ramp_Erode: 0
     - _Color_Ramp_Power: 1
-    - _Cull: 1
+    - _Cull: 2
     - _DISTORTION_TEXTURE_CHANNEL: 0
     - _Distortion: 0.02
     - _DstBlend: 10
     - _ERODE_TEXTURE_CHANNEL: 1
-    - _Erode_Feather: 0.2
+    - _Erode_Feather: 0.3
     - _Fresnel_Power: 0.1
     - _Invert_Fresnel: 1
     - _Invert_Normals: 0
@@ -80,10 +81,10 @@ Material:
     - _Sphere_Radius: 0.35
     - _SrcBlend: 5
     - _Surface: 1
-    - _UV_Erode_Bottom_Clamp: 0.4
+    - _UV_Erode_Bottom_Clamp: 0.5
     - _UV_Erode_Top_Clamp: 1
     - _UV_Reveal: 0.55
-    - _Use_Fresnel: 1
+    - _Use_Fresnel: 0
     - _Use_Polar_UV: 0
     - _Use_Sphere_Mask: 0
     - _Use_UV_Mask: 1
@@ -92,14 +93,14 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Color_A: {r: 0.31208402, g: 0, b: 0.84705883, a: 0}
-    - _Color_B: {r: 1, g: 0.553, b: 0.8862183, a: 0}
+    - _Color_A: {r: 0.35686275, g: 0.29803923, b: 1, a: 0}
+    - _Color_B: {r: 0.7254902, g: 0.69803923, b: 1, a: 0}
     - _Color_Base: {r: 0.4071897, g: 0, b: 0.6980392, a: 0}
-    - _Color_Emission: {r: 0.199, g: 0.83890486, b: 1, a: 0}
+    - _Color_Emission: {r: 0.39999998, g: 0.69763935, b: 1, a: 0}
     - _Distortion_UV_Controls: {r: 1, g: 0.25, b: 0.1, a: -0.2}
-    - _Erode_Texture_UV_Controls: {r: 1, g: 0.2, b: 0, a: -0.5}
-    - _Main_Texture_Smothstep: {r: 0.5, g: 0.7, b: 0, a: 0}
-    - _Main_Texture_UV_Controls: {r: 3, g: 0.1, b: 0, a: -0.1}
+    - _Erode_Texture_UV_Controls: {r: 1, g: 0.35, b: 0, a: -0.5}
+    - _Main_Texture_Smothstep: {r: 0.2, g: 0.7, b: 0, a: 0}
+    - _Main_Texture_UV_Controls: {r: 1, g: 0.5, b: 0, a: -0.5}
     - _Sphere_Mask_Controls: {r: 1.6, g: 0.8, b: 0.5, a: 0}
     - _UV_Pollar_Center_Offset: {r: 0.25, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
