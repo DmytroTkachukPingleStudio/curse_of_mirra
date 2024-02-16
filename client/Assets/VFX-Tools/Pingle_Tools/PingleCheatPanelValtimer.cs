@@ -28,6 +28,7 @@ public class PingleCheatPanelValtimer : MonoBehaviour
   public GameObject skill3_vfx_portal = null;
   public Transform portal_root = null;
   public float skill3_init_delay = 0.3f;
+  public float skill3_teleport_vfx_delay = 0.3f;
   public float skill3_teleport_delay = 0.3f;
 
   private Character character_instance = null;
@@ -231,6 +232,7 @@ public class PingleCheatPanelValtimer : MonoBehaviour
           pool.Add( spawned_vfx );
       }
 
+      yield return new WaitForSeconds(skill3_teleport_vfx_delay);
       if (skill3_vfx_self != null)
       {
           spawned_vfx = Instantiate(skill3_vfx_portal, portal_root.position, portal_root.rotation);
