@@ -4995,7 +4995,7 @@ GameObject:
   - component: {fileID: 4055109994392184783}
   - component: {fileID: 3441327160709060692}
   m_Layer: 0
-  m_Name: Valtimer_Antimatter_Hand_Trails
+  m_Name: Valtimer_Singularity_Hand_Trails
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

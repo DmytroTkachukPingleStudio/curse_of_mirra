@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657916, g: 0.49641615, b: 0.5748179, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402337, g: 0.49316758, b: 0.5722343, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -382,6 +382,7 @@ MonoBehaviour:
     type: 3}
   portal_root: {fileID: 1842273033}
   skill3_init_delay: 0
+  skill3_teleport_vfx_delay: 0.3
   skill3_teleport_delay: 0.3
 --- !u!4 &626042433 stripped
 Transform:
@@ -739,7 +740,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.8
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
@@ -801,7 +802,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248733922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.93, y: 3.18, z: -0.58}
+  m_LocalPosition: {x: 14.93, y: 3.18, z: 0.42}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
