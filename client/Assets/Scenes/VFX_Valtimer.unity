@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402337, g: 0.49316758, b: 0.5722343, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657916, g: 0.49641615, b: 0.5748179, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -365,18 +365,23 @@ MonoBehaviour:
   projectile_speed: 12
   spawn_pivot_height: 2.8
   skill2_vfx_self: {fileID: 0}
-  skill2_vfx_left_hand: {fileID: 0}
-  skill2_vfx_right_hand: {fileID: 0}
-  skill2_vfx_void: {fileID: 0}
+  skill2_vfx_left_hand: {fileID: 5269552939558784490, guid: 531becbb295d1e24180a44a03e0d81f0,
+    type: 3}
+  skill2_vfx_right_hand: {fileID: 5269552939558784490, guid: 531becbb295d1e24180a44a03e0d81f0,
+    type: 3}
+  skill2_vfx_void: {fileID: 6888337135511328701, guid: c5b9cf6f7da90a048bf82339301b5f38,
+    type: 3}
   skill2_init_delay: 0.3
   skill2_void_delay: 0.3
   void_root: {fileID: 1598314502}
   left_hand_root: {fileID: 978246694}
   right_hand_root: {fileID: 382219008}
-  skill3_vfx_self: {fileID: 0}
-  skill3_vfx_portal: {fileID: 0}
+  skill3_vfx_self: {fileID: 6888337135511328701, guid: c6d40a21094cb0a4d8ad3feda127dd41,
+    type: 3}
+  skill3_vfx_portal: {fileID: 6888337135511328701, guid: 8304582cda4a3b443acf5eed8deaa160,
+    type: 3}
   portal_root: {fileID: 1842273033}
-  skill3_init_delay: 0.3
+  skill3_init_delay: 0
   skill3_teleport_delay: 0.3
 --- !u!4 &626042433 stripped
 Transform:
@@ -796,7 +801,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1248733922}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.77, y: 3.18, z: -0.58}
+  m_LocalPosition: {x: 14.93, y: 3.18, z: -0.58}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []

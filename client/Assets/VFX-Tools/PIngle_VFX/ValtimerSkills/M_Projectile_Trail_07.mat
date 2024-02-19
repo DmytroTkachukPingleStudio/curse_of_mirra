@@ -58,7 +58,7 @@ Material:
     - _Blend: 0
     - _CastShadows: 1
     - _Color_Ramp_Erode: 0.6
-    - _Color_Ramp_Power: 0.7
+    - _Color_Ramp_Power: 1
     - _Cull: 2
     - _DISTORTION_TEXTURE_CHANNEL: 0
     - _Distortion: 0.02
@@ -71,7 +71,7 @@ Material:
     - _MAIN_TEXTURE_CHANNEL: 0
     - _Main_Texture_Intensity: 2
     - _Main_Texture_Invert: 0
-    - _Main_Texture_Power: 1
+    - _Main_Texture_Power: 1.5
     - _Posterize: 4
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -93,14 +93,14 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Color_A: {r: 0.2980392, g: 0.6490196, b: 1, a: 0}
-    - _Color_B: {r: 0.9090909, g: 0.9, b: 1, a: 0}
+    - _Color_A: {r: 0.4013069, g: 0.10196078, b: 1, a: 0}
+    - _Color_B: {r: 0.6490196, g: 0.2980392, b: 1, a: 0}
     - _Color_Base: {r: 0.4071897, g: 0, b: 0.6980392, a: 0}
-    - _Color_Emission: {r: 0.54901963, g: 0.54901963, b: 1, a: 0}
+    - _Color_Emission: {r: 0.7254902, g: 0.6, b: 1, a: 0}
     - _Distortion_UV_Controls: {r: 1, g: 2, b: -0.5, a: -0.1}
     - _Erode_Texture_UV_Controls: {r: 1, g: 1, b: -0.8, a: 0}
-    - _Main_Texture_Smothstep: {r: 0.3, g: 1, b: 0, a: 0}
-    - _Main_Texture_UV_Controls: {r: 1, g: 1, b: -0.7, a: -0.1}
+    - _Main_Texture_Smothstep: {r: 0.1, g: 1, b: 0, a: 0}
+    - _Main_Texture_UV_Controls: {r: 1, g: 1, b: -0.7, a: 0}
     - _Sphere_Mask_Controls: {r: 1.7, g: 0.8, b: 0.5, a: 0}
     - _UV_Pollar_Center_Offset: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
