@@ -496,7 +496,7 @@ PrefabInstance:
     - target: {fileID: 6462990829318045684, guid: eb6b6d8464e6831489a3ac9eec922a70,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6462990829318045684, guid: eb6b6d8464e6831489a3ac9eec922a70,
         type: 3}
@@ -506,7 +506,7 @@ PrefabInstance:
     - target: {fileID: 6462990829318045684, guid: eb6b6d8464e6831489a3ac9eec922a70,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6462990829318045684, guid: eb6b6d8464e6831489a3ac9eec922a70,
         type: 3}
@@ -957,7 +957,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1598314501
 GameObject:
