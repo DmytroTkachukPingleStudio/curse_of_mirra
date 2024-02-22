@@ -736,7 +736,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":30.0,"y":20.0,"z":20.0}'
+      m_SerializableObject: '{"x":50.0,"y":20.0,"z":50.0}'
     m_Space: 2147483647
   m_Property:
     name: boundsPadding
