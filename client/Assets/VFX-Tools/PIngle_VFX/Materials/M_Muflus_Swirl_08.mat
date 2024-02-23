@@ -24,7 +24,6 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 936c6bb5479b4254d8372464012eee01,
     type: 3}
   m_ValidKeywords:
-  - _ALPHATEST_ON
   - _DISTORTION_TEXTURE_CHANNEL_G
   - _ERODE_TEXTURE_CHANNEL_G
   - _MAIN_TEXTURE_CHANNEL_R
@@ -67,7 +66,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaClip: 1
+    - _AlphaClip: 0
     - _Alpha_Clip: 0.2
     - _Back_Edge_Mask_Power: 3
     - _Blend: 0
@@ -77,6 +76,7 @@ Material:
     - _Core_Power: 4
     - _Cull: 0
     - _DISTORTION_TEXTURE_CHANNEL: 1
+    - _Displasement_Amount: 0.1
     - _Distortion: 0.02
     - _Distortion_Texture_Channel_Picker: 0
     - _DstBlend: 10
@@ -104,9 +104,9 @@ Material:
     - _Sphere_Radius: 0.14
     - _SrcBlend: 5
     - _Surface: 1
-    - _UV_Erode_Bottom_Clamp: 0
+    - _UV_Erode_Bottom_Clamp: 0.52
     - _UV_Erode_Top_Clamp: 1
-    - _UV_Reveal: 0.6
+    - _UV_Reveal: 0.55
     - _Use_Custom: 1
     - _Use_Fresnel: 0
     - _Use_Mirrored_UV: 1
@@ -122,11 +122,12 @@ Material:
     - _Color_B: {r: 1, g: 0.8333334, b: 0.6, a: 0}
     - _Color_Emission: {r: 1, g: 0.7493412, b: 0.397, a: 0}
     - _Distortion_UV_Controls: {r: 1, g: 0.2, b: 0.1, a: -0.2}
-    - _Erode_Texture_UV_Controls: {r: 3, g: 0.4, b: 0, a: -0.4}
+    - _Erode_Texture_UV_Controls: {r: 2, g: 0.2, b: 0, a: -0.3}
     - _Main_Texture_Smothstep: {r: 0, g: 1, b: 0, a: 0}
-    - _Main_Texture_UV_Controls: {r: 5, g: 0.6, b: 0, a: -0.5}
+    - _Main_Texture_UV_Controls: {r: 3, g: 0.3, b: 0, a: -0.5}
     - _Sphere_Mask_Controls: {r: 0.8, g: 1.25, b: 0, a: 0.5}
     - _Sphere_Mask_Head_Controls: {r: 1, g: 1, b: 0, a: 0}
     - _Taper_Texture: {r: 1, g: 1, b: 0, a: 0}
     - _UV_Pollar_Center_Offset: {r: 0.25, g: 0, b: 0, a: 0}
+    - _UV_Stretch: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
