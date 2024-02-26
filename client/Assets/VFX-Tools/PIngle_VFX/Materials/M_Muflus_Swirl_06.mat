@@ -25,14 +25,16 @@ Material:
     type: 3}
   m_ValidKeywords:
   - _ALPHATEST_ON
+  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2450
+  m_CustomRenderQueue: 3000
   stringTagMap:
-    RenderType: TransparentCutout
-  disabledShaderPasses: []
+    RenderType: Transparent
+  disabledShaderPasses:
+  - DepthOnly
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -68,7 +70,7 @@ Material:
     - _Cull: 0
     - _Distortion: 0.02
     - _Distortion_Texture_Channel_Picker: 0
-    - _DstBlend: 0
+    - _DstBlend: 10
     - _Edges_Mask_Power: 0.5
     - _Erode_Feather: 0.5
     - _Fresnel_Power: 1
@@ -87,18 +89,19 @@ Material:
     - _Sphere_Hardness: 0.75
     - _Sphere_Power: 1
     - _Sphere_Radius: 0.35
-    - _SrcBlend: 1
-    - _Surface: 0
+    - _SrcBlend: 5
+    - _Surface: 1
     - _Use_Custom: 1
+    - _Use_Fresnel: 1
     - _Use_Mirrored_UV: 1
     - _ZTest: 4
-    - _ZWrite: 1
+    - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 1, g: 0.33333334, b: 0, a: 0}
     - _Distortion_UV_Controls: {r: 4, g: 0.2, b: -0.2, a: -0.1}
     - _Main_Texture_UV_Controls: {r: 2, g: 0.5, b: 0, a: -0.3}
-    - _Sphere_Mask_Controls: {r: 1.5, g: 0.7, b: 0, a: 0}
+    - _Sphere_Mask_Controls: {r: 2, g: 0.7, b: 0, a: 0}
     - _Sphere_Mask_Head_Controls: {r: 1, g: 1, b: 0, a: 0}
     - _Taper_Texture: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Muflus_Swirl_07
+  m_Name: M_Muflus_Swirl_11
   m_Shader: {fileID: -6465566751694194690, guid: 798d06e5abc3ea34886b44a01a927212,
     type: 3}
   m_ValidKeywords:
@@ -33,7 +33,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap:
     RenderType: Transparent
   disabledShaderPasses:
@@ -69,11 +69,11 @@ Material:
     m_Floats:
     - _AlphaClip: 1
     - _Alpha_Clip: 0.1
-    - _Back_Edge_Mask_Power: 3
+    - _Back_Edge_Mask_Power: 1
     - _Blend: 0
     - _CastShadows: 1
-    - _Color_Ramp_Erode: 0.7
-    - _Color_Ramp_Power: 0.6
+    - _Color_Ramp_Erode: 0.65
+    - _Color_Ramp_Power: 1
     - _Core_Power: 4
     - _Cull: 0
     - _DISTORTION_TEXTURE_CHANNEL: 1
@@ -84,8 +84,8 @@ Material:
     - _ERODE_TEXTURE_CHANNEL: 0
     - _Edges_Mask_Power: 0.5
     - _Erode_Feather: 0.2
-    - _Fresnel_Power: 0.5
-    - _Front_Edge_Mask_Offset: -0.6
+    - _Fresnel_Power: 1
+    - _Front_Edge_Mask_Offset: 1
     - _Highlight: 0.4
     - _Invert_Fresnel: 1
     - _MAIN_TEXTURE_CHANNEL: 0
@@ -98,7 +98,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Skew_Texture: -0.1
-    - _Skew_UV: -0.25
+    - _Skew_UV: 0
     - _Slash_Offset: 0.5
     - _Sphere_Hardness: 0.5
     - _Sphere_Power: 1
@@ -107,28 +107,29 @@ Material:
     - _Surface: 1
     - _UV_Erode_Bottom_Clamp: 0
     - _UV_Erode_Top_Clamp: 0.2
-    - _UV_Reveal: 0.6
+    - _UV_Reveal: 0.52
     - _Use_Custom: 1
-    - _Use_Edge_Mask: 0
+    - _Use_Edge_Mask: 1
     - _Use_Fresnel: 1
     - _Use_Mirrored_UV: 1
     - _Use_Polar_UV: 0
     - _Use_Sphere_Mask: 1
     - _Use_UV_Mask: 1
-    - _Use_UV_Offset: 0
+    - _Use_UV_Offset: 1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 1, g: 0.33333334, b: 0, a: 0}
-    - _Color_A: {r: 1, g: 0.2509804, b: 0, a: 0}
-    - _Color_B: {r: 1, g: 0.8, b: 0.39999998, a: 0}
-    - _Color_Emission: {r: 1, g: 0.70980394, b: 0.29803923, a: 0}
+    - _Color_A: {r: 1, g: 0.25, b: 0, a: 0}
+    - _Color_B: {r: 1, g: 0.8, b: 0.4, a: 0}
+    - _Color_Emission: {r: 1, g: 0.7078442, b: 0.297, a: 0}
     - _Distortion_UV_Controls: {r: 1, g: 0.2, b: 0.1, a: -0.2}
-    - _Erode_Texture_UV_Controls: {r: 2.5, g: 0.5, b: 0, a: -0.6}
+    - _Edge_Mask_Center: {r: 0.5, g: 1.48, b: 0, a: 0}
+    - _Erode_Texture_UV_Controls: {r: 2, g: 0.5, b: 0, a: -0.6}
     - _Main_Texture_Smothstep: {r: 0, g: 1, b: 0, a: 0}
-    - _Main_Texture_UV_Controls: {r: 5, g: 0.6, b: 0, a: -0.5}
-    - _Sphere_Mask_Controls: {r: 0.9, g: 1.25, b: 0, a: 0.5}
+    - _Main_Texture_UV_Controls: {r: 3, g: 0.6, b: 0, a: -0.5}
+    - _Sphere_Mask_Controls: {r: 0.4, g: 1.25, b: 0, a: 0.5}
     - _Sphere_Mask_Head_Controls: {r: 1, g: 1, b: 0, a: 0}
     - _Taper_Texture: {r: 1, g: 1, b: 0, a: 0}
     - _UV_Pollar_Center_Offset: {r: 0.25, g: 0, b: 0, a: 0}
