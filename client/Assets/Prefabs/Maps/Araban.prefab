@@ -303,7 +303,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smokeSize: 4.5
   damageFog: {fileID: 1460765890}
-  speed: 1
 --- !u!114 &9072365715193338854
 MonoBehaviour:
   m_ObjectHideFlags: 0
