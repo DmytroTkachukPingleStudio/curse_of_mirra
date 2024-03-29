@@ -38,6 +38,7 @@ Material:
     RenderType: Transparent
   disabledShaderPasses:
   - DepthOnly
+  - SHADOWCASTER
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -71,9 +72,9 @@ Material:
     - _Alpha_Clip: 0.1
     - _Back_Edge_Mask_Power: 1
     - _Blend: 0
-    - _CastShadows: 1
-    - _Color_Ramp_Erode: 0.65
-    - _Color_Ramp_Power: 1
+    - _CastShadows: 0
+    - _Color_Ramp_Erode: 0.7
+    - _Color_Ramp_Power: 2
     - _Core_Power: 4
     - _Cull: 0
     - _DISTORTION_TEXTURE_CHANNEL: 1
@@ -83,17 +84,17 @@ Material:
     - _DstBlend: 10
     - _ERODE_TEXTURE_CHANNEL: 0
     - _Edges_Mask_Power: 0.5
-    - _Erode_Feather: 0.2
-    - _Fresnel_Power: 1
+    - _Erode_Feather: 0.1
+    - _Fresnel_Power: 2
     - _Front_Edge_Mask_Offset: 1
     - _Highlight: 0.4
     - _Invert_Fresnel: 1
     - _MAIN_TEXTURE_CHANNEL: 0
     - _Main_Texture_Channel_Picker: 1
     - _Main_Texture_Distortion_Multiply: 0.5
-    - _Main_Texture_Intensity: 1
+    - _Main_Texture_Intensity: 3.3
     - _Main_Texture_Invert: 0
-    - _Main_Texture_Power: 2
+    - _Main_Texture_Power: 2.4
     - _Mirror_Disrtion: 1
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -121,13 +122,13 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 1, g: 0.33333334, b: 0, a: 0}
-    - _Color_A: {r: 1, g: 0.25, b: 0, a: 0}
-    - _Color_B: {r: 1, g: 0.8, b: 0.4, a: 0}
-    - _Color_Emission: {r: 1, g: 0.7078442, b: 0.297, a: 0}
+    - _Color_A: {r: 1, g: 0.3397665, b: 0.085999966, a: 0}
+    - _Color_B: {r: 1, g: 0.40339962, b: 0.1372549, a: 0}
+    - _Color_Emission: {r: 1, g: 0.5796578, b: 0.34509802, a: 0}
     - _Distortion_UV_Controls: {r: 1, g: 0.2, b: 0.1, a: -0.2}
     - _Edge_Mask_Center: {r: 0.5, g: 1.48, b: 0, a: 0}
     - _Erode_Texture_UV_Controls: {r: 2, g: 0.5, b: 0, a: -0.6}
-    - _Main_Texture_Smothstep: {r: 0, g: 1, b: 0, a: 0}
+    - _Main_Texture_Smothstep: {r: -0.2, g: 1, b: 0, a: 0}
     - _Main_Texture_UV_Controls: {r: 3, g: 0.6, b: 0, a: -0.5}
     - _Sphere_Mask_Controls: {r: 0.4, g: 1.25, b: 0, a: 0.5}
     - _Sphere_Mask_Head_Controls: {r: 1, g: 1, b: 0, a: 0}

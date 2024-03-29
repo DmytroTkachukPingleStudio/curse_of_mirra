@@ -24,7 +24,7 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 936c6bb5479b4254d8372464012eee01,
     type: 3}
   m_ValidKeywords:
-  - _DISTORTION_TEXTURE_CHANNEL_G
+  - _DISTORTION_TEXTURE_CHANNEL_R
   - _ERODE_TEXTURE_CHANNEL_G
   - _MAIN_TEXTURE_CHANNEL_R
   - _SURFACE_TYPE_TRANSPARENT
@@ -72,17 +72,17 @@ Material:
     - _Blend: 0
     - _CastShadows: 1
     - _Color_Ramp_Erode: 0.3
-    - _Color_Ramp_Power: 4
+    - _Color_Ramp_Power: 2.4
     - _Core_Power: 4
     - _Cull: 0
-    - _DISTORTION_TEXTURE_CHANNEL: 1
+    - _DISTORTION_TEXTURE_CHANNEL: 0
     - _Displasement_Amount: 0.1
     - _Distortion: 0.02
     - _Distortion_Texture_Channel_Picker: 0
     - _DstBlend: 10
     - _ERODE_TEXTURE_CHANNEL: 1
     - _Edges_Mask_Power: 0.5
-    - _Erode_Feather: 0.2
+    - _Erode_Feather: 0.45
     - _Fresnel_Power: 1
     - _Front_Edge_Mask_Offset: -0.6
     - _Highlight: 0.4
@@ -90,9 +90,9 @@ Material:
     - _MAIN_TEXTURE_CHANNEL: 0
     - _Main_Texture_Channel_Picker: 1
     - _Main_Texture_Distortion_Multiply: 0.5
-    - _Main_Texture_Intensity: 1
+    - _Main_Texture_Intensity: 3.7
     - _Main_Texture_Invert: 0
-    - _Main_Texture_Power: 2
+    - _Main_Texture_Power: 5.14
     - _Mirror_Disrtion: 1
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -104,8 +104,8 @@ Material:
     - _Sphere_Radius: 0.14
     - _SrcBlend: 5
     - _Surface: 1
-    - _UV_Erode_Bottom_Clamp: 0.52
-    - _UV_Erode_Top_Clamp: 1
+    - _UV_Erode_Bottom_Clamp: 0
+    - _UV_Erode_Top_Clamp: 0.45
     - _UV_Reveal: 0.55
     - _Use_Custom: 1
     - _Use_Fresnel: 0
@@ -113,15 +113,16 @@ Material:
     - _Use_Polar_UV: 0
     - _Use_Sphere_Mask: 0
     - _Use_UV_Mask: 1
+    - _Use_UV_Offset: 0
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 1, g: 0.33333334, b: 0, a: 0}
-    - _Color_A: {r: 1, g: 0.28333333, b: 0, a: 0}
-    - _Color_B: {r: 1, g: 0.8333334, b: 0.6, a: 0}
-    - _Color_Emission: {r: 1, g: 0.7493412, b: 0.397, a: 0}
-    - _Distortion_UV_Controls: {r: 1, g: 0.2, b: 0.1, a: -0.2}
+    - _Color_A: {r: 1, g: 0.27657923, b: 0, a: 0}
+    - _Color_B: {r: 1, g: 0.5798125, b: 0.19, a: 0}
+    - _Color_Emission: {r: 1, g: 0.6003017, b: 0.37254906, a: 0}
+    - _Distortion_UV_Controls: {r: 1, g: 0.3, b: 0.1, a: -0.2}
     - _Erode_Texture_UV_Controls: {r: 2, g: 0.2, b: 0, a: -0.3}
     - _Main_Texture_Smothstep: {r: 0, g: 1, b: 0, a: 0}
     - _Main_Texture_UV_Controls: {r: 3, g: 0.3, b: 0, a: -0.5}

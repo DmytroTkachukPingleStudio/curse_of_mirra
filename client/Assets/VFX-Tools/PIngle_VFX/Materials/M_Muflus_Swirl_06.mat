@@ -61,11 +61,11 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 1
-    - _Alpha_Clip: 0.2
+    - _Alpha_Clip: 0
     - _Back_Edge_Mask_Power: 3
     - _Blend: 0
     - _CastShadows: 1
-    - _Color_Ramp_Power: 2
+    - _Color_Ramp_Power: 2.2
     - _Core_Power: 5
     - _Cull: 0
     - _Distortion: 0.02
@@ -75,12 +75,12 @@ Material:
     - _Erode_Feather: 0.5
     - _Fresnel_Power: 1
     - _Front_Edge_Mask_Offset: -0.6
-    - _Highlight: 0.4
+    - _Highlight: 0.8
     - _Invert_Fresnel: 1
     - _Main_Texture_Channel_Picker: 1
     - _Main_Texture_Distortion_Multiply: 0.5
     - _Main_Texture_Invert: 0
-    - _Main_Texture_Power: 2.5
+    - _Main_Texture_Power: 2.45
     - _Mirror_Disrtion: 1
     - _QueueControl: 0
     - _QueueOffset: 0
@@ -98,7 +98,7 @@ Material:
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Color: {r: 1, g: 0.33333334, b: 0, a: 0}
+    - _Color: {r: 1, g: 0.21671708, b: 0, a: 0}
     - _Distortion_UV_Controls: {r: 4, g: 0.2, b: -0.2, a: -0.1}
     - _Main_Texture_UV_Controls: {r: 2, g: 0.5, b: 0, a: -0.3}
     - _Sphere_Mask_Controls: {r: 2, g: 0.7, b: 0, a: 0}

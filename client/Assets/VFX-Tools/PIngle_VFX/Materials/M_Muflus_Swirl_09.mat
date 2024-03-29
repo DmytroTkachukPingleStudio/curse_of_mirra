@@ -91,7 +91,7 @@ Material:
     - _MAIN_TEXTURE_CHANNEL: 0
     - _Main_Texture_Channel_Picker: 1
     - _Main_Texture_Distortion_Multiply: 0.5
-    - _Main_Texture_Intensity: 1
+    - _Main_Texture_Intensity: 1.5
     - _Main_Texture_Invert: 0
     - _Main_Texture_Power: 2
     - _Mirror_Disrtion: 1
@@ -114,14 +114,15 @@ Material:
     - _Use_Polar_UV: 0
     - _Use_Sphere_Mask: 1
     - _Use_UV_Mask: 1
+    - _Use_UV_Offset: 0
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 1, g: 0.33333334, b: 0, a: 0}
-    - _Color_A: {r: 1, g: 0.5865922, b: 0, a: 0}
-    - _Color_B: {r: 1, g: 0.25, b: 0, a: 0}
-    - _Color_Emission: {r: 1, g: 0.7493412, b: 0.397, a: 0}
+    - _Color_A: {r: 0.98039216, g: 0.19365059, b: 0.07843135, a: 0}
+    - _Color_B: {r: 0.9529412, g: 0.13551372, b: 0.023529397, a: 0}
+    - _Color_Emission: {r: 1, g: 0.7274096, b: 0.4943396, a: 0}
     - _Distortion_UV_Controls: {r: 1, g: 0.2, b: 0.1, a: -0.2}
     - _Erode_Texture_UV_Controls: {r: 1, g: 0.5, b: 0, a: -0.4}
     - _Main_Texture_Smothstep: {r: 0, g: 1, b: 0, a: 0}

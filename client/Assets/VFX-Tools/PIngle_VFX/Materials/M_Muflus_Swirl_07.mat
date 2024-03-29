@@ -84,7 +84,7 @@ Material:
     - _ERODE_TEXTURE_CHANNEL: 0
     - _Edges_Mask_Power: 0.5
     - _Erode_Feather: 0.2
-    - _Fresnel_Power: 0.5
+    - _Fresnel_Power: 2.07
     - _Front_Edge_Mask_Offset: -0.6
     - _Highlight: 0.4
     - _Invert_Fresnel: 1
