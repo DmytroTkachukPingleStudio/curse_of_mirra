@@ -6,11 +6,12 @@ using UnityEngine;
 public class MaterialSettingsBlock : ScriptableObject
 {
     [SerializeField] public MaterialSettingsKey key = null;
-    [SerializeField] public Shader coresponding_shader = null;
+    [SerializeField] public float apply_duration = 0.3f;
+    [SerializeField] public string controll_property = null;
     [SerializeField] public MaterialFloatValue[] float_values = null;
     [SerializeField] public MaterialColorValue[] color_values = null;
 
-    public void apllyToMaterial( Material mat )
+    public void applyToMaterial( Material mat )
     {
         foreach( MaterialFloatValue value in float_values )
             mat.SetFloat( value.name, value.value );

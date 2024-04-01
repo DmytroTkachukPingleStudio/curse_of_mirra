@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: GoldenClock_MaterialSettingsBlock
   m_EditorClassIdentifier: 
   key: {fileID: 11400000, guid: 6f496bff0752bd74a9780d2c6d20e75f, type: 2}
-  coresponding_shader: {fileID: 0}
+  apply_duration: 0.3
+  controll_property: _FresnelEffectAmount
   float_values:
   - name: _FresnelValue
     value: 3

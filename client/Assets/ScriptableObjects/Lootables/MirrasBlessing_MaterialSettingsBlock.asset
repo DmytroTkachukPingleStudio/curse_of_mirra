@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: MirrasBlessing_MaterialSettingsBlock
   m_EditorClassIdentifier: 
   key: {fileID: 11400000, guid: 4a244a89f208ecf4ebb9cf80ee7ab4c4, type: 2}
-  coresponding_shader: {fileID: 0}
+  apply_duration: 0.3
+  controll_property: _FresnelEffectAmount
   float_values:
   - name: _FresnelValue
     value: 3

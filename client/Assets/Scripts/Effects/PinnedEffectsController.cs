@@ -29,6 +29,9 @@ public class PinnedEffectsController : MonoBehaviour
         ClearEffects();
 
         if (manager == null)
+            manager = FindAnyObjectByType<PinnedEffectsManager>();
+
+        if (manager == null)
             return;
 
         GameObject spawned_object = null;
