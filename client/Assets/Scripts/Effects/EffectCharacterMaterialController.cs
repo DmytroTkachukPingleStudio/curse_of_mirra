@@ -14,7 +14,6 @@ public class EffectCharacterMaterialController : MonoBehaviour
     {
 #if VFX_DEBUG
             character_material_manager = GetComponentInParent<CharacterMaterialManager>();
-            Debug.Log( $"character_material_manager name is {character_material_manager.gameObject.name}" );
 #else
             character_material_manager = Utils.GetPlayer(GameServerConnectionManager.Instance.playerId)?.GetComponent<CharacterMaterialManager>();
 #endif

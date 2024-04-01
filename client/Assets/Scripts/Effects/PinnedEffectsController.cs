@@ -28,8 +28,10 @@ public class PinnedEffectsController : MonoBehaviour
     {
         ClearEffects();
 
+#if VFX_DEBUG
         if (manager == null)
             manager = FindAnyObjectByType<PinnedEffectsManager>();
+#endif
 
         if (manager == null)
             return;
