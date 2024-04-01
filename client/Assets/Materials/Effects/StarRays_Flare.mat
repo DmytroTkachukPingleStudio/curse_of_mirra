@@ -18,6 +18,7 @@ Material:
   - _EMISSIONVERTEXSTREAMENABLED_ON
   - _FBPARTICLEFRAMECONTROLENABLED_ON
   - _MVPARTICLEFRAMECONTROLENABLED_ON
+  - _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -133,6 +134,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaClip: 0
+    - _Blend: 0
+    - _CastShadows: 0
+    - _Cull: 2
     - _CustomColorMaskAffectedByDynamics: 1
     - _CustomColorMaskEnabled: 0
     - _CustomColorMaskSwitch: 0
@@ -180,6 +185,7 @@ Material:
     - _DistortionU: 0
     - _DistortionUseOldMethod: 0
     - _DistortionV: 1
+    - _DstBlend: 10
     - _EMISSIONVERTEXSTREAMENABLED: 1
     - _FBAnimationSpeed: 15
     - _FBColums: 2
@@ -257,6 +263,11 @@ Material:
     - _SecondaryMaskVSMoveU: 0
     - _SecondayMaskVSMoveV: 0
     - _SoftParticlesDistance: 0.2
+    - _SrcBlend: 5
+    - _Surface: 1
+    - _ZTest: 4
+    - _ZWrite: 0
+    - _ZWriteControl: 0
     - __dirty: 0
     - _testttttt: 0
     m_Colors:

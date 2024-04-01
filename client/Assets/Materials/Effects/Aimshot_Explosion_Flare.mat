@@ -27,12 +27,16 @@ Material:
   - _RAMPENABLED_ON
   m_InvalidKeywords:
   - _DISSOLVETEXTUREFLIP_ON
+  - _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - DepthOnly
+  - SHADOWCASTER
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -74,11 +78,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AlphaClip: 0
+    - _Blend: 0
+    - _CastShadows: 0
+    - _Cull: 2
     - _DISSOLVETEXTUREFLIP: 1
     - _DissolveExp: 8
     - _DissolveExpReversed: 2
     - _DissolveExpReversed1: 8
     - _DissolveTextureScale: 0.25
+    - _DstBlend: 10
     - _FinalOpacityPower: 1
     - _FinalPower: 20
     - _FlipbookColums: 1
@@ -91,6 +100,11 @@ Material:
     - _RAMPENABLED: 1
     - _RampAffectedByDynamics: 1
     - _RampOffsetExp: 1
+    - _SrcBlend: 5
+    - _Surface: 1
+    - _ZTest: 4
+    - _ZWrite: 0
+    - _ZWriteControl: 0
     - __dirty: 0
     m_Colors:
     - _FinalColor: {r: 1, g: 0.12787381, b: 0, a: 1}
