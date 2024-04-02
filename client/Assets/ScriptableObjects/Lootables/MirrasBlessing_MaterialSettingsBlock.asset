@@ -22,6 +22,6 @@ MonoBehaviour:
     value: 10
   color_values:
   - name: _FresnelColor
-    value: {r: 4.204601, g: 0, b: 4.867144, a: 0}
+    value: {r: 2.594569, g: 0, b: 4.867145, a: 0}
   - name: _FresnelColorPulse
-    value: {r: 0.87058824, g: 0.0627451, b: 0.7058824, a: 0}
+    value: {r: 0.6156863, g: 0.0627451, b: 0.87058824, a: 0}

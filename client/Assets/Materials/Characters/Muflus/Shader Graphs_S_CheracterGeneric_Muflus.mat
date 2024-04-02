@@ -91,7 +91,7 @@ Material:
     - _EmissivePower: 1
     - _EnableDetail: 0
     - _FresnelEffectAmount: 0
-    - _FresnelPower: 6
+    - _FresnelPower: 10
     - _FresnelValue: 3
     - _LinkDetailsWithBase: 1
     - _MetalicChannelID: 2.79
@@ -115,7 +115,7 @@ Material:
     - _BaseColorMap_TO: {r: 1, g: 1, b: 0, a: 0}
     - _DetailMap_TO: {r: 1, g: 1, b: 0, a: 0}
     - _EmissiveColor: {r: 1, g: 1, b: 1, a: 0}
-    - _FresnelColor: {r: 2.3461432, g: 2.2934256, b: 0.25453445, a: 0}
-    - _FresnelColorPulse: {r: 0.7254902, g: 0.58431375, b: 0, a: 0}
+    - _FresnelColor: {r: 2.594569, g: 0, b: 4.867145, a: 0}
+    - _FresnelColorPulse: {r: 0.6156863, g: 0.0627451, b: 0.87058824, a: 0}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
