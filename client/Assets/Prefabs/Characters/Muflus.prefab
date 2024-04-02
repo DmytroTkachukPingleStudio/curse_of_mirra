@@ -785,6 +785,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1206874426333947015, guid: 2c75644781daa4f89b2db0bb683cc47e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 85959ea53204d714e88b11a90950296e, type: 2}
     - target: {fileID: 919132149155446097, guid: 2c75644781daa4f89b2db0bb683cc47e,
         type: 3}
       propertyPath: m_Name
@@ -1211,6 +1216,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MuflusHandFlame_0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4586843187418973576, guid: d2344acb781b19749909343fc4ad8507,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2344acb781b19749909343fc4ad8507, type: 3}
