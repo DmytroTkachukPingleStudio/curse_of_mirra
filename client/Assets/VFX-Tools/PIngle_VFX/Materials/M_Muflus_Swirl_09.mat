@@ -120,8 +120,8 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _Color: {r: 1, g: 0.33333334, b: 0, a: 0}
-    - _Color_A: {r: 0.98039216, g: 0.19365059, b: 0.07843135, a: 0}
-    - _Color_B: {r: 0.9529412, g: 0.13551372, b: 0.023529397, a: 0}
+    - _Color_A: {r: 0.98039216, g: 0.36824033, b: 0.07843135, a: 0}
+    - _Color_B: {r: 0.9529412, g: 0.18619935, b: 0.023529397, a: 0}
     - _Color_Emission: {r: 1, g: 0.7274096, b: 0.4943396, a: 0}
     - _Distortion_UV_Controls: {r: 1, g: 0.2, b: 0.1, a: -0.2}
     - _Erode_Texture_UV_Controls: {r: 1, g: 0.5, b: 0, a: -0.4}

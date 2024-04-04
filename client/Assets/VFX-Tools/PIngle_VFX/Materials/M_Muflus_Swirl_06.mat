@@ -73,7 +73,7 @@ Material:
     - _DstBlend: 10
     - _Edges_Mask_Power: 0.5
     - _Erode_Feather: 0.5
-    - _Fresnel_Power: 1
+    - _Fresnel_Power: 0.4
     - _Front_Edge_Mask_Offset: -0.6
     - _Highlight: 0.8
     - _Invert_Fresnel: 1
@@ -100,7 +100,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 0.21671708, b: 0, a: 0}
     - _Distortion_UV_Controls: {r: 4, g: 0.2, b: -0.2, a: -0.1}
-    - _Main_Texture_UV_Controls: {r: 2, g: 0.5, b: 0, a: -0.3}
+    - _Main_Texture_UV_Controls: {r: 2, g: 0.5, b: 0.6, a: -0.3}
     - _Sphere_Mask_Controls: {r: 2, g: 0.7, b: 0, a: 0}
     - _Sphere_Mask_Head_Controls: {r: 1, g: 1, b: 0, a: 0}
     - _Taper_Texture: {r: 1, g: 1, b: 0, a: 0}

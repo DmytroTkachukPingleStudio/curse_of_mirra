@@ -127,10 +127,10 @@ Material:
     - _Color_Emission: {r: 1, g: 0.5796578, b: 0.34509802, a: 0}
     - _Distortion_UV_Controls: {r: 1, g: 0.2, b: 0.1, a: -0.2}
     - _Edge_Mask_Center: {r: 0.5, g: 1.48, b: 0, a: 0}
-    - _Erode_Texture_UV_Controls: {r: 2, g: 0.5, b: 0, a: -0.6}
+    - _Erode_Texture_UV_Controls: {r: 3, g: 0.5, b: 0, a: -0.6}
     - _Main_Texture_Smothstep: {r: -0.2, g: 1, b: 0, a: 0}
-    - _Main_Texture_UV_Controls: {r: 3, g: 0.6, b: 0, a: -0.5}
-    - _Sphere_Mask_Controls: {r: 0.4, g: 1.25, b: 0, a: 0.5}
+    - _Main_Texture_UV_Controls: {r: 4.25, g: 0.5, b: 0, a: -0.5}
+    - _Sphere_Mask_Controls: {r: 0.25, g: 1.25, b: 0, a: 0.5}
     - _Sphere_Mask_Head_Controls: {r: 1, g: 1, b: 0, a: 0}
     - _Taper_Texture: {r: 1, g: 1, b: 0, a: 0}
     - _UV_Pollar_Center_Offset: {r: 0.25, g: 0, b: 0, a: 0}

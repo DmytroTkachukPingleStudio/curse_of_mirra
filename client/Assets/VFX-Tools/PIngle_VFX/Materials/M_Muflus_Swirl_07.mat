@@ -69,7 +69,7 @@ Material:
     m_Floats:
     - _AlphaClip: 1
     - _Alpha_Clip: 0.1
-    - _Back_Edge_Mask_Power: 3
+    - _Back_Edge_Mask_Power: 13.73
     - _Blend: 0
     - _CastShadows: 1
     - _Color_Ramp_Erode: 0.7
@@ -84,7 +84,7 @@ Material:
     - _ERODE_TEXTURE_CHANNEL: 0
     - _Edges_Mask_Power: 0.5
     - _Erode_Feather: 0.2
-    - _Fresnel_Power: 2.07
+    - _Fresnel_Power: 2
     - _Front_Edge_Mask_Offset: -0.6
     - _Highlight: 0.4
     - _Invert_Fresnel: 1
@@ -109,7 +109,7 @@ Material:
     - _UV_Erode_Top_Clamp: 0.2
     - _UV_Reveal: 0.6
     - _Use_Custom: 1
-    - _Use_Edge_Mask: 0
+    - _Use_Edge_Mask: 1
     - _Use_Fresnel: 1
     - _Use_Mirrored_UV: 1
     - _Use_Polar_UV: 0
@@ -123,7 +123,7 @@ Material:
     - _Color: {r: 1, g: 0.33333334, b: 0, a: 0}
     - _Color_A: {r: 1, g: 0.2509804, b: 0, a: 0}
     - _Color_B: {r: 1, g: 0.8, b: 0.39999998, a: 0}
-    - _Color_Emission: {r: 1, g: 0.70980394, b: 0.29803923, a: 0}
+    - _Color_Emission: {r: 1, g: 0.8381469, b: 0.6084906, a: 0}
     - _Distortion_UV_Controls: {r: 1, g: 0.2, b: 0.1, a: -0.2}
     - _Erode_Texture_UV_Controls: {r: 2.5, g: 0.5, b: 0, a: -0.6}
     - _Main_Texture_Smothstep: {r: 0, g: 1, b: 0, a: 0}
