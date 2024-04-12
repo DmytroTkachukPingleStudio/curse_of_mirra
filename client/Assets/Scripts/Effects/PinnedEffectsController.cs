@@ -12,6 +12,7 @@ public class PinnedEffectsController : MonoBehaviour
 
     private void Start()
     {
+        pinned_effects_manager = GetComponentInParent<PinnedEffectsManager>();
         Play(pinned_effects_manager);
     }
 
