@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657886, g: 0.49641567, b: 0.57481843, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402206, g: 0.4931656, b: 0.5722312, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -374,6 +374,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: H4ckDenial
+      objectReference: {fileID: 0}
+    - target: {fileID: 3130931354078819328, guid: f3ee610f4d6c84efe9b3ab44b40ae057,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3130931354078819329, guid: f3ee610f4d6c84efe9b3ab44b40ae057,
         type: 3}
@@ -5617,6 +5622,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5317758803148446129, guid: 732fdbae74040b44f9c6d1195edfe069,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8887171223418011665, guid: 732fdbae74040b44f9c6d1195edfe069,
         type: 3}
       propertyPath: m_RootOrder
@@ -5677,6 +5687,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: H4ckDenial (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9197403966285785662, guid: 732fdbae74040b44f9c6d1195edfe069,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 732fdbae74040b44f9c6d1195edfe069, type: 3}
 --- !u!1 &1223919867
@@ -5696,7 +5711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &1223919868
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -10662,10 +10677,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3281084689401956300, guid: 0d71e8a80f85b3945972bd44070507ba,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6624918053612209743, guid: 0d71e8a80f85b3945972bd44070507ba,
         type: 3}
       propertyPath: m_Name
       value: ArrowShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 6624918053612209743, guid: 0d71e8a80f85b3945972bd44070507ba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8806526881499143347, guid: 0d71e8a80f85b3945972bd44070507ba,
         type: 3}
@@ -10675,7 +10700,7 @@ PrefabInstance:
     - target: {fileID: 8806526881499143347, guid: 0d71e8a80f85b3945972bd44070507ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.16
+      value: 6.21
       objectReference: {fileID: 0}
     - target: {fileID: 8806526881499143347, guid: 0d71e8a80f85b3945972bd44070507ba,
         type: 3}
@@ -10685,7 +10710,7 @@ PrefabInstance:
     - target: {fileID: 8806526881499143347, guid: 0d71e8a80f85b3945972bd44070507ba,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.927559
+      value: 13.14
       objectReference: {fileID: 0}
     - target: {fileID: 8806526881499143347, guid: 0d71e8a80f85b3945972bd44070507ba,
         type: 3}
@@ -10744,7 +10769,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skill1_vfx: {fileID: 5269552939558784490, guid: c1400fa72cd014188910cd6cd96b2df9,
     type: 3}
-  skill2_vfx: {fileID: 3130931354078819328, guid: f3ee610f4d6c84efe9b3ab44b40ae057,
+  skill2_vfx_init: {fileID: 6624918053612209743, guid: 0d71e8a80f85b3945972bd44070507ba,
+    type: 3}
+  skill2_vfx: {fileID: 9197403966285785662, guid: 732fdbae74040b44f9c6d1195edfe069,
     type: 3}
   projectile_speed: 10
   spawn_pivot_height: 1.2
