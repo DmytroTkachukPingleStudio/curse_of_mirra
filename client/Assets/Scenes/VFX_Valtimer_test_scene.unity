@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402206, g: 0.4931656, b: 0.5722312, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657886, g: 0.49641567, b: 0.57481843, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -307,12 +307,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c52df159d5dc499aaa0bd06adc934c9, type: 3}
---- !u!4 &382219008 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1633513914691253372, guid: 394ab5e57256d4b0b999dfa01aff3cf8,
-    type: 3}
-  m_PrefabInstance: {fileID: 759768858}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &626042429 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4923268485394771702, guid: 909fe292d4df88f40ae747068bdac1f9,
@@ -352,8 +346,8 @@ MonoBehaviour:
   skill2_init_delay: 0.3
   skill2_void_delay: 0.3
   void_root: {fileID: 1598314502}
-  left_hand_root: {fileID: 978246694}
-  right_hand_root: {fileID: 382219008}
+  left_hand_root: {fileID: 0}
+  right_hand_root: {fileID: 0}
   skill3_vfx_self: {fileID: 6888337135511328701, guid: c6d40a21094cb0a4d8ad3feda127dd41,
     type: 3}
   skill3_vfx_portal: {fileID: 6888337135511328701, guid: 8304582cda4a3b443acf5eed8deaa160,
@@ -658,12 +652,6 @@ Transform:
   m_Father: {fileID: 1436803584}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
---- !u!4 &978246694 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6194257219466106543, guid: 394ab5e57256d4b0b999dfa01aff3cf8,
-    type: 3}
-  m_PrefabInstance: {fileID: 759768858}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1248733922
 GameObject:
   m_ObjectHideFlags: 0
