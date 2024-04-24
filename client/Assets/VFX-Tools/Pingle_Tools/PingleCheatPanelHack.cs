@@ -9,6 +9,7 @@ public class PingleCheatPanelHack : MonoBehaviour
   public GameObject skill1_vfx = null;
   public GameObject skill2_vfx_init = null;
   public GameObject skill2_vfx = null;
+  public float skill2_vfx_dis = 10.0f;
   public float projectile_speed = 4.0f;
   public float spawn_pivot_height = 1.2f;
   public int skill3_duration = 80;
@@ -109,14 +110,12 @@ public class PingleCheatPanelHack : MonoBehaviour
       GameObject cached_vfx = null;
       Vector3 new_pos = Vector3.zero;
       new_pos = hack_instance.transform.position;
-      new_pos.y += 2.5f;
-      new_pos.x += 0.5f;
       cached_vfx = Instantiate( skill2_vfx_init, new_pos, Quaternion.identity );
 
       yield return new WaitForSeconds( 0.3f );
 
       new_pos = hack_instance.transform.position;
-      new_pos.x += 7.0f;
+      new_pos.x += skill2_vfx_dis;
       new_pos.y += 0.3f;
 
       cached_vfx = Instantiate( skill2_vfx, new_pos, Quaternion.identity );

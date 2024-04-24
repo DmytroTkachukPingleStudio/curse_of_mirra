@@ -10961,6 +10961,7 @@ MonoBehaviour:
     type: 3}
   skill2_vfx: {fileID: 9197403966285785662, guid: 732fdbae74040b44f9c6d1195edfe069,
     type: 3}
+  skill2_vfx_dis: 15
   projectile_speed: 10
   spawn_pivot_height: 1.2
   skill3_duration: 50
