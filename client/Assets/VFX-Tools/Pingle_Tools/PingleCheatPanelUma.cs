@@ -107,7 +107,7 @@ public class PingleCheatPanelUma : MonoBehaviour
 
         yield return new WaitForSeconds(1.2f);
         character_instance.CharacterAnimator.ResetTrigger("Skill2");
-        yield return new WaitForSeconds(1.2f);
+        yield return new WaitForSeconds(4.2f);
 
         //character_renderer.enabled = true;
         clearPool();
