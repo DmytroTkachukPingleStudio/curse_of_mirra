@@ -95,12 +95,14 @@ Material:
     - _EmissivePower: 1
     - _EnableDetail: 0
     - _FresnelEffectAmount: 0
+    - _FresnelHueSpeed: 1
     - _FresnelPower: 6
     - _FresnelValue: 3
+    - _ISTRANSPARENT: 0
     - _LinkDetailsWithBase: 1
     - _MetalicChannelID: 2
     - _Metallic: 0.585
-    - _NormalOffset: -0.5
+    - _NormalOffset: 0.2
     - _NormalPower: 1
     - _NormalScale: 1
     - _NormalStrength: 2
@@ -112,6 +114,7 @@ Material:
     - _TexWorldScale: 1
     - _USEEMISIVEANIMATION: 0
     - _USEFRESNEL: 1
+    - _USE_FRASNEL_HUE: 0
     - _UVBase: 2.68
     - _UVDetail: 1.719
     - _WorldMapping: 0
