@@ -10,10 +10,13 @@ public class SafeZone : MonoBehaviour
 {
     [SerializeField]
     Renderer dangerZone;
+    [SerializeField]
+    Renderer dangerZoneRing;
 
     void Start()
     {
         dangerZone.sharedMaterial.SetFloat("_AlphaMultiplier", 0f);
+        dangerZoneRing.sharedMaterial.SetFloat("_AlphaMultiplier", 0f);
     }
 
     IEnumerator ShowDangerZone()
@@ -23,9 +26,13 @@ public class SafeZone : MonoBehaviour
         if (currentValue == 0.70f)
             yield break;
         currentValue += 0.05f;
+        currentValue = Mathf.Round(currentValue * 100) / 100f;
         dangerZone
             .sharedMaterial
-            .SetFloat("_AlphaMultiplier", Mathf.Round(currentValue * 100) / 100f);
+            .SetFloat("_AlphaMultiplier", currentValue);
+        dangerZoneRing
+            .sharedMaterial
+            .SetFloat("_AlphaMultiplier", currentValue);
     }
 
     void Update()
@@ -45,7 +52,9 @@ public class SafeZone : MonoBehaviour
         double initialPlayableRadius = 0.552;
         float currentRadius = radius / 100;
         double value = finalVfxValue + (currentRadius) * (-finalVfxValue) / (initialPlayableRadius);
+        float ring_scale = 1 - (float)value;
 
         dangerZone.sharedMaterial.SetFloat("_Progress", (float)value);
+        dangerZoneRing.transform.localScale = new Vector3( ring_scale, dangerZoneRing.transform.localScale.y, ring_scale );
     }
 }
