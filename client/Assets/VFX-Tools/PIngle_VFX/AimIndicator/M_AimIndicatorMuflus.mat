@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Surface
+  m_Name: M_AimIndicatorMuflus
   m_Shader: {fileID: -6465566751694194690, guid: 2a38922fd0ec81648871edbcdb9e9a8f,
     type: 3}
   m_ValidKeywords: []
@@ -28,22 +28,22 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3001
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 37b957f5f7e93d943b733e879b8e057c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3664ad73257bbd845bcc63e37daea427, type: 3}
         m_Scale: {x: 3, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: 0.11, y: 0}
     - _MainTexture_g:
         m_Texture: {fileID: 2800000, guid: 4fb56c0c0d90cb342b8053351addceb8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseB:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 77a4e147261048c428ce408e962ccc93, type: 3}
         m_Scale: {x: 4, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseG:
@@ -68,19 +68,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha_power: 3.23
+    - _Alpha_power: 0
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _DEBUG_SPLIT_TEX: 0
-    - _NoisePower: 1
+    - _NoisePower: 0
     - _QueueControl: 0
-    - _QueueOffset: 0
+    - _QueueOffset: 1
     - _StepColor: 1.81
     - _StepEdge: 1.22
     m_Colors:
-    - _GlowColor: {r: 0.8773585, g: 0.37676433, b: 0.053800307, a: 1}
+    - _GlowColor: {r: 0.2627451, g: 0.020390581, b: 0, a: 1}
     - _ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
-    - _TintColor: {r: 1, g: 0.6530707, b: 0.4292453, a: 1}
+    - _TintColor: {r: 2.411336, g: 0.9104131, b: 0.23987113, a: 1}
     - _TintColor2: {r: 1.1953906, g: 4.7815623, b: 3.9093297, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &1623175962965247427
