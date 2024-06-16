@@ -68,7 +68,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha_power: 4.05
+    - _Alpha_power: 4.65
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     - _DEBUG_SPLIT_TEX: 0

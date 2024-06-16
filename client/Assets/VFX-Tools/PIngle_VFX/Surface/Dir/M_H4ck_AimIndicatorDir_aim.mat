@@ -45,7 +45,7 @@ Material:
     - _ScaleNormal: 5
     - _VertexOffsetMultier: 1.08
     m_Colors:
-    - _TintColor: {r: 1.9607843, g: 0.7921569, b: 2, a: 0.41960785}
+    - _TintColor: {r: 1.9607843, g: 0.7921569, b: 2, a: 0.34901962}
   m_BuildTextureStacks: []
 --- !u!114 &5253545348977119891
 MonoBehaviour:
