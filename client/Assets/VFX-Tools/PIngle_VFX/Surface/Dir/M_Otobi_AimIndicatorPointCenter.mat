@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Otix_AimIndicatorDir_aim_center
-  m_Shader: {fileID: -6465566751694194690, guid: 699f8109784d6414f9e2bf2f3dbcbe36,
+  m_Name: M_Otobi_AimIndicatorPointCenter
+  m_Shader: {fileID: -6465566751694194690, guid: 7263bf36547089c448e3e7237ab93c2f,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -22,7 +22,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 211462d54f0611f4a94c9a821656a87a, type: 3}
+        m_Texture: {fileID: 2800000, guid: afed7eaafe28fbd4bb98e2958ccacc05, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -39,13 +39,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ChannelID: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Scale: 1.1
     - _ScaleNormal: 5
+    - _USE_OFFSET: 0
     - _VertexOffsetMultier: 1.08
     m_Colors:
-    - _TintColor: {r: 1, g: 0.38039216, b: 0.38039216, a: 0.6745098}
+    - _TintColor: {r: 2.2523499, g: 0.90994936, b: 2.297397, a: 0.44313726}
   m_BuildTextureStacks: []
 --- !u!114 &5253545348977119891
 MonoBehaviour:

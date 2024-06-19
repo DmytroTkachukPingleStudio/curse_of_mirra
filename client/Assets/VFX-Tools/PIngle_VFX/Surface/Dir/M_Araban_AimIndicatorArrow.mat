@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Otix_AimIndicatorDir_aim
+  m_Name: M_Araban_AimIndicatorArrow
   m_Shader: {fileID: -6465566751694194690, guid: 7263bf36547089c448e3e7237ab93c2f,
     type: 3}
   m_ValidKeywords: []
@@ -22,7 +22,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 93531b13f0f59034f9236636ebbc23ea, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9fe4a11b493c51145886b79b8639fe8e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -39,15 +39,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ChannelID: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scale: 1.1
-    - _ScaleNormal: 5
-    - _VertexOffsetMultier: 1.08
+    - _ScaleNormal: 1
+    - _USE_OFFSET: 0
+    - _VertexOffsetMultier: 1.1
     m_Colors:
-    - _TintColor: {r: 1, g: 0.38039216, b: 0.38039216, a: 0.5254902}
+    - _TintColor: {r: 1, g: 0.38039216, b: 0.38039216, a: 0.58431375}
   m_BuildTextureStacks: []
---- !u!114 &5253545348977119891
+--- !u!114 &175446341448415758
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
