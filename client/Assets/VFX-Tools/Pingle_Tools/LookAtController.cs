@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[ExecuteInEditMode]
+
 public class LookAtController : MonoBehaviour
 {
     [SerializeField] private Transform lookAtRoot = null;
@@ -10,7 +10,7 @@ public class LookAtController : MonoBehaviour
     private IEnumerator looking_coroutine = null;
     private void Start()
     {
-        startLookingCoroutine();
+        //startLookingCoroutine();
     }
 
     private void OnEnable()
