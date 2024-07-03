@@ -24,6 +24,9 @@ public class BattleSettingsController : MonoBehaviour
     public ToggleButton clientPredictionButton;
     public ToggleButton consoleLogsButton;
     public ToggleButton customLogsButton;
+    public ToggleButton reconciliationButton;
+    public Slider reconciliationSlider;
+    public TextMeshProUGUI reconciliationText;
 
     public Slider tickrateSlider;
     public TextMeshProUGUI tickrateText;
@@ -108,6 +111,21 @@ public class BattleSettingsController : MonoBehaviour
     public void ToggleCustomLogs()
     {
         customLogsButton.ToggleUIState(CustomLogs.allowCustomDebug);
+    }
+
+    public void ToggleReconciliation()
+    {
+        reconciliationButton.ToggleUIState(battle.useReconciliation);
+    }
+
+    public void ChangeReconciliationText()
+    {
+        reconciliationText.text = reconciliationSlider.value.ToString();
+    }
+
+    public void ChangeReconciliationValue()
+    {
+        battle.reconciliationDistance = reconciliationSlider.value;
     }
 
     public void ChangeTickrateText()

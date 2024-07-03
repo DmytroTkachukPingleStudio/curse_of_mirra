@@ -6,17 +6,18 @@ public class PlayerControls : MonoBehaviour
 {
     public void SendJoystickValues(float x, float y)
     {
+        var timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
         if (
             ShouldSendMovement(
                 x,
                 y,
                 GameServerConnectionManager.Instance.clientPrediction.lastXSent,
-                GameServerConnectionManager.Instance.clientPrediction.lastYSent
-            ) 
+                GameServerConnectionManager.Instance.clientPrediction.lastYSent,
+                timestamp
+            )
         )
         {
             var valuesToSend = new Direction { X = x, Y = y };
-            var timestamp = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 
             GameServerConnectionManager.Instance.SendMove(x, y, timestamp);
 
@@ -32,7 +33,7 @@ public class PlayerControls : MonoBehaviour
         }
     }
 
-    bool ShouldSendMovement(float x, float y, float lastXSent, float lastYSent)
+    bool ShouldSendMovement(float x, float y, float lastXSent, float lastYSent, long timestamp)
     {
         float movementThreshold = 1f;
         //Fetch the first GameObject's position
@@ -45,9 +46,38 @@ public class PlayerControls : MonoBehaviour
         bool movedFromStatic = (lastXSent == 0 && lastYSent == 0 && (x != 0 || y != 0));
         bool stoppedMoving = (x == 0 && y == 0 && (lastXSent != 0 || lastYSent != 0));
         bool changedDirection = (angleBetweenDirections > movementThreshold);
+        bool movedFromPool = false;
+        
+        // This is a placeholder to reconciliate your position with server's when being pulled
+        // by Valtimer's singularity. We should implement this mechanic in the front so we can
+        // change our position smoothly by singularity's effect.
+        // Issue: https://github.com/lambdaclass/champions_of_mirra/issues/1891
+        Player selfPlayer = Utils.GetGamePlayer(GameServerConnectionManager.Instance.playerId).Player;
+        foreach (var effect in selfPlayer.Effects)
+        {
+            if (effect.Name == "singularity")
+            {
+                movedFromPool = true;
+                break;
+            }
+        }
+
+        Vector2 movementDirection = new Vector2(x, y);
+        movementDirection.Normalize();
+
+        GameServerConnectionManager
+            .Instance
+            .playerMovement
+            .AddMovement(
+                new Direction { X = movementDirection.x, Y = movementDirection.y },
+                (movedFromStatic || stoppedMoving || changedDirection || movedFromPool)
+                    ? timestamp
+                    : GameServerConnectionManager.Instance.playerMovement.currentTimestamp
+            );
+
         // Here we can add a validaion to check if
         // the movement is significant enough to be sent to the server
-        return (movedFromStatic || stoppedMoving || changedDirection);
+        return (movedFromStatic || stoppedMoving || changedDirection || movedFromPool);
     }
 
     public (float, float) SendAction(bool forceSend = false)

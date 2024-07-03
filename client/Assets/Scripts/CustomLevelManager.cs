@@ -30,9 +30,7 @@ public class CustomLevelManager : LevelManager
     public CinemachineCameraController camera;
 
     private bool deathSplashIsShown = false;
-
-    [SerializeField]
-    GameObject colliderPrefab;
+    
     EndGameManager endGameManager;
 
     protected override void Awake()
@@ -61,28 +59,6 @@ public class CustomLevelManager : LevelManager
 
         endGameManager = deathSplash.GetComponentInChildren<EndGameManager>();
         endGameManager.SetDeathSplashCharacter();
-
-        GameServerConnectionManager
-            .Instance
-            .obstacles
-            .ForEach(el =>
-            {
-                GenerateColliders(el.Vertices.ToList(), el.Name);
-            });
-    }
-
-    private void GenerateColliders(List<Position> vertices, string name)
-    {
-        GameObject collider = Instantiate(colliderPrefab);
-        collider.name = name;
-        collider.GetComponent<LineRenderer>().positionCount = vertices.Count;
-        for (int i = 0; i < vertices.Count; i++)
-        {
-            var vertice = vertices[i];
-            var position = new Vector3(vertice.X / 100, 0, vertice.Y / 100);
-            collider.GetComponent<LineRenderer>().SetPosition(i, position);
-        }
-        ;
     }
 
     void Update()
@@ -121,9 +97,9 @@ public class CustomLevelManager : LevelManager
         foreach (Entity player in GameServerConnectionManager.Instance.gamePlayers)
         {
             GameObject prefab = CharactersManager
-                .Instance
-                .AvailableCharacters
-                .Find(el => el.name.ToLower() == player.Player.CharacterName)
+                .Instance.AvailableCharacters.Find(el =>
+                    el.name.ToLower() == player.Player.CharacterName
+                )
                 .prefab;
 
             if (GameServerConnectionManager.Instance.playerId == player.Id)
@@ -135,9 +111,7 @@ public class CustomLevelManager : LevelManager
             {
                 prefab.GetComponent<CustomCharacter>().PlayerID = "";
             }
-            Vector3 backToFrontPosition = Utils.transformBackendOldPositionToFrontendPosition(
-                player.Position
-            );
+            Vector3 backToFrontPosition = Utils.TransformBackendToFrontendPosition(player.Position);
             CustomCharacter newPlayer = Instantiate(
                 prefab.GetComponent<CustomCharacter>(),
                 new Vector3(backToFrontPosition.x, 1.0f, backToFrontPosition.z),
@@ -152,6 +126,7 @@ public class CustomLevelManager : LevelManager
                 );
                 GameServerConnectionManager.Instance.clientPrediction.startingPosition =
                     player.Position;
+                GameServerConnectionManager.Instance.playerMovement.SetPlayer(player);
             }
             newPlayer.CharacterHealth.CurrentHealth = player.Player.Health;
             newPlayer.CharacterHealth.InitialHealth = player.Player.Health;
@@ -182,8 +157,7 @@ public class CustomLevelManager : LevelManager
         {
             player
                 .GetComponentInChildren<CharacterBase>()
-                .OrientationArrow
-                .SetActive(UInt64.Parse(player.PlayerID) == playerID);
+                .OrientationArrow.SetActive(UInt64.Parse(player.PlayerID) == playerID);
         }
     }
 
@@ -224,10 +198,7 @@ public class CustomLevelManager : LevelManager
     private List<SkillInfo> InitSkills(CoMCharacter characterInfo, string id)
     {
         ConfigCharacter configCharacter = GameServerConnectionManager
-            .Instance
-            .config
-            .Characters
-            .ToList()
+            .Instance.config.Characters.ToList()
             .Find(character => character.Name == characterInfo.name.ToLower());
         List<SkillInfo> skills = new List<SkillInfo>();
         List<ConfigSkill> configSkills = configCharacter.Skills.Values.ToList();
@@ -264,10 +235,9 @@ public class CustomLevelManager : LevelManager
             skillList.Add(skill2);
             skillList.Add(skill3);
 
-            CoMCharacter characterInfo = CharactersManager
-                .Instance
-                .AvailableCharacters
-                .Find(el => el.name.ToLower() == player.CharacterModel.name.ToLower());
+            CoMCharacter characterInfo = CharactersManager.Instance.AvailableCharacters.Find(el =>
+                el.name.ToLower() == player.CharacterModel.name.ToLower()
+            );
 
             List<SkillInfo> skillInfoClone = InitSkills(characterInfo, player.PlayerID);
             // SetSkillAngles(skillInfoClone);
@@ -306,9 +276,7 @@ public class CustomLevelManager : LevelManager
     {
         Image healthBarFront = character
             .GetComponent<MMHealthBar>()
-            .TargetProgressBar
-            .ForegroundBar
-            .GetComponent<Image>();
+            .TargetProgressBar.ForegroundBar.GetComponent<Image>();
 
         healthBarFront.color = isClientId ? Utils.healthBarGreen : Utils.healthBarRed;
     }
@@ -364,9 +332,8 @@ public class CustomLevelManager : LevelManager
     private bool checkPlayerHasJoined()
     {
         return GameServerConnectionManager.Instance.gamePlayers != null
-            && GameServerConnectionManager
-                .Instance
-                .gamePlayers
-                .Any((player) => player.Id == GameServerConnectionManager.Instance.playerId);
+            && GameServerConnectionManager.Instance.gamePlayers.Any(
+                (player) => player.Id == GameServerConnectionManager.Instance.playerId
+            );
     }
 }

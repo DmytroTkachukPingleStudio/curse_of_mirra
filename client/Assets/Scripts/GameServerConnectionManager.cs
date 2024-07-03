@@ -21,8 +21,6 @@ public class GameServerConnectionManager : MonoBehaviour
 
     public static GameServerConnectionManager Instance;
 
-    public Dictionary<ulong, Position> playersIdPosition = new Dictionary<ulong, Position>();
-
     public List<Entity> gamePlayers;
     public List<Entity> gameProjectiles;
     public List<Entity> gamePowerUps;
@@ -45,6 +43,7 @@ public class GameServerConnectionManager : MonoBehaviour
     public (Entity, ulong) winnerPlayer = (null, 0);
     public Dictionary<ulong, string> playersIdName = new Dictionary<ulong, string>();
     public ClientPrediction clientPrediction = new ClientPrediction();
+    public PlayerMovement playerMovement = new PlayerMovement();
     public EventsBuffer eventsBuffer = new EventsBuffer { deltaInterpolationTime = 100 };
     public bool allSelected = false;
     public float playableRadius;
@@ -176,12 +175,35 @@ public class GameServerConnectionManager : MonoBehaviour
                     this.config = gameEvent.Joined.Config;
                     this.bounties = gameEvent.Joined.Bounties.ToList();
                     this.bountyPickTime_ms = gameEvent.Joined.Config.Game.BountyPickTimeMs;
-                    this.timestampDifferenceSamplesToCheckWarning = (int)gameEvent.Joined.Config.ClientConfig.ServerUpdate.TimestampDifferenceSamplesToCheckWarning;
-                    this.timestampDifferencesSamplesMaxLength = (int)gameEvent.Joined.Config.ClientConfig.ServerUpdate.TimestampDifferencesSamplesMaxLength;
-                    this.showWarningThreshold = (int)gameEvent.Joined.Config.ClientConfig.ServerUpdate.ShowWarningThreshold;
-                    this.stopWarningThreshold = (int)gameEvent.Joined.Config.ClientConfig.ServerUpdate.StopWarningThreshold;
-                    this.msWithoutUpdateShowWarning = (int)gameEvent.Joined.Config.ClientConfig.ServerUpdate.MsWithoutUpdateShowWarning;
-                    this.msWithoutUpdateDisconnect = (int)gameEvent.Joined.Config.ClientConfig.ServerUpdate.MsWithoutUpdateDisconnect;
+                    this.playerMovement.mapRadius = gameEvent.Joined.Config.Map.Radius;
+                    this.timestampDifferenceSamplesToCheckWarning = (int)
+                        gameEvent
+                            .Joined
+                            .Config
+                            .ClientConfig
+                            .ServerUpdate
+                            .TimestampDifferenceSamplesToCheckWarning;
+                    this.timestampDifferencesSamplesMaxLength = (int)
+                        gameEvent
+                            .Joined
+                            .Config
+                            .ClientConfig
+                            .ServerUpdate
+                            .TimestampDifferencesSamplesMaxLength;
+                    this.showWarningThreshold = (int)
+                        gameEvent.Joined.Config.ClientConfig.ServerUpdate.ShowWarningThreshold;
+                    this.stopWarningThreshold = (int)
+                        gameEvent.Joined.Config.ClientConfig.ServerUpdate.StopWarningThreshold;
+                    this.msWithoutUpdateShowWarning = (int)
+                        gameEvent
+                            .Joined
+                            .Config
+                            .ClientConfig
+                            .ServerUpdate
+                            .MsWithoutUpdateShowWarning;
+                    this.msWithoutUpdateDisconnect = (int)
+                        gameEvent.Joined.Config.ClientConfig.ServerUpdate.MsWithoutUpdateDisconnect;
+
                     break;
                 case GameEvent.EventOneofCase.Ping:
                     currentPing = (uint)gameEvent.Ping.Latency;
@@ -198,7 +220,6 @@ public class GameServerConnectionManager : MonoBehaviour
                     this.zoneEnabled = gameState.Zone.Enabled;
                     this.gameStatus = gameState.Status;
                     this.gameCountdown = gameState.StartGameTimestamp - gameState.ServerTimestamp + this.bountyPickTime_ms;
-                    var position = gameState.Players[this.playerId].Position;
                     this.gamePlayers = gameState.Players.Values.ToList();
                     this.gameProjectiles = gameState.Projectiles.Values.ToList();
                     this.gamePowerUps = gameState.PowerUps.Values.ToList();
@@ -208,11 +229,15 @@ public class GameServerConnectionManager : MonoBehaviour
                     this.obstacles = gameState.Obstacles.Values.ToList();
                     this.damageDone = gameState.DamageDone.ToDictionary(x => x.Key, x => x.Value);
                     this.shrinking = gameState.Zone.Shrinking;
-                    this.playersIdPosition = new Dictionary<ulong, Position>
-                    {
-                        [this.playerId] = position
-                    };
-                    OnGameEventTimestampChanged?.Invoke(DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
+                    
+                    Entity selfPlayer = gameState.Players[this.playerId];
+                    this.playerMovement.SetSpeed(selfPlayer.Speed);
+                    this.playerMovement.SetForcedMovement(selfPlayer.Player.ForcedMovement, selfPlayer.Direction);
+                    this.playerMovement.SetGameState(selfPlayer, gameState.PlayerTimestamps[this.playerId]);
+
+                    OnGameEventTimestampChanged?.Invoke(
+                        DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()
+                    );
                     break;
                 case GameEvent.EventOneofCase.Finished:
                     winnerPlayer.Item1 = gameEvent.Finished.Winner;

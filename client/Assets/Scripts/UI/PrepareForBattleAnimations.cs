@@ -77,7 +77,7 @@ public class PrepareForBattleAnimations : MonoBehaviour
         Position playerBackEndPosition = Utils
             .GetGamePlayer(GameServerConnectionManager.Instance.playerId)
             .Position;
-        playerPosition = Utils.transformBackendOldPositionToFrontendPosition(playerBackEndPosition);
+        playerPosition = Utils.TransformBackendToFrontendPosition(playerBackEndPosition);
         GeneratePlayersList();
         cinemachineVirtualCamera.ForceCameraPosition(
             CameraStartPosition(),
@@ -91,9 +91,7 @@ public class PrepareForBattleAnimations : MonoBehaviour
         StartCoroutine(PrepareForBattleAnimation());
         yield return new WaitForSeconds(PREPARE_FOR_BATTLE_DURATION + 1f);
         StartCoroutine(PlayersAnimation());
-        yield return new WaitUntil(
-            () => countdownDone
-        );
+        yield return new WaitUntil(() => countdownDone);
         StartCoroutine(SurviveAnimation());
         yield return new WaitForSeconds(SURVIVE_DURATION);
         gameObject.SetActive(false);
@@ -199,9 +197,7 @@ public class PrepareForBattleAnimations : MonoBehaviour
         StartCoroutine(CardsDisplay(cardsTopTable, 1));
         StartCoroutine(CardsDisplay(cardsBottomTable, -1));
         StartCoroutine(Countdown());
-        yield return new WaitUntil(
-            () => countdownDone
-        );
+        yield return new WaitUntil(() => countdownDone);
         playersContainer.GetComponent<CanvasGroup>().DOFade(0, .1f);
     }
 
@@ -263,8 +259,7 @@ public class PrepareForBattleAnimations : MonoBehaviour
             .Append(countDown.transform.DOScale(originalCountdownScale + 0.2f, .5f))
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.Linear);
-        TIME_UNTIL_GAME_STARTS =
-(int)(GameServerConnectionManager.Instance.gameCountdown / 1000);
+        TIME_UNTIL_GAME_STARTS = (int)(GameServerConnectionManager.Instance.gameCountdown / 1000);
         for (int i = 0; i < TIME_UNTIL_GAME_STARTS; i++)
         {
             countDown.text = (TIME_UNTIL_GAME_STARTS - i).ToString();
@@ -349,10 +344,7 @@ public class PrepareForBattleAnimations : MonoBehaviour
         Sprite characterIcon = CharactersManager
             .Instance
             .AvailableCharacters
-            .Where(
-                character =>
-                    character.name == characterName
-            )
+            .Where(character => character.name == characterName)
             .Single()
             .battleCharacterCard;
         item.character.sprite = characterIcon;

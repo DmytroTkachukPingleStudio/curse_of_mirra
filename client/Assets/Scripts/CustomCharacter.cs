@@ -100,15 +100,22 @@ public class CustomCharacter : Character
         characterFeedbacks.PlayHitFeedback();
     }
 
-    public void HandleTeleport(Position serverPosition)
+    public void HandleTeleport(Position serverPosition, bool teleportingSelf)
     {
         if (
             this.IsTeleporting
+            && teleportingSelf
             && this.TeleportingDestination.X == serverPosition.X
             && this.TeleportingDestination.Y == serverPosition.Y
         )
         {
             this.IsTeleporting = false;
+
+            GameServerConnectionManager
+                .Instance
+                .playerMovement
+                .SetPlayerPosition(serverPosition.X, serverPosition.Y);
+
             this.transform.position = new Vector3(
                 serverPosition.X / 100,
                 this.transform.position.y,
