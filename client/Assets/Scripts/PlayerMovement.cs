@@ -23,6 +23,9 @@ public class PlayerMovement
     public long currentTimestamp = 0;
 
     public float mapRadius;
+    public bool didFirstMovement = false;
+    public float lastXSent = 0;
+    public float lastYSent = 0;
 
     public struct ServerInfo
     {
@@ -136,6 +139,9 @@ public class PlayerMovement
 
     public void StopMovement()
     {
+        this.didFirstMovement = true;
+        this.lastXSent = 0f;
+        this.lastYSent = 0f;
         this.player.Direction.X = 0f;
         this.player.Direction.Y = 0f;
     }
@@ -151,6 +157,15 @@ public class PlayerMovement
     {
         this.player.Position.X = x;
         this.player.Position.Y = y;
+    }
+
+    public void SetLastSentInputs(float lastXSent, float lastYSent)
+    {
+        if (didFirstMovement)
+        {
+            this.lastXSent = lastXSent;
+            this.lastYSent = lastYSent;
+        }
     }
 
     private void ClampIfOutOfMap()

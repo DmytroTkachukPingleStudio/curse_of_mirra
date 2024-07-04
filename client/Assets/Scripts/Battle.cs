@@ -239,13 +239,13 @@ public class Battle : MonoBehaviour
                 {
                     // Using joysticks
                     playerControls.SendJoystickValues(joystickL.RawValue.x, joystickL.RawValue.y);
-                    GameServerConnectionManager.Instance.clientPrediction.didFirstMovement = true;
+                    GameServerConnectionManager.Instance.playerMovement.didFirstMovement = true;
                 }
                 else if (playerControls.KeysPressed())
                 {
                     // Using keyboard
                     playerControls.SendAction();
-                    GameServerConnectionManager.Instance.clientPrediction.didFirstMovement = true;
+                    GameServerConnectionManager.Instance.playerMovement.didFirstMovement = true;
                 }
                 else
                 {

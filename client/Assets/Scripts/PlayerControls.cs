@@ -11,8 +11,8 @@ public class PlayerControls : MonoBehaviour
             ShouldSendMovement(
                 x,
                 y,
-                GameServerConnectionManager.Instance.clientPrediction.lastXSent,
-                GameServerConnectionManager.Instance.clientPrediction.lastYSent,
+                GameServerConnectionManager.Instance.playerMovement.lastXSent,
+                GameServerConnectionManager.Instance.playerMovement.lastYSent,
                 timestamp
             )
         )
@@ -20,16 +20,7 @@ public class PlayerControls : MonoBehaviour
             var valuesToSend = new Direction { X = x, Y = y };
 
             GameServerConnectionManager.Instance.SendMove(x, y, timestamp);
-
-            ClientPrediction.PlayerInput playerInput = new ClientPrediction.PlayerInput
-            {
-                joystick_x_value = x,
-                joystick_y_value = y,
-                timestampId = timestamp,
-                startTimestamp = timestamp,
-                endTimestamp = 0,
-            };
-            GameServerConnectionManager.Instance.clientPrediction.EnqueuePlayerInput(playerInput);
+            GameServerConnectionManager.Instance.playerMovement.SetLastSentInputs(x, y);
         }
     }
 

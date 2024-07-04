@@ -42,7 +42,6 @@ public class GameServerConnectionManager : MonoBehaviour
 
     public (Entity, ulong) winnerPlayer = (null, 0);
     public Dictionary<ulong, string> playersIdName = new Dictionary<ulong, string>();
-    public ClientPrediction clientPrediction = new ClientPrediction();
     public PlayerMovement playerMovement = new PlayerMovement();
     public EventsBuffer eventsBuffer = new EventsBuffer { deltaInterpolationTime = 100 };
     public bool allSelected = false;

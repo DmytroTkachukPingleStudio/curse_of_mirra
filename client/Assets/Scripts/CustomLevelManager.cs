@@ -124,8 +124,6 @@ public class CustomLevelManager : LevelManager
                     newPlayer.characterBase.StaminaCharges,
                     newPlayer.characterBase.CharacterCard.transform
                 );
-                GameServerConnectionManager.Instance.clientPrediction.startingPosition =
-                    player.Position;
                 GameServerConnectionManager.Instance.playerMovement.SetPlayer(player);
             }
             newPlayer.CharacterHealth.CurrentHealth = player.Player.Health;
