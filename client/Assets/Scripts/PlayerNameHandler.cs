@@ -12,7 +12,7 @@ public class PlayerNameHandler : MonoBehaviour
     GameObject playerNameHandler;
 
     [SerializeField]
-    Text playerNameInput;
+    InputField playerNameInput;
 
     [SerializeField]
     Sprite selectedButtonSprite;
@@ -50,6 +50,7 @@ public class PlayerNameHandler : MonoBehaviour
         this.errorMessage.SetActive(false);
         GetComponent<Image>().sprite = selectedButtonSprite;
         PlayerPrefs.SetString(PLAYER_NAME_KEY, this.playerName);
+        playerNameInput.text = "";
         this.Hide();
     }
 
@@ -112,6 +113,7 @@ public class PlayerNameHandler : MonoBehaviour
 
     private void Hide()
     {
+        this.playerNameHandler.GetComponent<CanvasGroup>().alpha = 0;
         this.playerNameHandler.SetActive(false);
     }
 }
