@@ -45,6 +45,7 @@ Material:
     m_Floats:
     - _ChannelID: 1
     - _ColorIntencity: 1.25
+    - _DistortionchannelID: 1
     - _LerpIntencity: 0.85
     - _MainTexRotation: 142.32
     - _MaskIntencity: 5.6
@@ -59,6 +60,7 @@ Material:
     - _Color1: {r: 0.2509804, g: 0.14509805, b: 0.08627451, a: 0}
     - _Color2: {r: 0.54509807, g: 0.4666667, b: 0.3921569, a: 0}
     - _ColorEmissive: {r: 0.9529412, g: 0.4470588, b: 0.8349018, a: 0.5058824}
+    - _DistortionMultiplier: {r: 0.04, g: 0.07, b: 0, a: 0}
     - _DistortionSpeed: {r: 0.02, g: 0.1, b: 0, a: 0}
     - _MainTexScale: {r: 22, g: 56.24, b: 0, a: 0}
     - _MainTexSpeed: {r: 0.02, g: 0.09, b: 0, a: 0}
