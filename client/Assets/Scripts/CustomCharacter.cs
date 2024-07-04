@@ -104,17 +104,18 @@ public class CustomCharacter : Character
     {
         if (
             this.IsTeleporting
-            && teleportingSelf
             && this.TeleportingDestination.X == serverPosition.X
             && this.TeleportingDestination.Y == serverPosition.Y
         )
         {
             this.IsTeleporting = false;
 
-            GameServerConnectionManager
-                .Instance
-                .playerMovement
-                .SetPlayerPosition(serverPosition.X, serverPosition.Y);
+            if (teleportingSelf){
+                GameServerConnectionManager
+                    .Instance
+                    .playerMovement
+                    .SetPlayerPosition(serverPosition.X, serverPosition.Y);
+            }
 
             this.transform.position = new Vector3(
                 serverPosition.X / 100,
