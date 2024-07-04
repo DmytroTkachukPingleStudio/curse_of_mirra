@@ -31,7 +31,7 @@ public class PowerUpsManager : MonoBehaviour
             PowerUp powerUp = powerupEntity.PowerUp;
 
             if (
-                powerUp.Status == PowerUpstatus.Available
+                powerUp.Status == PowerUpstatus.Unavailable
                 && !availablePowerUps.Keys.Contains(powerupEntity.Id)
             )
             {

@@ -148,12 +148,13 @@ public static partial class MessagesReflection {
           "UlVOTklORxABEgkKBUVOREVEEAISFAoQU0VMRUNUSU5HX0JPVU5UWRADKjoK",
           "EFByb2plY3RpbGVTdGF0dXMSCgoGQUNUSVZFEAASDAoIRVhQTE9ERUQQARIM",
           "CghDT05TVU1FRBACKiYKC0NyYXRlU3RhdHVzEggKBEZJTkUQABINCglERVNU",
-          "Uk9ZRUQQASopCg1Qb3dlclVwc3RhdHVzEg0KCUFWQUlMQUJMRRAAEgkKBVRB",
-          "S0VOEAEqjwEKEFBsYXllckFjdGlvblR5cGUSCgoGTU9WSU5HEAASFAoQU1RB",
-          "UlRJTkdfU0tJTExfMRABEhQKEFNUQVJUSU5HX1NLSUxMXzIQAhIVChFFWEVD",
-          "VVRJTkdfU0tJTExfMRADEhUKEUVYRUNVVElOR19TS0lMTF8yEAQSFQoRRVhF",
-          "Q1VUSU5HX1NLSUxMXzMQBSpACgpUcmFwU3RhdHVzEgsKB1BFTkRJTkcQABIM",
-          "CghQUkVQQVJFRBABEg0KCVRSSUdHRVJFRBACEggKBFVTRUQQA2IGcHJvdG8z"));
+          "Uk9ZRUQQASo6Cg1Qb3dlclVwc3RhdHVzEg0KCUFWQUlMQUJMRRAAEgkKBVRB",
+          "S0VOEAESDwoLVU5BVkFJTEFCTEUQAiqPAQoQUGxheWVyQWN0aW9uVHlwZRIK",
+          "CgZNT1ZJTkcQABIUChBTVEFSVElOR19TS0lMTF8xEAESFAoQU1RBUlRJTkdf",
+          "U0tJTExfMhACEhUKEUVYRUNVVElOR19TS0lMTF8xEAMSFQoRRVhFQ1VUSU5H",
+          "X1NLSUxMXzIQBBIVChFFWEVDVVRJTkdfU0tJTExfMxAFKkAKClRyYXBTdGF0",
+          "dXMSCwoHUEVORElORxAAEgwKCFBSRVBBUkVEEAESDQoJVFJJR0dFUkVEEAIS",
+          "CAoEVVNFRBADYgZwcm90bzM="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(new[] {typeof(global::GameStatus), typeof(global::ProjectileStatus), typeof(global::CrateStatus), typeof(global::PowerUpstatus), typeof(global::PlayerActionType), typeof(global::TrapStatus), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -227,6 +228,7 @@ public enum CrateStatus {
 public enum PowerUpstatus {
   [pbr::OriginalName("AVAILABLE")] Available = 0,
   [pbr::OriginalName("TAKEN")] Taken = 1,
+  [pbr::OriginalName("UNAVAILABLE")] Unavailable = 2,
 }
 
 public enum PlayerActionType {
