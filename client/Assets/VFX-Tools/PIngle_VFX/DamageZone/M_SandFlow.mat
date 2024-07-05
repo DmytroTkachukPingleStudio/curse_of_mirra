@@ -24,7 +24,9 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 72b809c16d7b09f43af34a2676869104,
     type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _ENUM_1_A
+  - _ENUM_A
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -66,9 +68,11 @@ Material:
     m_Floats:
     - _AlphaMultiplier: 0.71
     - _AlphaPower: 0.95
+    - _ENUM: 0
+    - _ENUM_1: 0
     - _EdgeNoiseIntensity: 4.95
     - _EdgePower: 46.45
-    - _Progress: 0.827
+    - _Progress: 0.651
     - _QueueControl: 0
     - _QueueOffset: 2
     - _SkewUV: 0.44
