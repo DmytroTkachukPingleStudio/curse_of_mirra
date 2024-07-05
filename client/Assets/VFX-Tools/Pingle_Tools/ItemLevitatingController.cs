@@ -6,6 +6,7 @@ public class ItemLevitatingController : MonoBehaviour
 {
     [SerializeField] private AnimationCurve levitating_curve = null;
     [SerializeField] private float levitating_duration = 1.0f;
+    [SerializeField] private float levitating_delay = 0.0f;
     private IEnumerator cor = null;
     void Start()
     {
@@ -22,10 +23,12 @@ public class ItemLevitatingController : MonoBehaviour
 
       IEnumerator impl()
       {
+        yield return new WaitForSeconds(levitating_delay);
+
         float cached_duration = 0.0f;
-        yield return null;
         Vector3 original_position = this.transform.localPosition;
         Vector3 cached_position = this.transform.localPosition;
+
         while(true)
         {
           cached_position.y = original_position.y + levitating_curve.Evaluate(cached_duration/levitating_duration);
