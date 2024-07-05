@@ -20,7 +20,19 @@ SpriteAtlas:
       readable: 0
       crunchedCompression: 0
       sRGB: 1
-    platformSettings: []
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 4096
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
       padding: 8
@@ -38,6 +50,7 @@ SpriteAtlas:
     - {fileID: 102900000, guid: 5effd8490589240e3bbad8566470b70b, type: 3}
     - {fileID: 102900000, guid: 6545209b0db61400fb4e8aa30b296c72, type: 3}
     - {fileID: 102900000, guid: 82d20931720ea4232a65434518238c6a, type: 3}
+    - {fileID: 102900000, guid: f26fd627e1f3f4a4bb6ffc4a2b5aad02, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -48,62 +61,114 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3694aa60b97fe444b91afbc6b5d25c68, type: 3}
   - {fileID: 21300000, guid: 789e5811ba2c14730a2807050b00ee58, type: 3}
   - {fileID: 21300000, guid: 1ed4f781217ee4d7ba2c7578db4c0fb1, type: 3}
+  - {fileID: 21300000, guid: 85def1a1289124a42bde333339b4d357, type: 3}
   - {fileID: 21300000, guid: 131b69f1990da47ef9696423773bb153, type: 3}
   - {fileID: 21300000, guid: e4a23452b0a894b228ffc65f8f4b2c33, type: 3}
   - {fileID: 21300000, guid: b133ce62e7f374246899951a0f032e35, type: 3}
   - {fileID: 21300000, guid: 77e42d722086f443b9f0a004431a46a1, type: 3}
+  - {fileID: 21300000, guid: 0fca49825e1f347f29042363be61b315, type: 3}
+  - {fileID: 21300000, guid: 7445be924b23041e78c89083e3f64e76, type: 3}
   - {fileID: 21300000, guid: 7a457ad213602408fa9c8b626b1e509b, type: 3}
   - {fileID: 21300000, guid: ce72fde2956b145a5b6ffecced3eafe2, type: 3}
+  - {fileID: 21300000, guid: 1b65421389cb84cf8b2eaa42fc2808b0, type: 3}
   - {fileID: 21300000, guid: e802e653be6f545aa96092866ab8f767, type: 3}
+  - {fileID: 21300000, guid: 3a8c49535c5fe49459499996f29cb35a, type: 3}
   - {fileID: 21300000, guid: bbc83e73a539e48f2a49cdd4169b997f, type: 3}
+  - {fileID: 21300000, guid: 49f2c383d583549f885bbbf793eb85fd, type: 3}
+  - {fileID: 21300000, guid: 8216d114089c24acd97341b8372e3772, type: 3}
   - {fileID: 21300000, guid: df64a9447a18b4291b85eb515c74ebd2, type: 3}
   - {fileID: 21300000, guid: d72ff864afdb848fe8bc6f20a0679065, type: 3}
   - {fileID: 21300000, guid: 66144cf4e79df431d8177b93860e941c, type: 3}
+  - {fileID: 21300000, guid: 165e2e85b1bd54f2389f3b424e20bbb1, type: 3}
+  - {fileID: 21300000, guid: 4bc47116f19e54520bc3650391d57f2f, type: 3}
+  - {fileID: 21300000, guid: e59a4666303954f40bf55b8fd65ac769, type: 3}
   - {fileID: 21300000, guid: afe27ab68106c410daff1344be11a63c, type: 3}
+  - {fileID: 21300000, guid: f54c09f7baa3149839ace94bfcb384b7, type: 3}
+  - {fileID: 21300000, guid: e2254038a42c24597894939c8698a0a8, type: 3}
   - {fileID: 21300000, guid: d5672d38fc9404bfbb60a99a8cbcf1b7, type: 3}
+  - {fileID: 21300000, guid: d5f2ee989924c410284b8982540d69b1, type: 3}
   - {fileID: 21300000, guid: 9e72e2f87cf144d319f745a802ec3c41, type: 3}
   - {fileID: 21300000, guid: 25c6ba19deae14da8a58d506552bf1fe, type: 3}
   - {fileID: 21300000, guid: dc480059705a34887912b8aa9e5db7c5, type: 3}
   - {fileID: 21300000, guid: 8598d97aa78864f24b5635cabc949f81, type: 3}
+  - {fileID: 21300000, guid: 213bee9a3731b4b8d905d426f077f5a3, type: 3}
   - {fileID: 21300000, guid: d5f280ba182e544b4b3d2b2b67ba3173, type: 3}
   - {fileID: 21300000, guid: 58c5b2ba7289848799e486a6d866171a, type: 3}
+  - {fileID: 21300000, guid: eb5aa5ea1ad074b5594f381e67b1891a, type: 3}
+  - {fileID: 21300000, guid: 1dd764fa6cb0249a5a0bb2a0db6be558, type: 3}
+  - {fileID: 21300000, guid: daf86c1bf02ee4d75bdc9fa8cc394bab, type: 3}
   - {fileID: 21300000, guid: be74397bea6cf445f94a4906f318baad, type: 3}
   - {fileID: 21300000, guid: 19ab588b5db054bfbad31e56c4ea1440, type: 3}
   - {fileID: 21300000, guid: 0d5da8ab1670f437e8d9d1bda2b88792, type: 3}
+  - {fileID: 21300000, guid: f02ebf6c6f0964ea69bc8d217abe97fd, type: 3}
   - {fileID: 21300000, guid: 0c73ab9c47b36493b8966b0a813f41f6, type: 3}
+  - {fileID: 21300000, guid: 318b77bccbd88431e84cee3aa43be682, type: 3}
   - {fileID: 21300000, guid: 098120dd7167e4221b9f8510402e20fa, type: 3}
   - {fileID: 21300000, guid: 04ae07dd9905f49c0b70082fc6f75dcd, type: 3}
+  - {fileID: 21300000, guid: b3bf8dfdc56474512904a98c00e2cd31, type: 3}
+  - {fileID: 21300000, guid: 0844234eb4f4a49388233ca8bcf05316, type: 3}
+  - {fileID: 21300000, guid: 188addbed2abe48bfaa64fe2dabc0ca1, type: 3}
+  - {fileID: 21300000, guid: 15a391ce6dff4475291e63535fe9d897, type: 3}
+  - {fileID: 21300000, guid: 78b1417f715ef43feb76006d3002e0c8, type: 3}
+  - {fileID: 21300000, guid: ed6621dfde51c4a4a9a3ade9ad4a7489, type: 3}
+  - {fileID: 21300000, guid: 4f36c5ef9696e46ee8b67b161bcea987, type: 3}
   m_PackedSpriteNamesToIndex:
   - container
   - setting_firstTab_selected
   - code
   - Uma
   - glow
+  - item
   - Hack
   - Underline
   - players
   - toggle_on
+  - Muflus - Rampage
+  - joystick-direction
   - icon
   - orientation-indicator
+  - Uma - Veil of Radiance
   - 0
+  - 5-item
   - stamina-empty
+  - knob
+  - 3-item
   - muflus
   - settings_bg
   - zone
+  - Valtimer - Singularity
+  - dash_ulti
+  - Valtimer - Antimatter
   - setting_tab_selected
+  - Muflus - Crush
+  - 4-item
   - underline
+  - basic
   - container
   - zone-icon
   - toggle_off
   - slider-handle
+  - Valtimer - Warp
   - stamina
   - 1
+  - background-item
+  - H4ck - Flash
+  - H4ck - Denial of Serviece
   - timer
   - setings
   - kills
+  - Muflus - Leap
   - background(2)
+  - 1-item
   - sidebar
   - dev
+  - skillJoystick
+  - Uma - Avenge
+  - joystick
+  - 2-item
+  - H4ck - Slingshot
+  - skillKnob
+  - Uma - Sneak
   m_RenderDataMap: {}
   m_Tag: InGameUI
   m_IsVariant: 0

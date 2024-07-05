@@ -12,8 +12,10 @@ using UnityEngine;
 public class PrepareForBattleAnimations : MonoBehaviour
 {
     [SerializeField]
-    GameObject battleScreen,
-        loadingScreen,
+    List<GameObject> battleScreenGroup;
+
+    [SerializeField]
+    GameObject loadingScreen,
         loadingIcon,
         bountiesContainer,
         prepareBattleContainer,
@@ -85,9 +87,7 @@ public class PrepareForBattleAnimations : MonoBehaviour
         );
         loadingScreen.GetComponent<CanvasGroup>().DOFade(0, .1f);
         StartCoroutine(BountiesAnimation());
-        yield return new WaitUntil(
-            () => bountiesCountdownDone
-        );
+        yield return new WaitUntil(() => bountiesCountdownDone);
         StartCoroutine(PrepareForBattleAnimation());
         yield return new WaitForSeconds(PREPARE_FOR_BATTLE_DURATION + 1f);
         StartCoroutine(PlayersAnimation());
@@ -95,7 +95,10 @@ public class PrepareForBattleAnimations : MonoBehaviour
         StartCoroutine(SurviveAnimation());
         yield return new WaitForSeconds(SURVIVE_DURATION);
         gameObject.SetActive(false);
-        battleScreen.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        foreach (var battleScreenItem in battleScreenGroup)
+        {
+            battleScreenItem.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        }
     }
 
     IEnumerator LoadingAnimation()
@@ -112,11 +115,14 @@ public class PrepareForBattleAnimations : MonoBehaviour
 
     IEnumerator BountiesAnimation()
     {
-        bountiesTitleCG.DOFade(1, 0.5f); 
-        bountiesSecondsCG.DOFade(1, 0.5f); 
+        bountiesTitleCG.DOFade(1, 0.5f);
+        bountiesSecondsCG.DOFade(1, 0.5f);
         bountiesContainer.GetComponent<CanvasGroup>().alpha = 1f;
 
-        if (GameServerConnectionManager.Instance.bounties.Count > 0 && GameServerConnectionManager.Instance.bounties != null) 
+        if (
+            GameServerConnectionManager.Instance.bounties.Count > 0
+            && GameServerConnectionManager.Instance.bounties != null
+        )
         {
             GenerateBounties();
 
@@ -126,20 +132,21 @@ public class PrepareForBattleAnimations : MonoBehaviour
 
                 // Use initial position as the final one
                 Vector2 finalPosition = rectTransform.anchoredPosition;
-                
-                rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, -1000f);
+
+                rectTransform.anchoredPosition = new Vector2(
+                    rectTransform.anchoredPosition.x,
+                    -1000f
+                );
                 bounty.SetActive(true);
                 rectTransform.DOAnchorPos(finalPosition, .5f);
 
                 // Wait before starting the next animation
                 yield return new WaitForSeconds(.1f);
             }
-        } 
+        }
 
         StartCoroutine(BountiesCountdown());
-        yield return new WaitUntil(
-            () => bountiesCountdownDone
-        );
+        yield return new WaitUntil(() => bountiesCountdownDone);
         bountiesContainer.GetComponent<CanvasGroup>().alpha = 0f;
     }
 
@@ -150,14 +157,13 @@ public class PrepareForBattleAnimations : MonoBehaviour
             .Append(countDown.transform.DOScale(originalCountdownScale + 0.2f, .5f))
             .SetLoops(-1, LoopType.Yoyo)
             .SetEase(Ease.Linear);
-        int bountiesPickTime =
-(int)(GameServerConnectionManager.Instance.bountyPickTime_ms / 1000);
+        int bountiesPickTime = (int)(GameServerConnectionManager.Instance.bountyPickTime_ms / 1000);
         for (int i = bountiesPickTime; i > 0; i--)
         {
             bountiesCountDown.text = i.ToString();
-            bountiesCountDownCG.alpha = 1; 
+            bountiesCountDownCG.alpha = 1;
             yield return new WaitForSeconds(0.5f);
-            bountiesCountDownCG.DOFade(0, 0.4f); 
+            bountiesCountDownCG.DOFade(0, 0.4f);
             yield return new WaitForSeconds(0.5f);
         }
         bountiesCountdownDone = true;
@@ -210,7 +216,10 @@ public class PrepareForBattleAnimations : MonoBehaviour
         yield return new WaitForSeconds(.3f);
         surviveContainer.GetComponent<CanvasGroup>().DOFade(0, .25f);
         GetComponent<CanvasGroup>().DOFade(0, .25f);
-        battleScreen.GetComponent<CanvasGroup>().DOFade(1, .25f);
+        foreach (var battleScreenItem in battleScreenGroup)
+        {
+            battleScreenItem.GetComponent<CanvasGroup>().DOFade(1, .25f);
+        }
     }
 
     IEnumerator CardsDisplay(List<PlayerCardManager> playersCardList, int multiplier)
@@ -297,7 +306,7 @@ public class PrepareForBattleAnimations : MonoBehaviour
         RectTransform rectTransform = coin.GetComponent<RectTransform>();
         Vector2 finalPosition = rectTransform.anchoredPosition;
         rectTransform.anchoredPosition = new Vector2(rectTransform.anchoredPosition.x, 1000f);
-        
+
         Sequence stickerSequence = DOTween.Sequence();
         stickerSequence
             .Append(coin.GetComponent<CanvasGroup>().DOFade(1f, 0f))
@@ -352,7 +361,8 @@ public class PrepareForBattleAnimations : MonoBehaviour
 
     void GenerateBounties()
     {
-        for (int i = 0; i < GameServerConnectionManager.Instance.bounties.Count; i ++) {
+        for (int i = 0; i < GameServerConnectionManager.Instance.bounties.Count; i++)
+        {
             GameObject bountyGameObject = bountiesList[i];
             BountyInfo bountyInfo = GameServerConnectionManager.Instance.bounties[i];
 
