@@ -1,7 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using CandyCoded.HapticFeedback;
+using DG.Tweening;
 using MoreMountains.Feedbacks;
 using MoreMountains.Tools;
 using UnityEngine;
@@ -15,7 +14,7 @@ public enum HapticFeedbackType
 public class CharacterFeedbacks : MonoBehaviour
 {
     [Header("Setup")]
-    public GameObject characterModel;
+    public GameObject characterModelBody;
 
     [Header("Feedbacks")]
     [SerializeField]
@@ -32,15 +31,20 @@ public class CharacterFeedbacks : MonoBehaviour
     [SerializeField]
     GameObject goldenClockVFX,
         magicBootsVFX,
-        myrrasBlessingVFX;
+        myrrasBlessingVFX,
+        giantFruitVFX;
 
     [SerializeField]
     MMProgressBar healthBar;
+    private float previousPlayerRadius;
     private bool didPickUp = false;
     private ulong playerID;
     private Material characterMaterial;
+    private Animator modelAnimator;
     private float overlayMultiplier = 0f;
     private float overlayEffectSpeed = 3f;
+    GameObject aimDirection;
+    float initialPlayerScale, initialSkillIndicatorScale;
 
     // didPickUp value should ideally come from backend
     public bool DidPickUp()
@@ -51,7 +55,11 @@ public class CharacterFeedbacks : MonoBehaviour
     void Start()
     {
         playerID = GameServerConnectionManager.Instance.playerId;
-        characterMaterial = characterModel.GetComponent<SkinnedMeshRenderer>().materials[0];
+        characterMaterial = characterModelBody.GetComponent<SkinnedMeshRenderer>().materials[0];
+        modelAnimator = GetComponent<CustomCharacter>().CharacterModel.GetComponent<Animator>();
+        initialPlayerScale = this.transform.localScale.x;
+        aimDirection = GetComponent<CustomCharacter>().characterBase.AimDirection;
+        initialSkillIndicatorScale = aimDirection.transform.localScale.x;
     }
 
     void Update()
@@ -84,7 +92,7 @@ public class CharacterFeedbacks : MonoBehaviour
 
     public void PlayDeathFeedback()
     {
-        if (characterModel.activeSelf == true)
+        if (characterModelBody.activeSelf == true)
         {
             deathFeedback.SetActive(true);
         }
@@ -101,7 +109,7 @@ public class CharacterFeedbacks : MonoBehaviour
             case "golden_clock_effect":
                 return goldenClockVFX;
             case "giant_effect":
-                return goldenClockVFX;
+                return giantFruitVFX;
             default:
                 return null;
         }
@@ -176,5 +184,47 @@ public class CharacterFeedbacks : MonoBehaviour
     {
         hitFeedback.GetComponent<MMF_Player>().PlayFeedbacks();
         HapticFeedback.LightFeedback();
+    }
+
+    public void UpdateCharacterScale(float serverPlayerRadius)
+    {
+        // scale logic
+        if (serverPlayerRadius != previousPlayerRadius)
+        {
+            float radiusDiff = serverPlayerRadius - previousPlayerRadius;
+
+            if (previousPlayerRadius != 0)
+            {
+                float scaleAnimationDuration = 0.25f;
+                // scale animation
+                if (radiusDiff > 0)
+                {
+                    // scale up
+                    modelAnimator.SetFloat("Giant_Speed_Multiplier", 0.5f);
+                    float playerMultiplier = CalculateScaleMultiplier(serverPlayerRadius, previousPlayerRadius);
+                    float indicatorNewScale = CalculateScaleMultiplier(previousPlayerRadius, serverPlayerRadius);
+                    float newPlayerScale = initialPlayerScale * playerMultiplier;
+                    this.transform.DOScale(new Vector3(newPlayerScale, newPlayerScale, newPlayerScale), scaleAnimationDuration);
+                    // scale down skill indicators
+                    aimDirection.transform.DOScale(new Vector3(indicatorNewScale, indicatorNewScale, indicatorNewScale), scaleAnimationDuration);
+                }
+                else
+                {
+                    // scale down
+                    modelAnimator.SetFloat("Giant_Speed_Multiplier", 1f);
+                    this.transform.DOScale(new Vector3(initialPlayerScale, initialPlayerScale, initialPlayerScale), scaleAnimationDuration);
+                    // scale up skill indicators
+                    aimDirection.transform.DOScale(new Vector3(initialSkillIndicatorScale, initialSkillIndicatorScale, initialSkillIndicatorScale), scaleAnimationDuration);
+                }
+            }
+            previousPlayerRadius = serverPlayerRadius;
+        }
+    }
+
+    float CalculateScaleMultiplier(float newValue, float previousValue)
+    {
+        float diffPercentage = (newValue * 100) / previousValue;
+        float scaleMultiplier = diffPercentage / 100;
+        return scaleMultiplier;
     }
 }

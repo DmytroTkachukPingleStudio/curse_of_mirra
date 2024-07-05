@@ -12,15 +12,15 @@ public class EffectCharacterMaterialController : MonoBehaviour
 
     private void Start()
     {
-        // print(character_material_manager);
-        switch(controller_type)
+        switch (controller_type)
         {
-            case EffectMaterialControllerType.MATERIAL    : StartCoroutine(switchMaterialForTime()); break;
-            case EffectMaterialControllerType.PROPERTIES  : StartCoroutine(applyPropertiesForTime()); break;
+            case EffectMaterialControllerType.MATERIAL: StartCoroutine(switchMaterialForTime()); break;
+            case EffectMaterialControllerType.PROPERTIES: StartCoroutine(applyPropertiesForTime()); break;
         }
     }
 
-    public void Setup(CharacterMaterialManager materialManager){
+    public void Setup(CharacterMaterialManager materialManager)
+    {
         character_material_manager = materialManager;
     }
 
@@ -56,7 +56,7 @@ public class EffectCharacterMaterialController : MonoBehaviour
 
 public enum EffectMaterialControllerType
 {
-  NONE = 0,
-  MATERIAL = 1,
-  PROPERTIES = 2
+    NONE = 0,
+    MATERIAL = 1,
+    PROPERTIES = 2
 }

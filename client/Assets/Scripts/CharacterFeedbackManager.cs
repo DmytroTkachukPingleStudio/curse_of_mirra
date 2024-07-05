@@ -20,9 +20,10 @@ public class CharacterFeedbackManager : MonoBehaviour
 
     [SerializeField]
     List<GameObject> vfxList;
+
     private Material initialMaterial;
 
-    private Dictionary<int, GameObject> InstantiateItems = new Dictionary<int, GameObject>();
+    private Dictionary<ulong, GameObject> InstantiateItems = new Dictionary<ulong, GameObject>();
 
     void Awake()
     {
@@ -33,35 +34,25 @@ public class CharacterFeedbackManager : MonoBehaviour
     {
         if (playerUpdate.Player.Effects.Count > 0)
         {
-            CharacterFeedbacks feedback = character.GetComponent<CharacterFeedbacks>(); // maybe cache this? We can optimize this later.
+            CharacterFeedbacks characterFeedbacks = character.GetComponent<CharacterFeedbacks>(); // maybe cache this? We can optimize this later.
             for (int i = 0; i < playerUpdate.Player.Effects.Count; i++)
             {
                 var effect = playerUpdate.Player.Effects[i];
-                var name = effect.Name;
-                var duration = effect.DurationMs / 1000;
-                var item = feedback.SelectGO(name);
-                if (!InstantiateItems.ContainsKey(i) && item != null)
+                var effectName = effect.Name;
+                var effectId = effect.Id;
+                var item = characterFeedbacks.SelectGO(effectName);
+                if (!InstantiateItems.ContainsKey(effectId) && item != null)
                 {
                     var vfx = Instantiate(item, feedbacksContainer.transform);
-                    vfx.name = name + "ID " + i;
-                    InstantiateItems.Add(i, vfx);
-
+                    vfx.name = effectName + " ID " + effectId;
+                    InstantiateItems.Add(effectId, vfx);
                     vfx.GetComponent<PinnedEffectsController>()
                         ?.Setup(character.GetComponent<PinnedEffectsManager>());
-                    StartCoroutine(
-                        character
-                            .GetComponent<CharacterMaterialManager>()
-                            .ResetEffects(
-                                duration,
-                                vfx,
-                                vfx.GetComponent<PinnedEffectsController>(),
-                                InstantiateItems,
-                                i
-                            )
-                    );
+                    vfx.GetComponent<EffectCharacterMaterialController>()
+                        ?.Setup(character.GetComponent<CharacterMaterialManager>());
                 }
+                character.GetComponent<CharacterMaterialManager>().RemoveInstantiatedEffects(InstantiateItems, playerUpdate.Player.Effects.ToList());
             }
-            ;
         }
 
         // Refacor this to a single metho to handle effects.

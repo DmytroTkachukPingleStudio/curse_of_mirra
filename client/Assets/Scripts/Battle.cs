@@ -189,7 +189,7 @@ public class Battle : MonoBehaviour
         cratesManager.UpdateCrates();
         powerUpsManager.UpdatePowerUps();
     }
-    
+
     public bool PlayerMovementAuthorized(CustomCharacter character)
     {
         if ((BlockingMovementStates != null) && (BlockingMovementStates.Length > 0))
@@ -407,11 +407,6 @@ public class Battle : MonoBehaviour
         {
             currentCharacter.SetPlayerDead();
         }
-
-        Transform hitbox = currentCharacter.characterBase.Hitbox.transform;
-        currentCharacter.GetComponent<CharacterController>().radius = currentEntity.Radius / 100;
-        float hitboxSize = Utils.TransformBackenUnitToClientUnit(currentEntity.Radius) * 2;
-        hitbox.localScale = new Vector3(hitboxSize, hitbox.localScale.y, hitboxSize);
     }
 
     void UpdatePlayerActions()
@@ -597,6 +592,7 @@ public class Battle : MonoBehaviour
         playerReference
             .feedbackManager
             .HandlePickUpItemFeedback(playerUpdate, playerReference.characterFeedbacks);
+        playerReference.characterFeedbacks.UpdateCharacterScale(playerUpdate.Radius);
 
         playerReference.modelAnimator.SetBool("Walking", false);
         if (!GameServerConnectionManager.Instance.GameHasEnded() && playerUpdate.Player.Health > 0)
