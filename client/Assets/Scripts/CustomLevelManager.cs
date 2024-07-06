@@ -29,7 +29,7 @@ public class CustomLevelManager : LevelManager
     public CinemachineCameraController camera;
 
     private bool deathSplashIsShown = false;
-    
+
     EndGameManager endGameManager;
 
     protected override void Awake()
@@ -101,9 +101,9 @@ public class CustomLevelManager : LevelManager
         foreach (Entity player in GameServerConnectionManager.Instance.gamePlayers)
         {
             GameObject prefab = CharactersManager
-                .Instance.AvailableCharacters.Find(el =>
-                    el.name.ToLower() == player.Player.CharacterName
-                )
+                .Instance
+                .AvailableCharacters
+                .Find(el => el.name.ToLower() == player.Player.CharacterName)
                 .prefab;
 
             if (GameServerConnectionManager.Instance.playerId == player.Id)
@@ -118,7 +118,7 @@ public class CustomLevelManager : LevelManager
             Vector3 backToFrontPosition = Utils.TransformBackendToFrontendPosition(player.Position);
             CustomCharacter newPlayer = Instantiate(
                 prefab.GetComponent<CustomCharacter>(),
-                new Vector3(backToFrontPosition.x, 1.0f, backToFrontPosition.z),
+                new Vector3(backToFrontPosition.x, 0f, backToFrontPosition.z),
                 Quaternion.identity
             );
 
@@ -138,7 +138,8 @@ public class CustomLevelManager : LevelManager
             newPlayer.characterBase.PlayerName.GetComponent<TextMeshProUGUI>().text = player.Name;
             SetPlayerHealthBar(
                 GameServerConnectionManager.Instance.playerId == player.Id,
-                newPlayer
+                newPlayer.characterBase.healthBar.GetComponent<HealthBarItem>(),
+                player.Player.Health
             );
             GameServerConnectionManager.Instance.players.Add(newPlayer.gameObject);
             this.Players.Add(newPlayer);
@@ -159,7 +160,8 @@ public class CustomLevelManager : LevelManager
         {
             player
                 .GetComponentInChildren<CharacterBase>()
-                .OrientationArrow.SetActive(UInt64.Parse(player.PlayerID) == playerID);
+                .OrientationArrow
+                .SetActive(UInt64.Parse(player.PlayerID) == playerID);
         }
     }
 
@@ -200,7 +202,10 @@ public class CustomLevelManager : LevelManager
     private List<SkillInfo> InitSkills(CoMCharacter characterInfo, string id)
     {
         ConfigCharacter configCharacter = GameServerConnectionManager
-            .Instance.config.Characters.ToList()
+            .Instance
+            .config
+            .Characters
+            .ToList()
             .Find(character => character.Name == characterInfo.name.ToLower());
         List<SkillInfo> skills = new List<SkillInfo>();
         List<ConfigSkill> configSkills = configCharacter.Skills.Values.ToList();
@@ -237,9 +242,10 @@ public class CustomLevelManager : LevelManager
             skillList.Add(skill2);
             skillList.Add(skill3);
 
-            CoMCharacter characterInfo = CharactersManager.Instance.AvailableCharacters.Find(el =>
-                el.name.ToLower() == player.CharacterModel.name.ToLower()
-            );
+            CoMCharacter characterInfo = CharactersManager
+                .Instance
+                .AvailableCharacters
+                .Find(el => el.name.ToLower() == player.CharacterModel.name.ToLower());
 
             List<SkillInfo> skillInfoClone = InitSkills(characterInfo, player.PlayerID);
             // SetSkillAngles(skillInfoClone);
@@ -274,13 +280,16 @@ public class CustomLevelManager : LevelManager
         }
     }
 
-    private void SetPlayerHealthBar(bool isClientId, Character character)
+    private void SetPlayerHealthBar(bool isClientId, HealthBarItem healthBar, ulong health)
     {
-        Image healthBarFront = character
-            .GetComponent<MMHealthBar>()
-            .TargetProgressBar.ForegroundBar.GetComponent<Image>();
-
-        healthBarFront.color = isClientId ? Utils.healthBarGreen : Utils.healthBarRed;
+        if (isClientId)
+        {
+            healthBar.SetYourHealthBar(health);
+        }
+        else
+        {
+            healthBar.SetEnemyCrateHealthBar(health);
+        }
     }
 
     private IEnumerator ShowDeathSplash(GameObject player)
@@ -334,8 +343,9 @@ public class CustomLevelManager : LevelManager
     private bool checkPlayerHasJoined()
     {
         return GameServerConnectionManager.Instance.gamePlayers != null
-            && GameServerConnectionManager.Instance.gamePlayers.Any(
-                (player) => player.Id == GameServerConnectionManager.Instance.playerId
-            );
+            && GameServerConnectionManager
+                .Instance
+                .gamePlayers
+                .Any((player) => player.Id == GameServerConnectionManager.Instance.playerId);
     }
 }

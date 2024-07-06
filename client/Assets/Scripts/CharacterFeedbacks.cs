@@ -35,7 +35,14 @@ public class CharacterFeedbacks : MonoBehaviour
         giantFruitVFX;
 
     [SerializeField]
-    MMProgressBar healthBar;
+    HealthBarItem healthBar;
+
+    [SerializeField]
+    DamagePopUpGenerator damagePopUpGenerator;
+
+    [SerializeField]
+    CustomCharacter customCharacter;
+
     private float previousPlayerRadius;
     private bool didPickUp = false;
     private ulong playerID;
@@ -44,7 +51,8 @@ public class CharacterFeedbacks : MonoBehaviour
     private float overlayMultiplier = 0f;
     private float overlayEffectSpeed = 3f;
     GameObject aimDirection;
-    float initialPlayerScale, initialSkillIndicatorScale;
+    float initialPlayerScale,
+        initialSkillIndicatorScale;
 
     // didPickUp value should ideally come from backend
     public bool DidPickUp()
@@ -125,16 +133,21 @@ public class CharacterFeedbacks : MonoBehaviour
     {
         if (serverPlayerHealth < clientHealth)
         {
+            float healthDiff = clientHealth - serverPlayerHealth;
+
             if (playerId == GameServerConnectionManager.Instance.playerId)
             {
                 damageFeedback.GetComponent<MMF_Player>().PlayFeedbacks();
-                HapticFeedbackType feedbackType = GetHapticTypeByDamage(
-                    (ulong)(clientHealth - serverPlayerHealth)
-                );
+                HapticFeedbackType feedbackType = GetHapticTypeByDamage((ulong)healthDiff);
                 TriggerHapticFeedback(feedbackType);
             }
             ApplyDamageOverlay();
-            this.healthBar.BumpOnDecrease = true;
+            string damageType = GetDamageType(healthDiff);
+            damagePopUpGenerator.GenerateDamagePopUp(
+                transform.position,
+                healthDiff.ToString(),
+                damageType
+            );
         }
         if (clientHealth < serverPlayerHealth)
         {
@@ -144,6 +157,8 @@ public class CharacterFeedbacks : MonoBehaviour
                 TriggerHapticFeedback(HapticFeedbackType.Light);
             }
         }
+
+        healthBar.UpdateHealthBar(serverPlayerHealth);
     }
 
     public void ApplyDamageOverlay()
@@ -186,6 +201,23 @@ public class CharacterFeedbacks : MonoBehaviour
         HapticFeedback.LightFeedback();
     }
 
+    private string GetDamageType(float damage)
+    {
+        float damagePercentage = damage / customCharacter.CharacterHealth.MaximumHealth;
+
+        if (damagePercentage <= 0.15f)
+        {
+            return "light";
+        }
+
+        if (damagePercentage >= 0.3f)
+        {
+            return "heavy";
+        }
+
+        return "medium";
+    }
+
     public void UpdateCharacterScale(float serverPlayerRadius)
     {
         // scale logic
@@ -201,20 +233,46 @@ public class CharacterFeedbacks : MonoBehaviour
                 {
                     // scale up
                     modelAnimator.SetFloat("Giant_Speed_Multiplier", 0.5f);
-                    float playerMultiplier = CalculateScaleMultiplier(serverPlayerRadius, previousPlayerRadius);
-                    float indicatorNewScale = CalculateScaleMultiplier(previousPlayerRadius, serverPlayerRadius);
+                    float playerMultiplier = CalculateScaleMultiplier(
+                        serverPlayerRadius,
+                        previousPlayerRadius
+                    );
+                    float indicatorNewScale = CalculateScaleMultiplier(
+                        previousPlayerRadius,
+                        serverPlayerRadius
+                    );
                     float newPlayerScale = initialPlayerScale * playerMultiplier;
-                    this.transform.DOScale(new Vector3(newPlayerScale, newPlayerScale, newPlayerScale), scaleAnimationDuration);
+                    this.transform.DOScale(
+                        new Vector3(newPlayerScale, newPlayerScale, newPlayerScale),
+                        scaleAnimationDuration
+                    );
                     // scale down skill indicators
-                    aimDirection.transform.DOScale(new Vector3(indicatorNewScale, indicatorNewScale, indicatorNewScale), scaleAnimationDuration);
+                    aimDirection
+                        .transform
+                        .DOScale(
+                            new Vector3(indicatorNewScale, indicatorNewScale, indicatorNewScale),
+                            scaleAnimationDuration
+                        );
                 }
                 else
                 {
                     // scale down
                     modelAnimator.SetFloat("Giant_Speed_Multiplier", 1f);
-                    this.transform.DOScale(new Vector3(initialPlayerScale, initialPlayerScale, initialPlayerScale), scaleAnimationDuration);
+                    this.transform.DOScale(
+                        new Vector3(initialPlayerScale, initialPlayerScale, initialPlayerScale),
+                        scaleAnimationDuration
+                    );
                     // scale up skill indicators
-                    aimDirection.transform.DOScale(new Vector3(initialSkillIndicatorScale, initialSkillIndicatorScale, initialSkillIndicatorScale), scaleAnimationDuration);
+                    aimDirection
+                        .transform
+                        .DOScale(
+                            new Vector3(
+                                initialSkillIndicatorScale,
+                                initialSkillIndicatorScale,
+                                initialSkillIndicatorScale
+                            ),
+                            scaleAnimationDuration
+                        );
                 }
             }
             previousPlayerRadius = serverPlayerRadius;

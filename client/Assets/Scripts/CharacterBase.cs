@@ -15,8 +15,10 @@ public class CharacterBase : MonoBehaviour
         CharacterCard,
         CanvasHolder,
         StaminaCharges,
-        powerUps,
-        characterShadow;
+        powerUpsIcon,
+        powerUpsCount,
+        characterShadow,
+        healthBar;
 
     [SerializeField]
     public AudioClip spawnSfx;
@@ -43,7 +45,8 @@ public class CharacterBase : MonoBehaviour
 
     public void SetPowerUpCount(ulong count)
     {
-        powerUps.SetActive(count > 0);
-        powerUps.GetComponentInChildren<TMP_Text>().text = count.ToString();
+        powerUpsIcon.SetActive(!(count > 0));
+        powerUpsCount.GetComponent<TextMeshProUGUI>().text = count.ToString();
+        powerUpsCount.SetActive(count > 0);
     }
 }

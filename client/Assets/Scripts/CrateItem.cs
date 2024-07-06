@@ -10,6 +10,13 @@ public class CrateItem : MonoBehaviour
 
     [SerializeField]
     Animator animator;
+
+    [SerializeField]
+    GameObject healthBar;
+
+    [SerializeField]
+    DamagePopUpGenerator damagePopUpGenerator;
+
     Health health;
     private Dictionary<string, int> animationHashes;
 
@@ -35,6 +42,9 @@ public class CrateItem : MonoBehaviour
         health.CurrentHealth = item.Crate.Health;
         health.InitialHealth = item.Crate.Health;
         health.MaximumHealth = item.Crate.Health;
+
+        healthBar.GetComponent<HealthBarItem>().SetEnemyCrateHealthBar(item.Crate.Health);
+
         gameObject.SetActive(true);
     }
 
@@ -42,6 +52,13 @@ public class CrateItem : MonoBehaviour
     {
         if (updatedHealth != health.CurrentHealth)
         {
+            string damageType = GetDamageType(health.CurrentHealth - updatedHealth);
+            damagePopUpGenerator.GenerateDamagePopUp(
+                transform.position,
+                (health.CurrentHealth - updatedHealth).ToString(),
+                "heavy"
+            );
+            healthBar.GetComponent<HealthBarItem>().UpdateHealthBar(updatedHealth);
             health.SetHealth(updatedHealth);
             ExecuteHitFeedback();
         }
@@ -54,7 +71,13 @@ public class CrateItem : MonoBehaviour
 
     public void ExecuteOpenedFeedback()
     {
+        damagePopUpGenerator.GenerateDamagePopUp(
+            transform.position,
+            (health.CurrentHealth).ToString(),
+            "heavy"
+        );
         health.SetHealth(0);
+        healthBar.GetComponent<HealthBarItem>().UpdateHealthBar(0);
         PlayAnimation("Open");
     }
 
@@ -64,5 +87,22 @@ public class CrateItem : MonoBehaviour
         {
             animator.SetTrigger(hash);
         }
+    }
+
+    private string GetDamageType(float damage)
+    {
+        float damagePercentage = damage / health.MaximumHealth;
+
+        if (damagePercentage <= 0.15f)
+        {
+            return "light";
+        }
+
+        if (damagePercentage >= 0.3f)
+        {
+            return "heavy";
+        }
+
+        return "medium";
     }
 }

@@ -87,6 +87,12 @@ public class CustomCharacter : Character
                 playerUpdate.Id
             );
             healthComponent.SetHealth(playerUpdate.Player.Health);
+
+            if (healthComponent.CurrentHealth > healthComponent.MaximumHealth) 
+            {
+                healthComponent.MaximumHealth = healthComponent.CurrentHealth;
+            }
+
         }
     }
 
