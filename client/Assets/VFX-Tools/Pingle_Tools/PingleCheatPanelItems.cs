@@ -14,8 +14,8 @@ public class PingleCheatPanelItems : MonoBehaviour
 
     public Shader new_character_shader = null;
 
-    public Animator beetle_animator = null;
-    public Transform beetle_vfx_root = null;
+    public Animator[] beetle_animators = null;
+    public Transform[] beetle_vfx_roots = null;
     public GameObject IdleBreak1_vfx = null;
     public GameObject IdleBreak2_vfx = null;
     public GameObject Fly_vfx = null;
@@ -120,15 +120,21 @@ public class PingleCheatPanelItems : MonoBehaviour
 
     private void triggerBeetleAnimation(int anim_id)
     {
-      beetle_animator.SetTrigger(getAnimNameByID(anim_id));
+      foreach( Animator animator in beetle_animators)
+      {
+        animator.SetTrigger(getAnimNameByID(anim_id));
+      }
       
       if (getVFXByID(anim_id) == null)
         return;
 
       clearPool();
       GameObject cached_vfx = null;
-      cached_vfx = Instantiate(getVFXByID(anim_id), beetle_vfx_root);
-      pool.Add( cached_vfx );
+      foreach( Transform vfx_root in beetle_vfx_roots)
+      {
+        cached_vfx = Instantiate(getVFXByID(anim_id), vfx_root);
+        pool.Add( cached_vfx );
+      }
     }
 
     private string getAnimNameByID(int id)
