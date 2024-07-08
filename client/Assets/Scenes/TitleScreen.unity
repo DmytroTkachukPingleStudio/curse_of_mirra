@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311924, g: 0.38073963, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -720,7 +720,7 @@ PrefabInstance:
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
         type: 3}
       propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
         type: 3}
@@ -730,7 +730,7 @@ PrefabInstance:
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
         type: 3}
       propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
         type: 3}
@@ -739,12 +739,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
         type: 3}
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
+        type: 3}
       propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1365717057}
+    - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
+        type: 3}
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1608732373}
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
         type: 3}
-      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 989244444}
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
@@ -759,12 +769,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
         type: 3}
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
+        type: 3}
       propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SignIn
+      value: SetLoadingScreen
       objectReference: {fileID: 0}
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
         type: 3}
       propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SignIn
+      objectReference: {fileID: 0}
+    - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
+        type: 3}
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: DisableButton
       objectReference: {fileID: 0}
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
@@ -800,12 +820,22 @@ PrefabInstance:
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
         type: 3}
       propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: GuestSignInController, CurseOfMirra
+      value: TitleScreenController, CurseOfMirra
       objectReference: {fileID: 0}
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
         type: 3}
       propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GuestSignInController, CurseOfMirra
+      objectReference: {fileID: 0}
+    - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
+        type: 3}
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: MoreMountains.Tools.MMTouchButton, MoreMountains.Tools
+      objectReference: {fileID: 0}
+    - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
+        type: 3}
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
         type: 3}
@@ -825,6 +855,11 @@ PrefabInstance:
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
         type: 3}
       propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
+        type: 3}
+      propertyPath: ButtonReleased.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 196815887905347332, guid: d126b369faf0c43198f047c8765666f0,
