@@ -48,6 +48,9 @@ public class Battle : MonoBehaviour
     private PowerUpsManager powerUpsManager;
     private CustomCharacter myClientCharacter = null;
 
+    [SerializeField]
+    private PoolsHandler poolsHandler;
+
     public Dictionary<ulong, PlayerReferences> playersReferences =
         new Dictionary<ulong, PlayerReferences>();
 
@@ -69,6 +72,7 @@ public class Battle : MonoBehaviour
         InitBlockingStates();
         SetupInitialState();
         StartCoroutine(InitializeProjectiles());
+        StartCoroutine(poolsHandler.SetUpPoolsSkills());
         StartCoroutine(SetupPlayersReferences());
         loot = GetComponent<Loot>();
         cratesManager = GetComponent<CratesManager>();
@@ -131,16 +135,12 @@ public class Battle : MonoBehaviour
 
     void CreateProjectilesPoolers()
     {
-        skillInfoSet = new HashSet<SkillInfo>();
-        foreach (GameObject player in GameServerConnectionManager.Instance.players)
-        {
-            skillInfoSet.UnionWith(
-                player
-                    .GetComponents<Skill>()
-                    .Select(skill => skill.GetSkillInfo())
-                    .Where(skill => skill.projectilePrefab != null)
-            );
-        }
+        skillInfoSet = GameServerConnectionManager.Instance.players
+            .SelectMany(player => player.GetComponents<Skill>())
+            .Select(skill => skill.GetSkillInfo())
+            .Where(skill => skill.hasProjectile)
+            .ToHashSet();
+
         GetComponent<ProjectileHandler>().CreateProjectilesPoolers(skillInfoSet);
     }
 
@@ -185,6 +185,7 @@ public class Battle : MonoBehaviour
     {
         UpdatePlayerActions();
         UpdateProjectileActions();
+        poolsHandler.UpdatePoolsActions();
         loot.UpdateLoots();
         cratesManager.UpdateCrates();
         powerUpsManager.UpdatePowerUps();
@@ -523,7 +524,7 @@ public class Battle : MonoBehaviour
                 ulong skillOwner = gameProjectiles[i].Projectile.OwnerId;
 
                 SkillInfo info = skillInfoSet
-                    .Where(el => el.skillKey == projectileKey && el.ownerId == skillOwner)
+                    .Where(el => el.projectileSkillKey == projectileKey && el.ownerId == skillOwner)
                     .FirstOrDefault();
 
                 if (info != null)

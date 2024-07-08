@@ -120,8 +120,9 @@ public static partial class MessagesReflection {
           "d2VyVXASEAoIb3duZXJfaWQYASABKAQSHgoGc3RhdHVzGAIgASgOMg4uUG93",
           "ZXJVcHN0YXR1cyJSCgVDcmF0ZRIOCgZoZWFsdGgYASABKAQSGwoTYW1vdW50",
           "X29mX3Bvd2VyX3VwcxgCIAEoBBIcCgZzdGF0dXMYAyABKA4yDC5DcmF0ZVN0",
-          "YXR1cyI1CgRQb29sEhAKCG93bmVyX2lkGAEgASgEEhsKBnN0YXR1cxgCIAEo",
-          "DjILLlBvb2xTdGF0dXMiBgoEQnVzaCJDCgRUcmFwEhAKCG93bmVyX2lkGAEg",
+          "YXR1cyJiCgRQb29sEhAKCG93bmVyX2lkGAEgASgEEhsKBnN0YXR1cxgCIAEo",
+          "DjILLlBvb2xTdGF0dXMSGAoHZWZmZWN0cxgDIAMoCzIHLkVmZmVjdBIRCglz",
+          "a2lsbF9rZXkYBCABKAkiBgoEQnVzaCJDCgRUcmFwEhAKCG93bmVyX2lkGAEg",
           "ASgEEgwKBG5hbWUYAiABKAkSGwoGc3RhdHVzGAMgASgOMgsuVHJhcFN0YXR1",
           "cyKBAQoMUGxheWVyQWN0aW9uEiEKBmFjdGlvbhgBIAEoDjIRLlBsYXllckFj",
           "dGlvblR5cGUSEAoIZHVyYXRpb24YAiABKAQSHgoLZGVzdGluYXRpb24YAyAB",
@@ -186,7 +187,7 @@ public static partial class MessagesReflection {
           new pbr::GeneratedClrTypeInfo(typeof(global::Obstacle), global::Obstacle.Parser, new[]{ "Color" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::PowerUp), global::PowerUp.Parser, new[]{ "OwnerId", "Status" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::Crate), global::Crate.Parser, new[]{ "Health", "AmountOfPowerUps", "Status" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::Pool), global::Pool.Parser, new[]{ "OwnerId", "Status" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::Pool), global::Pool.Parser, new[]{ "OwnerId", "Status", "Effects", "SkillKey" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::Bush), global::Bush.Parser, null, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::Trap), global::Trap.Parser, new[]{ "OwnerId", "Name", "Status" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::PlayerAction), global::PlayerAction.Parser, new[]{ "Action", "Duration", "Destination", "Direction" }, null, null, null, null),
@@ -8972,6 +8973,8 @@ public sealed partial class Pool : pb::IMessage<Pool>
   public Pool(Pool other) : this() {
     ownerId_ = other.ownerId_;
     status_ = other.status_;
+    effects_ = other.effects_.Clone();
+    skillKey_ = other.skillKey_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -9005,6 +9008,29 @@ public sealed partial class Pool : pb::IMessage<Pool>
     }
   }
 
+  /// <summary>Field number for the "effects" field.</summary>
+  public const int EffectsFieldNumber = 3;
+  private static readonly pb::FieldCodec<global::Effect> _repeated_effects_codec
+      = pb::FieldCodec.ForMessage(26, global::Effect.Parser);
+  private readonly pbc::RepeatedField<global::Effect> effects_ = new pbc::RepeatedField<global::Effect>();
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public pbc::RepeatedField<global::Effect> Effects {
+    get { return effects_; }
+  }
+
+  /// <summary>Field number for the "skill_key" field.</summary>
+  public const int SkillKeyFieldNumber = 4;
+  private string skillKey_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public string SkillKey {
+    get { return skillKey_; }
+    set {
+      skillKey_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public override bool Equals(object other) {
@@ -9022,6 +9048,8 @@ public sealed partial class Pool : pb::IMessage<Pool>
     }
     if (OwnerId != other.OwnerId) return false;
     if (Status != other.Status) return false;
+    if(!effects_.Equals(other.effects_)) return false;
+    if (SkillKey != other.SkillKey) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -9031,6 +9059,8 @@ public sealed partial class Pool : pb::IMessage<Pool>
     int hash = 1;
     if (OwnerId != 0UL) hash ^= OwnerId.GetHashCode();
     if (Status != global::PoolStatus.Waiting) hash ^= Status.GetHashCode();
+    hash ^= effects_.GetHashCode();
+    if (SkillKey.Length != 0) hash ^= SkillKey.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -9057,6 +9087,11 @@ public sealed partial class Pool : pb::IMessage<Pool>
       output.WriteRawTag(16);
       output.WriteEnum((int) Status);
     }
+    effects_.WriteTo(output, _repeated_effects_codec);
+    if (SkillKey.Length != 0) {
+      output.WriteRawTag(34);
+      output.WriteString(SkillKey);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -9075,6 +9110,11 @@ public sealed partial class Pool : pb::IMessage<Pool>
       output.WriteRawTag(16);
       output.WriteEnum((int) Status);
     }
+    effects_.WriteTo(ref output, _repeated_effects_codec);
+    if (SkillKey.Length != 0) {
+      output.WriteRawTag(34);
+      output.WriteString(SkillKey);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
     }
@@ -9090,6 +9130,10 @@ public sealed partial class Pool : pb::IMessage<Pool>
     }
     if (Status != global::PoolStatus.Waiting) {
       size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Status);
+    }
+    size += effects_.CalculateSize(_repeated_effects_codec);
+    if (SkillKey.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(SkillKey);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -9108,6 +9152,10 @@ public sealed partial class Pool : pb::IMessage<Pool>
     }
     if (other.Status != global::PoolStatus.Waiting) {
       Status = other.Status;
+    }
+    effects_.Add(other.effects_);
+    if (other.SkillKey.Length != 0) {
+      SkillKey = other.SkillKey;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -9136,6 +9184,14 @@ public sealed partial class Pool : pb::IMessage<Pool>
           Status = (global::PoolStatus) input.ReadEnum();
           break;
         }
+        case 26: {
+          effects_.AddEntriesFrom(input, _repeated_effects_codec);
+          break;
+        }
+        case 34: {
+          SkillKey = input.ReadString();
+          break;
+        }
       }
     }
   #endif
@@ -9161,6 +9217,14 @@ public sealed partial class Pool : pb::IMessage<Pool>
         }
         case 16: {
           Status = (global::PoolStatus) input.ReadEnum();
+          break;
+        }
+        case 26: {
+          effects_.AddEntriesFrom(ref input, _repeated_effects_codec);
+          break;
+        }
+        case 34: {
+          SkillKey = input.ReadString();
           break;
         }
       }

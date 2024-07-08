@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1739130193326024266}
   - component: {fileID: 6769759324922387623}
   - component: {fileID: 2695741578161640832}
+  - component: {fileID: 9058205524884870006}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -52,16 +53,24 @@ MonoBehaviour:
   InputManager: {fileID: 0}
   CustomGUIManager: {fileID: 0}
   showClientPredictionGhost: 0
+  zoneActive: 0
+  botsActive: 0
   showInterpolationGhosts: 0
+  animationsEnabled: 0
   InterpolationGhosts: []
   clientPredictionGhost: {fileID: 0}
   useClientPrediction: 0
+  useReconciliation: 0
   useInterpolation: 0
+  reconciliationDistance: 0
   BlockingMovementStates: 
   BlockingConditionStates: 
   accumulatedTime: 0
   firstTimestamp: 0
+  mapGrid: {fileID: 0}
   levelManager: {fileID: 0}
+  poolsHandler: {fileID: 9058205524884870006}
+  mesh: {fileID: 0}
 --- !u!114 &7090107403194157422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,3 +129,15 @@ MonoBehaviour:
   spawnAnimationDuration: 0.4
   baseAltitude: 1.1
   maxAltitudeDifference: 2.5
+--- !u!114 &9058205524884870006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7090107403194157410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc996408fce774ca6bc0b609477198a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
