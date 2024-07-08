@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &9781682 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8810038206625026029, guid: 6b62659fe3f1d394197c565cbf87af6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8508018052054870929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &124891250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,6 +136,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 96998977793678940, guid: 909fe292d4df88f40ae747068bdac1f9,
+        type: 3}
+      propertyPath: beetle_animator
+      value: 
+      objectReference: {fileID: 1751871477}
+    - target: {fileID: 96998977793678940, guid: 909fe292d4df88f40ae747068bdac1f9,
+        type: 3}
+      propertyPath: beetle_vfx_root
+      value: 
+      objectReference: {fileID: 9781682}
     - target: {fileID: 96998977793678940, guid: 909fe292d4df88f40ae747068bdac1f9,
         type: 3}
       propertyPath: golden_clock_vfx
@@ -1131,6 +1147,12 @@ MonoBehaviour:
   skill3_duration: 30
   skill3_speed: 30
   skill3_start_delay: 0.25
+--- !u!95 &1751871477 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8508018051663361883, guid: 6b62659fe3f1d394197c565cbf87af6a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8508018052054870929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2052570795
 PrefabInstance:
   m_ObjectHideFlags: 0
