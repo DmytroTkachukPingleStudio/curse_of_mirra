@@ -47,9 +47,12 @@ public class Battle : MonoBehaviour
     private PlayerControls playerControls;
     private PowerUpsManager powerUpsManager;
     private CustomCharacter myClientCharacter = null;
-
+    
     [SerializeField]
     private PoolsHandler poolsHandler;
+
+    [SerializeField]
+    private ObstaclesHandler obstaclesHandler;
 
     public Dictionary<ulong, PlayerReferences> playersReferences =
         new Dictionary<ulong, PlayerReferences>();
@@ -72,6 +75,7 @@ public class Battle : MonoBehaviour
         InitBlockingStates();
         SetupInitialState();
         StartCoroutine(InitializeProjectiles());
+        StartCoroutine(InitializeObstacles());
         StartCoroutine(poolsHandler.SetUpPoolsSkills());
         StartCoroutine(SetupPlayersReferences());
         loot = GetComponent<Loot>();
@@ -144,6 +148,18 @@ public class Battle : MonoBehaviour
         GetComponent<ProjectileHandler>().CreateProjectilesPoolers(skillInfoSet);
     }
 
+    private IEnumerator InitializeObstacles()
+    {
+        yield return new WaitUntil(() => {
+            return GameServerConnectionManager.Instance.gamePlayers != null
+            && GameServerConnectionManager
+                .Instance
+                .gamePlayers
+                .Any((player) => player.Id == GameServerConnectionManager.Instance.playerId);
+        });
+        obstaclesHandler.GenerateObstacles(GameServerConnectionManager.Instance.obstacles);
+    }
+
     void Update()
     {
         if (
@@ -189,6 +205,7 @@ public class Battle : MonoBehaviour
         loot.UpdateLoots();
         cratesManager.UpdateCrates();
         powerUpsManager.UpdatePowerUps();
+        obstaclesHandler.UpdateObstacles(GameServerConnectionManager.Instance.obstacles);
     }
 
     public bool PlayerMovementAuthorized(CustomCharacter character)

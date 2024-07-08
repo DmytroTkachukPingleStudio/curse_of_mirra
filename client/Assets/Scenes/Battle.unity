@@ -270,11 +270,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &745887041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6476792331327982724, guid: c95daba8707c34401b5765862df547c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 165324771}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &866407597 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8472880968890490896, guid: 62eb30154c76d4e0fb902ff01db61581,
     type: 3}
   m_PrefabInstance: {fileID: 8472880970037954468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &888127472 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2774271143149511760, guid: c95daba8707c34401b5765862df547c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 165324771}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &988969686 stripped
 GameObject:
@@ -1294,6 +1306,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861260103221442267, guid: 9edcf7e494cf3e640b18cb7495fb179a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1872198304997298721, guid: 9edcf7e494cf3e640b18cb7495fb179a,
         type: 3}
@@ -4277,6 +4294,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1787465996332106805, guid: ed2f9d09eb48e4bfea96370afd8336ef,
         type: 3}
+    - target: {fileID: 7657687997589862916, guid: 62eb30154c76d4e0fb902ff01db61581,
+        type: 3}
+      propertyPath: mapSpikes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657687997589862916, guid: 62eb30154c76d4e0fb902ff01db61581,
+        type: 3}
+      propertyPath: mapSpikes.Array.data[0]
+      value: 
+      objectReference: {fileID: 745887041}
+    - target: {fileID: 7657687997589862916, guid: 62eb30154c76d4e0fb902ff01db61581,
+        type: 3}
+      propertyPath: mapSpikes.Array.data[1]
+      value: 
+      objectReference: {fileID: 888127472}
+    - target: {fileID: 8266238324260182353, guid: 62eb30154c76d4e0fb902ff01db61581,
+        type: 3}
+      propertyPath: mapSpikes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266238324260182353, guid: 62eb30154c76d4e0fb902ff01db61581,
+        type: 3}
+      propertyPath: mapSpikes.Array.data[0]
+      value: 
+      objectReference: {fileID: 745887041}
+    - target: {fileID: 8266238324260182353, guid: 62eb30154c76d4e0fb902ff01db61581,
+        type: 3}
+      propertyPath: mapSpikes.Array.data[1]
+      value: 
+      objectReference: {fileID: 888127472}
     - target: {fileID: 8472880968645199034, guid: 62eb30154c76d4e0fb902ff01db61581,
         type: 3}
       propertyPath: camera

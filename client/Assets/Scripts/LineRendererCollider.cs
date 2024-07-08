@@ -12,7 +12,7 @@ public class LineRendererCollider : MonoBehaviour
 
     void Start(){
         if(Line.positionCount > 0){
-            Smooth();
+            // Smooth();
             Line.Simplify(0.1f);
             GenerateMeshCollider();
             Line.enabled = false;
