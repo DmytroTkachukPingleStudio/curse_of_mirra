@@ -47,6 +47,8 @@ MonoBehaviour:
   LevelName: 
   DoNotUseLevelManager: 0
   DestroyPersistentCharacter: 0
+  tipText: {fileID: 0}
+  characterImage: {fileID: 0}
 --- !u!1 &8472880969195610298
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +251,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5167513a201f64406a626d8650f6623c, type: 3}
+--- !u!1 &8472880968890490896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7090107403194157410, guid: 5167513a201f64406a626d8650f6623c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1725062584226539890}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3802505585248199569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8472880968890490896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15fbaadf9ca134ac18446118697ac79f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HighQualityComponents: []
 --- !u!4 &8472880968890490897 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7090107403194157411, guid: 5167513a201f64406a626d8650f6623c,
@@ -327,7 +348,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2570863274842571039, guid: 557da0162830845c6b8aea06f24ea661, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 557da0162830845c6b8aea06f24ea661, type: 3}
 --- !u!114 &8472880968645199034 stripped
 MonoBehaviour:
