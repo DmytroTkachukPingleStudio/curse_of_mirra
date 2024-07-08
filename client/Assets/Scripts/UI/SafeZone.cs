@@ -14,9 +14,6 @@ public class SafeZone : MonoBehaviour
     [SerializeField]
     Renderer dangerZoneRing;
 
-    [SerializeField]
-    Renderer dangerZoneShadow;
-
     void Start()
     {
         dangerZone.sharedMaterial.SetFloat("_AlphaMultiplier", 0f);
@@ -60,7 +57,6 @@ public class SafeZone : MonoBehaviour
         float value = (float)(finalVfxValue + (currentRadius) * (-finalVfxValue) / (initialPlayableRadius));
 
         dangerZone.sharedMaterial.SetFloat("_Progress", value);
-        dangerZoneShadow.sharedMaterial.SetFloat("_Progress", value);
         dangerZoneRing.transform.localScale = new Vector3( 1-value, dangerZoneRing.transform.localScale.y, 1-value );
     }
 }
