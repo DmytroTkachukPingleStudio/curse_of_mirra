@@ -9,7 +9,7 @@ public class PoolsHandler : MonoBehaviour
 {
     private Dictionary<string, MMSimpleObjectPooler> poolsPoolers;
 
-    HashSet<SkillInfo> poolSkillsInfo;
+    List<SkillInfo> poolSkillsInfo;
 
     public Dictionary<int, PoolSkill> poolsFeedbacks = new Dictionary<int, PoolSkill>();
 
@@ -21,14 +21,12 @@ public class PoolsHandler : MonoBehaviour
             .SelectMany(player => player.GetComponents<Skill>())
             .Select(skill => skill.GetSkillInfo())
             .Where(skill => skill.hasSkillPool)
-            .GroupBy(skill => skill.name)
-            .Select(group => group.First())
-            .ToHashSet();
+            .ToList();
 
         CreatePoolsPoolers(poolSkillsInfo);
     }
 
-    public void CreatePoolsPoolers(HashSet<SkillInfo> skillsInfo)
+    public void CreatePoolsPoolers(List<SkillInfo> skillsInfo)
     {
         poolsPoolers = new Dictionary<string, MMSimpleObjectPooler>();
         foreach (SkillInfo skillInfo in skillsInfo)
@@ -38,7 +36,7 @@ public class PoolsHandler : MonoBehaviour
                 transform.parent,
                 skillInfo.poolPrefab
             );
-            poolsPoolers.Add($"{skillInfo.name}_Pooler", poolsPooler);
+            poolsPoolers.Add($"{skillInfo.name}_{skillInfo.ownerId}_Pooler", poolsPooler);
         }
     }
 
@@ -72,7 +70,8 @@ public class PoolsHandler : MonoBehaviour
                 ulong skillOwner = poolState.Pool.OwnerId;
 
                 SkillInfo skillInfo = poolSkillsInfo
-                    .Where(el => el.poolSkillKey == poolSkillKey)
+                    .Where(el => el.poolSkillKey == poolSkillKey &&
+                            el.ownerId == skillOwner)
                     .FirstOrDefault();
 
                 PoolSkill poolFeedback = InstantiatePool(
@@ -99,7 +98,7 @@ public class PoolsHandler : MonoBehaviour
 
     public PoolSkill InstantiatePool(SkillInfo skillInfo, Vector3 initialPosition, float radius)
     {
-        MMSimpleObjectPooler poolsPooler = poolsPoolers[$"{skillInfo.name}_Pooler"];
+        MMSimpleObjectPooler poolsPooler = poolsPoolers[$"{skillInfo.name}_{skillInfo.ownerId}_Pooler"];
         PoolSkill poolSkill = poolsPooler.GetPooledGameObject().GetComponent<PoolSkill>();
         poolSkill.Initialize(skillInfo, initialPosition, radius);
 
