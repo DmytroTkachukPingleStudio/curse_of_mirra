@@ -32,28 +32,25 @@ public class CharacterFeedbackManager : MonoBehaviour
 
     public void ManageStateFeedbacks(Entity playerUpdate, CustomCharacter character)
     {
-        if (playerUpdate.Player.Effects.Count > 0)
+        CharacterFeedbacks characterFeedbacks = character.GetComponent<CharacterFeedbacks>(); // maybe cache this? We can optimize this later.
+        for (int i = 0; i < playerUpdate.Player.Effects.Count; i++)
         {
-            CharacterFeedbacks characterFeedbacks = character.GetComponent<CharacterFeedbacks>(); // maybe cache this? We can optimize this later.
-            for (int i = 0; i < playerUpdate.Player.Effects.Count; i++)
+            var effect = playerUpdate.Player.Effects[i];
+            var effectName = effect.Name;
+            var effectId = effect.Id;
+            var item = characterFeedbacks.SelectGO(effectName);
+            if (!InstantiateItems.ContainsKey(effectId) && item != null)
             {
-                var effect = playerUpdate.Player.Effects[i];
-                var effectName = effect.Name;
-                var effectId = effect.Id;
-                var item = characterFeedbacks.SelectGO(effectName);
-                if (!InstantiateItems.ContainsKey(effectId) && item != null)
-                {
-                    var vfx = Instantiate(item, feedbacksContainer.transform);
-                    vfx.name = effectName + " ID " + effectId;
-                    InstantiateItems.Add(effectId, vfx);
-                    vfx.GetComponent<PinnedEffectsController>()
-                        ?.Setup(character.GetComponent<PinnedEffectsManager>());
-                    vfx.GetComponent<EffectCharacterMaterialController>()
-                        ?.Setup(character.GetComponent<CharacterMaterialManager>());
-                }
-                character.GetComponent<CharacterMaterialManager>().RemoveInstantiatedEffects(InstantiateItems, playerUpdate.Player.Effects.ToList());
+                var vfx = Instantiate(item, feedbacksContainer.transform);
+                vfx.name = effectName + " ID " + effectId;
+                InstantiateItems.Add(effectId, vfx);
+                vfx.GetComponent<PinnedEffectsController>()
+                    ?.Setup(character.GetComponent<PinnedEffectsManager>());
+                vfx.GetComponent<EffectCharacterMaterialController>()
+                    ?.Setup(character.GetComponent<CharacterMaterialManager>());
             }
         }
+        character.GetComponent<CharacterMaterialManager>().RemoveInstantiatedEffects(InstantiateItems, playerUpdate.Player.Effects.ToList());
 
         // Refacor this to a single metho to handle effects.
 

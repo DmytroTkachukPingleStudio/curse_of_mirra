@@ -11,13 +11,13 @@ public class MaterialSettingsBlock : ScriptableObject
     [SerializeField] public MaterialFloatValue[] float_values = null;
     [SerializeField] public MaterialColorValue[] color_values = null;
 
-    public void applyToMaterial( Material mat )
+    public void ApplyToMaterial(Material mat)
     {
-        foreach( MaterialFloatValue value in float_values )
-            mat.SetFloat( value.name, value.value );
+        foreach (MaterialFloatValue value in float_values)
+            mat.SetFloat(value.name, value.value);
 
-        foreach( MaterialColorValue value in color_values )
-            mat.SetColor( value.name, value.value );
+        foreach (MaterialColorValue value in color_values)
+            mat.SetColor(value.name, value.value);
     }
 }
 

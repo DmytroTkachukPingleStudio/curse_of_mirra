@@ -1,6 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 
 public class CharacterMaterialManager : MonoBehaviour
@@ -52,57 +52,37 @@ public class CharacterMaterialManager : MonoBehaviour
         }
     }
 
-    public IEnumerator applyEffectByKey(MaterialSettingsKey key)
+    public void ApplyEffectByKey(MaterialSettingsKey key)
     {
-        resetMaterial();
         MaterialSettingsBlock block = holder.getBlockByKey(key);
-
         foreach (Renderer renderer in renderers)
-            block.applyToMaterial(renderer.sharedMaterial);
-
-        float curent_duration = 0.0f;
-        while (curent_duration <= block.apply_duration)
         {
-            foreach (Renderer renderer in renderers)
-                renderer.material.SetFloat(block.controll_property, curent_duration / block.apply_duration);
-
-            curent_duration += Time.deltaTime;
-            yield return null;
+            block.ApplyToMaterial(renderer.sharedMaterial);
+            renderer.material.DOFloat(1, block.controll_property, block.apply_duration);
         }
-
-        foreach (Renderer renderer in renderers)
-            renderer.material.SetFloat(block.controll_property, 1.0f);
     }
 
-    public IEnumerator deapplyEffectByKey(MaterialSettingsKey key)
+    public void DeapplyEffectByKey(MaterialSettingsKey key)
     {
-        resetMaterial();
         MaterialSettingsBlock block = holder.getBlockByKey(key);
-
-        float curent_duration = 0.0f;
-        while (curent_duration <= block.apply_duration)
-        {
-            foreach (Renderer renderer in renderers)
-                renderer.material.SetFloat(block.controll_property, 1.0f - curent_duration / block.apply_duration);
-
-            curent_duration += Time.deltaTime;
-            yield return null;
-        }
-
         foreach (Renderer renderer in renderers)
-            renderer.material.SetFloat(block.controll_property, 0.0f);
+        {
+            renderer.material.DOFloat(0, block.controll_property, block.apply_duration);
+        }
     }
 
     public void RemoveInstantiatedEffects(Dictionary<ulong, GameObject> effects, List<Effect> playerEffects)
     {
+        if (effects.Count == 0)
+        {
+            this.renderers[0].material.SetFloat("_FresnelEffectAmount", 0);
+            resetMaterial();
+        }
         foreach (ulong effectId in effects.Keys.ToList())
         {
-            // key not found exception
             if (!playerEffects.Exists(x => x.Id == effectId))
             {
-                this.renderers[0].sharedMaterial.SetFloat("_FresnelEffectAmount", 0);
-                PinnedEffectsController controller = effects[effectId].GetComponent<PinnedEffectsController>();
-                controller?.ClearEffects();
+                effects[effectId].GetComponent<PinnedEffectsController>()?.ClearEffects();
                 Destroy(effects[effectId]);
                 effects.Remove(effectId);
             }
