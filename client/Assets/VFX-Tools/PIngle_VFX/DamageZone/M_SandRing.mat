@@ -53,7 +53,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _AlphaMultiplier: 0.82
+    - _AlphaMultiplier: 0.95
     - _AlphaPower: 0.7
     - _Blend: 0
     - _CastShadows: 0
@@ -63,7 +63,7 @@ Material:
     - _EdgeNoiseIntensity: 6
     - _EdgePower: 159
     - _NegativeOffset: -4.58
-    - _OffsetAmount: 3.58
+    - _OffsetAmount: 1.5
     - _Progress: 0.5652174
     - _QueueControl: 0
     - _QueueOffset: 1
@@ -83,6 +83,7 @@ Material:
     m_Colors:
     - _MainColor: {r: 0.07450981, g: 0.003921569, b: 0, a: 0}
     - _MainNoiseSpeed: {r: -0.048, g: 0.12, b: 0, a: 0}
+    - _SandMainColor: {r: 0.90588236, g: 0.6509804, b: 0.58431375, a: 0}
     - _ScrollSpeed: {r: 0.016, g: 0.1, b: 0, a: 0}
     - _SupportColor: {r: 0, g: 0, b: 0, a: 0}
     - _SupportNoiseSpeed: {r: 0.02, g: 0.03, b: 0, a: 0}
