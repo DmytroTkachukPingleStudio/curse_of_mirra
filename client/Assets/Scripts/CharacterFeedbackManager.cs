@@ -50,26 +50,29 @@ public class CharacterFeedbackManager : MonoBehaviour
                     ?.Setup(character.GetComponent<CharacterMaterialManager>());
             }
         }
-        character.GetComponent<CharacterMaterialManager>().RemoveInstantiatedEffects(InstantiateItems, playerUpdate.Player.Effects.ToList());
-
         // Refacor this to a single metho to handle effects.
 
         if (skinnedMeshRenderer != null && transparentMaterial != null)
         {
             if (hasEffect(playerUpdate.Player.Effects, "invisible"))
             {
-                if (skinnedMeshRenderer.sharedMaterial.HasProperty("_ISTRANSPARENT"))
+                if (
+                    skinnedMeshRenderer.materials[0].HasProperty("_ISTRANSPARENT")
+                    && skinnedMeshRenderer.materials[0].GetInt("_ISTRANSPARENT") == 0
+                )
                 {
                     HandleInvisible(playerUpdate.Id, character);
                 }
             }
             else
             {
-                if (skinnedMeshRenderer.sharedMaterial.HasProperty("_ISTRANSPARENT"))
+                if (skinnedMeshRenderer.materials[0].HasProperty("_ISTRANSPARENT"))
                 {
-                    if (skinnedMeshRenderer.sharedMaterial.GetInt("_ISTRANSPARENT") == 1)
+                    if (skinnedMeshRenderer.materials[0].GetInt("_ISTRANSPARENT") == 1)
                     {
-                        skinnedMeshRenderer.material = initialMaterial;
+                        skinnedMeshRenderer.materials[0] = initialMaterial;
+                        SetMaterial(initialMaterial);
+
                         var canvasHolder = character.characterBase.CanvasHolder;
                         canvasHolder.GetComponent<CanvasGroup>().alpha = 1;
                         SetMeshes(true, character);
@@ -81,25 +84,28 @@ public class CharacterFeedbackManager : MonoBehaviour
                 }
             }
         }
+        character
+            .GetComponent<CharacterMaterialManager>()
+            .RemoveInstantiatedEffects(InstantiateItems, playerUpdate.Player.Effects.ToList());
     }
 
     private void HandleInvisible(ulong id, CustomCharacter character)
     {
         bool isClient = GameServerConnectionManager.Instance.playerId == id;
         float alpha = isClient ? 0.5f : 0;
-        skinnedMeshRenderer.material = transparentMaterial;
-        skinnedMeshRenderer.sharedMaterial.SetFloat("_AlphaValue", alpha);
+        transparentMaterial.SetFloat("_AlphaValue", alpha);
+        transparentMaterial.SetInt("_ISTRANSPARENT", 1);
 
         if (!isClient)
         {
             var canvasHolder = character.characterBase.CanvasHolder;
             canvasHolder.GetComponent<CanvasGroup>().alpha = 0;
-            SetMeshes(false, character);
             vfxList.ForEach(el => el.SetActive(false));
             feedbacksContainer.SetActive(false);
             character.characterBase.characterShadow.SetActive(false);
             skinnedMeshRenderer.shadowCastingMode = ShadowCastingMode.Off;
         }
+        SetMaterial(transparentMaterial);
     }
 
     // Will use this later when delay is implemented and improve code
@@ -141,5 +147,12 @@ public class CharacterFeedbackManager : MonoBehaviour
         {
             characterFeedbacks.ExecutePickUpItemFeedback(false);
         }
+    }
+
+    void SetMaterial(Material material)
+    {
+        Material[] mats = skinnedMeshRenderer.materials;
+        mats[0] = material;
+        skinnedMeshRenderer.materials = mats;
     }
 }

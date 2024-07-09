@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class CharacterMaterialManager : MonoBehaviour
 {
-    [SerializeField] private Renderer[] renderers = null;
-    [SerializeField] private MaterialSettingsHolder holder = null;
+    [SerializeField]
+    private Renderer[] renderers = null;
+
+    [SerializeField]
+    private MaterialSettingsHolder holder = null;
 
     private List<RendererMaterialPair> renderer_material_pairs = new List<RendererMaterialPair>();
+
     private void Start()
     {
         init();
@@ -23,7 +27,9 @@ public class CharacterMaterialManager : MonoBehaviour
     {
         foreach (Renderer renderer in renderers)
         {
-            renderer_material_pairs.Add(new RendererMaterialPair(renderer, renderer.sharedMaterial));
+            renderer_material_pairs.Add(
+                new RendererMaterialPair(renderer, renderer.sharedMaterial)
+            );
         }
     }
 
@@ -47,8 +53,12 @@ public class CharacterMaterialManager : MonoBehaviour
     {
         foreach (Renderer renderer in renderers)
         {
-            renderer_material_pairs.Add(new RendererMaterialPair(renderer, renderer.sharedMaterial));
-            renderer.sharedMaterial = renderer_material_pairs.FirstOrDefault(x => x.renderer == renderer)?.material;
+            renderer_material_pairs.Add(
+                new RendererMaterialPair(renderer, renderer.sharedMaterial)
+            );
+            renderer.sharedMaterial = renderer_material_pairs
+                .FirstOrDefault(x => x.renderer == renderer)
+                ?.material;
         }
     }
 
@@ -71,13 +81,13 @@ public class CharacterMaterialManager : MonoBehaviour
         }
     }
 
-    public void RemoveInstantiatedEffects(Dictionary<ulong, GameObject> effects, List<Effect> playerEffects)
+    public void RemoveInstantiatedEffects(
+        Dictionary<ulong, GameObject> effects,
+        List<Effect> playerEffects
+    )
     {
-        if (effects.Count == 0)
-        {
-            this.renderers[0].material.SetFloat("_FresnelEffectAmount", 0);
-            resetMaterial();
-        }
+        int prevEffectsCount = effects.Count;
+
         foreach (ulong effectId in effects.Keys.ToList())
         {
             if (!playerEffects.Exists(x => x.Id == effectId))
@@ -86,6 +96,11 @@ public class CharacterMaterialManager : MonoBehaviour
                 Destroy(effects[effectId]);
                 effects.Remove(effectId);
             }
+        }
+        if (prevEffectsCount != 0 && effects.Count == 0)
+        {
+            this.renderers[0].material.SetFloat("_FresnelEffectAmount", 0);
+            resetMaterial();
         }
     }
 }
