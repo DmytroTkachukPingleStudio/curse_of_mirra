@@ -37,24 +37,19 @@ public class BeetleIdleBehavior : StateMachineBehaviour
             {
                 isIdle = false;
                 breakAnimation = (int)Random.Range(1, numberOfBreaks + 1);
-                breakAnimation = breakAnimation * 2 - 1;
-
-                animator.SetFloat("IdleAnimation", breakAnimation - 1);
+                animator.SetFloat("IdleAnimation", breakAnimation);
             }
         }
         else if (stateInfo.normalizedTime % 1 > 0.98)
         {
             ResetIdle();
         }
-        animator.SetFloat("IdleAnimation", breakAnimation, 0.2f, Time.deltaTime);
+        animator.SetFloat("IdleAnimation", breakAnimation);
     }
 
     private void ResetIdle()
     {
-        if (!isIdle)
-        {
-            breakAnimation--;
-        }
+        breakAnimation = 0;
         isIdle = true;
         idleTime = 0;
     }

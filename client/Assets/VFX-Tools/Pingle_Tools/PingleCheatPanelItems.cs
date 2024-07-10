@@ -21,6 +21,13 @@ public class PingleCheatPanelItems : MonoBehaviour
     public List<Character> character_instances = null;
     public Character muflus_instances = null;
     public float muflus_vfx_scale = 2.0f;
+
+    public Animator[] beetle_animators = null;
+    public Transform[] beetle_vfx_roots = null;
+    public GameObject IdleBreak1_vfx = null;
+    public GameObject IdleBreak2_vfx = null;
+    public GameObject Fly_vfx = null;
+
     private List<GameObject> pool = new List<GameObject>();
     private const float ARENA_SIZE = 40.0f;
     private HashSet<Material> mats = new HashSet<Material>();
@@ -97,6 +104,16 @@ public class PingleCheatPanelItems : MonoBehaviour
             activateItemVFX(giant_fruit_vfx);
             scaleCharacters();
         }
+
+        if ( GUI.Button(new Rect( 500, 100, 80, 80 ), "IdleBreak1") )
+            triggerBeetleAnimation(0);
+
+        if ( GUI.Button(new Rect( 600, 100, 80, 80 ), "IdleBreak2") )
+            triggerBeetleAnimation(1);
+
+        if ( GUI.Button(new Rect( 700, 100, 80, 80 ), "Fly") )
+            triggerBeetleAnimation(2);
+
     }
 
     private void activateItemVFX(GameObject vfx)
@@ -159,4 +176,41 @@ public class PingleCheatPanelItems : MonoBehaviour
       }
     }
 
+    private void triggerBeetleAnimation(int anim_id)
+    {
+      foreach( Animator animator in beetle_animators)
+      {
+        animator.SetTrigger(getAnimNameByID(anim_id));
+      }
+      
+      if (getVFXByID(anim_id) == null)
+        return;
+
+      clearPool();
+      GameObject cached_vfx = null;
+      foreach( Transform vfx_root in beetle_vfx_roots)
+      {
+        cached_vfx = Instantiate(getVFXByID(anim_id), vfx_root);
+        pool.Add( cached_vfx );
+      }
+    }
+
+    private string getAnimNameByID(int id)
+    {
+      switch (id)
+      {
+      case 0:  return "IdleBreak1";
+      case 1:  return "IdleBreak2";
+      default: return "Fly";
+      }
+    }
+    private GameObject getVFXByID(int id)
+    {
+      switch (id)
+      {
+      case 0:  return IdleBreak1_vfx;
+      case 1:  return IdleBreak2_vfx;
+      default: return Fly_vfx;
+      }
+    }
 }
