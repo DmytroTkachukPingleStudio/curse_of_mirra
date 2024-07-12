@@ -51,7 +51,6 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 59af33213ed5b415eb3a10d777590d05, type: 3}
-  - {fileID: 21300000, guid: 826e5e13973874f1eb69c654581f9fc6, type: 3}
   - {fileID: 21300000, guid: ac62ce8546fde4c779bb8ea1684a4601, type: 3}
   - {fileID: 21300000, guid: 3eb3b8d50c6bf496bbb4f9e2ba0509ae, type: 3}
   - {fileID: 21300000, guid: 3e77a2489aeb54ea097d1b72319941cc, type: 3}
@@ -65,7 +64,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 498869cf1827d4a62b6499ddc5e9d535, type: 3}
   m_PackedSpriteNamesToIndex:
   - badge-you
-  - CoM
   - ValtimerCardImage
   - UmaCardImage
   - coin
