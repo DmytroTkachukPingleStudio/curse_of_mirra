@@ -8,7 +8,7 @@ public class CharacterBase : MonoBehaviour
     public GameObject PlayerName,
         Hitbox,
         FeedbackContainer,
-        AimDirection,
+        skillIndicatorsManager,
         spawnFeedback,
         OrientationIndicator,
         OrientationArrow,

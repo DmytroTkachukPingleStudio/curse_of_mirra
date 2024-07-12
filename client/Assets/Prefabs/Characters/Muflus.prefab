@@ -2587,9 +2587,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6284103280827666314, guid: 9468612907e8942b49712f4e342b630c,
         type: 3}
+      propertyPath: AimDirection
+      value: 
+      objectReference: {fileID: 20195159144948465}
+    - target: {fileID: 6284103280827666314, guid: 9468612907e8942b49712f4e342b630c,
+        type: 3}
       propertyPath: FeedbackContainer
       value: 
       objectReference: {fileID: 8099696926947248431}
+    - target: {fileID: 6284103280827666314, guid: 9468612907e8942b49712f4e342b630c,
+        type: 3}
+      propertyPath: skillIndicatorsManager
+      value: 
+      objectReference: {fileID: 20195159144948465}
     - target: {fileID: 6426377142093029336, guid: 9468612907e8942b49712f4e342b630c,
         type: 3}
       propertyPath: m_Name
@@ -2720,6 +2730,11 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8339835590983581370, guid: 9468612907e8942b49712f4e342b630c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8349459183747136099, guid: 9468612907e8942b49712f4e342b630c,
         type: 3}
       propertyPath: m_IsActive
@@ -2745,6 +2760,12 @@ PrefabInstance:
     - {fileID: 2577351981740644171, guid: 9468612907e8942b49712f4e342b630c, type: 3}
     - {fileID: 4885603082876928551, guid: 9468612907e8942b49712f4e342b630c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9468612907e8942b49712f4e342b630c, type: 3}
+--- !u!1 &20195159144948465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8339835590983581370, guid: 9468612907e8942b49712f4e342b630c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8357189057863228491}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &179007033852684844 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8178896298581030503, guid: 9468612907e8942b49712f4e342b630c,

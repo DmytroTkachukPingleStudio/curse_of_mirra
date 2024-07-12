@@ -50,7 +50,7 @@ public class CharacterFeedbacks : MonoBehaviour
     private Animator modelAnimator;
     private float overlayMultiplier = 0f;
     private float overlayEffectSpeed = 3f;
-    GameObject aimDirection;
+    GameObject skillIndicatorsManager;
     float initialPlayerScale,
         initialSkillIndicatorScale;
 
@@ -66,8 +66,8 @@ public class CharacterFeedbacks : MonoBehaviour
         characterMaterial = characterModelBody.GetComponent<SkinnedMeshRenderer>().materials[0];
         modelAnimator = GetComponent<CustomCharacter>().CharacterModel.GetComponent<Animator>();
         initialPlayerScale = this.transform.localScale.x;
-        aimDirection = GetComponent<CustomCharacter>().characterBase.AimDirection;
-        initialSkillIndicatorScale = aimDirection.transform.localScale.x;
+        skillIndicatorsManager = GetComponent<CustomCharacter>().characterBase.skillIndicatorsManager;
+        initialSkillIndicatorScale = skillIndicatorsManager.transform.localScale.x;
     }
 
     void Update()
@@ -247,7 +247,7 @@ public class CharacterFeedbacks : MonoBehaviour
                         scaleAnimationDuration
                     );
                     // scale down skill indicators
-                    aimDirection
+                    skillIndicatorsManager
                         .transform
                         .DOScale(
                             new Vector3(indicatorNewScale, indicatorNewScale, indicatorNewScale),
@@ -263,7 +263,7 @@ public class CharacterFeedbacks : MonoBehaviour
                         scaleAnimationDuration
                     );
                     // scale up skill indicators
-                    aimDirection
+                    skillIndicatorsManager
                         .transform
                         .DOScale(
                             new Vector3(

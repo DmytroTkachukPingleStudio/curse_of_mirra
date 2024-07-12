@@ -4721,6 +4721,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 5.1500015
       objectReference: {fileID: 0}
+    - target: {fileID: 2280698492016916110, guid: 9468612907e8942b49712f4e342b630c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3224469939289237307, guid: 9468612907e8942b49712f4e342b630c,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -4768,6 +4773,16 @@ PrefabInstance:
       propertyPath: ShapeModule.radius.value
       value: 1.3
       objectReference: {fileID: 0}
+    - target: {fileID: 6284103280827666314, guid: 9468612907e8942b49712f4e342b630c,
+        type: 3}
+      propertyPath: AimDirection
+      value: 
+      objectReference: {fileID: 2850857315289834601}
+    - target: {fileID: 6284103280827666314, guid: 9468612907e8942b49712f4e342b630c,
+        type: 3}
+      propertyPath: skillIndicatorsManager
+      value: 
+      objectReference: {fileID: 2850857315289834601}
     - target: {fileID: 6426377142093029336, guid: 9468612907e8942b49712f4e342b630c,
         type: 3}
       propertyPath: m_Name
@@ -4840,6 +4855,12 @@ GameObject:
 --- !u!1 &2700303382107108355 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2112059791940839140, guid: 9468612907e8942b49712f4e342b630c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4050685148264616679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2850857315289834601 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2280698492016916110, guid: 9468612907e8942b49712f4e342b630c,
     type: 3}
   m_PrefabInstance: {fileID: 4050685148264616679}
   m_PrefabAsset: {fileID: 0}

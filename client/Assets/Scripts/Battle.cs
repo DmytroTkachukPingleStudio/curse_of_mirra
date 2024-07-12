@@ -47,7 +47,7 @@ public class Battle : MonoBehaviour
     private PlayerControls playerControls;
     private PowerUpsManager powerUpsManager;
     private CustomCharacter myClientCharacter = null;
-    
+
     [SerializeField]
     private PoolsHandler poolsHandler;
 
@@ -150,7 +150,8 @@ public class Battle : MonoBehaviour
 
     private IEnumerator InitializeObstacles()
     {
-        yield return new WaitUntil(() => {
+        yield return new WaitUntil(() =>
+        {
             return GameServerConnectionManager.Instance.gamePlayers != null
             && GameServerConnectionManager
                 .Instance
@@ -756,10 +757,6 @@ public class Battle : MonoBehaviour
         }
         else
         {
-            if (playerId == GameServerConnectionManager.Instance.playerId)
-            {
-                print(pastTime);
-            }
             return GameServerConnectionManager
                 .Instance
                 .eventsBuffer

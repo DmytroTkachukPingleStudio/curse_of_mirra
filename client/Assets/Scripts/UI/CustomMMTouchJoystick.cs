@@ -107,7 +107,7 @@ public class CustomMMTouchJoystick : MMTouchJoystick
             && RawValue.y > -CANCEL_AREA_VALUE
         )
         {
-            inputManager.SetCanceled(cancelable, dragged, skill.GetIndicatorType());
+            inputManager.SetCanceled(cancelable, dragged, skill.GetIndicatorType(), skill.GetUIType());
             if (!didHapticFeedback && cancelable == true)
             {
                 HapticFeedback.MediumFeedback();
@@ -117,7 +117,7 @@ public class CustomMMTouchJoystick : MMTouchJoystick
         else
         {
             didHapticFeedback = false;
-            inputManager.SetCanceled(cancelable, dragged, skill.GetIndicatorType());
+            inputManager.SetCanceled(cancelable, dragged, skill.GetIndicatorType(), skill.GetUIType());
         }
     }
 }

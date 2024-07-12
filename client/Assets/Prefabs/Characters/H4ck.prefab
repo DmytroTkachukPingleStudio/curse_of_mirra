@@ -587,12 +587,27 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3929523073146220597, guid: 9468612907e8942b49712f4e342b630c,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4112168267233740170, guid: 9468612907e8942b49712f4e342b630c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 109596721387173020, guid: 9c582c2a18d474af0bdf1dc9882cb5f2,
         type: 2}
+    - target: {fileID: 4509221597930504146, guid: 9468612907e8942b49712f4e342b630c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4662003028587988945, guid: 9468612907e8942b49712f4e342b630c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4765897501085697646, guid: 9468612907e8942b49712f4e342b630c,
         type: 3}
       propertyPath: m_sharedMaterial
@@ -691,9 +706,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6284103280827666314, guid: 9468612907e8942b49712f4e342b630c,
         type: 3}
+      propertyPath: AimDirection
+      value: 
+      objectReference: {fileID: 1233336530965713873}
+    - target: {fileID: 6284103280827666314, guid: 9468612907e8942b49712f4e342b630c,
+        type: 3}
       propertyPath: FeedbackContainer
       value: 
       objectReference: {fileID: 3175913458632259943}
+    - target: {fileID: 6284103280827666314, guid: 9468612907e8942b49712f4e342b630c,
+        type: 3}
+      propertyPath: skillIndicatorsManager
+      value: 
+      objectReference: {fileID: 1233336530965713873}
     - target: {fileID: 6426377142093029336, guid: 9468612907e8942b49712f4e342b630c,
         type: 3}
       propertyPath: m_Name
@@ -781,6 +806,12 @@ GameObject:
 --- !u!1 &305740109525267919 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3148153780940593612, guid: 9468612907e8942b49712f4e342b630c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3426755726173006851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1233336530965713873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4509221597930504146, guid: 9468612907e8942b49712f4e342b630c,
     type: 3}
   m_PrefabInstance: {fileID: 3426755726173006851}
   m_PrefabAsset: {fileID: 0}

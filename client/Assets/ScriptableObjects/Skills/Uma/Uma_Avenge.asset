@@ -18,7 +18,7 @@ MonoBehaviour:
   skillSetType: 0
   angle: 0
   staminaCost: 0
-  indicatorType: 2
+  indicatorType: 4
   hasProjectile: 0
   hasSkillPool: 0
   projectilePrefab: {fileID: 0}
@@ -29,8 +29,10 @@ MonoBehaviour:
   abilityStopSfx: {fileID: 0}
   skillCircleRange: 0
   skillConeAngle: 0
-  arrowWidth: 1
+  hasArrow: 1
+  arrowWidth: 3.5
   skillAreaRadius: 0
+  usesHitboxAsArea: 0
   useCooldown: 0
   skillSprite: {fileID: 21300000, guid: 0844234eb4f4a49388233ca8bcf05316, type: 3}
   vfxList:
@@ -38,4 +40,5 @@ MonoBehaviour:
     duration: 0.6
     delay: 0
     instantiateVfxOnModel: 1
+    hasDestination: 0
   animationList: []

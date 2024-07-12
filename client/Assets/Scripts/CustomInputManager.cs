@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using MoreMountains.TopDownEngine;
@@ -18,7 +17,11 @@ public enum UIIndicatorType
 {
     Cone,
     Area,
+    AreaWithDirection,
     Arrow,
+    ShortArrow,
+    WideArrow,
+    TripleArrows,
     None
 }
 
@@ -64,7 +67,7 @@ public class CustomInputManager : InputManager
 
     Dictionary<UIControls, CustomMMTouchButton> mobileButtons;
     Dictionary<UIControls, GameObject> buttonsCooldown;
-    private AimDirection directionIndicator;
+    private SkillIndicatorsManager skillIndicatorsManager;
     private CustomMMTouchJoystick activeJoystick;
     private Vector3 initialLeftJoystickPosition;
     private bool disarmed = false;
@@ -100,7 +103,7 @@ public class CustomInputManager : InputManager
     public void Setup()
     {
         _player = Utils.GetPlayer(GameServerConnectionManager.Instance.playerId);
-        directionIndicator = _player.GetComponentInChildren<AimDirection>();
+        skillIndicatorsManager = _player.GetComponentInChildren<SkillIndicatorsManager>();
     }
 
     public void InitializeInputSprite(CoMCharacter characterInfo)
@@ -184,12 +187,14 @@ public class CustomInputManager : InputManager
 
     public void ShowTapSkill(Skill skill)
     {
-        directionIndicator.InitIndicator(skill, characterSkillColor);
+        skillIndicatorsManager.InitIndicator(skill, characterSkillColor);
+        skillIndicatorsManager.ActivateIndicator(skill.GetIndicatorType());
+        skillIndicatorsManager.SetSkillRage(skill.GetUIType());
     }
 
     public void ShowAimAoeSkill(CustomMMTouchJoystick joystick)
     {
-        directionIndicator.InitIndicator(joystick.skill, characterSkillColor);
+        skillIndicatorsManager.InitIndicator(joystick.skill, characterSkillColor);
 
         // FIXME: Using harcoded value for testing, Value should be set dinamically
         //TODO : Add the spread area (amgle) depeding of the skill.json
@@ -198,19 +203,33 @@ public class CustomInputManager : InputManager
 
     public void AimAoeSkill(Vector2 aoePosition, CustomMMTouchJoystick joystick)
     {
-        //Multiply vector values according to the scale of the animation (in this case 12)
-        float multiplier = joystick.skill.GetSkillRange();
-        directionIndicator.area.transform.localPosition = new Vector3(
-            aoePosition.x * multiplier,
-            aoePosition.y * multiplier,
-            -1f
-        );
+        if (joystick.skill.GetIndicatorType() == UIIndicatorType.Area)
+        {
+            SetPositionToAOEIndicator(joystick.skill, aoePosition, skillIndicatorsManager.aoe);
+        }
+        if (joystick.skill.GetIndicatorType() == UIIndicatorType.AreaWithDirection)
+        {
+            SetPositionToAOEIndicator(joystick.skill, aoePosition, skillIndicatorsManager.aoeDirection);
+        }
         activeJoystickStatus = canceled;
+
+        skillIndicatorsManager.Rotate(aoePosition.x, aoePosition.y, joystick.skill);
+    }
+    private void SetPositionToAOEIndicator(Skill skill, Vector2 aoePosition, GameObject aoeIndicator)
+    {
+        //Multiply vector values according to the scale of the animation (in this case 12)
+        float multiplier = skill.GetSkillRange();
+        aoeIndicator.transform.localPosition = new Vector3(
+                aoePosition.x * multiplier,
+                0,
+                aoePosition.y * multiplier
+            );
     }
 
     public void ExecuteAoeSkill(Vector2 aoePosition, Skill skill)
     {
-        directionIndicator.DeactivateIndicator();
+        skillIndicatorsManager.DeactivateIndicator();
+        skillIndicatorsManager.UnsetSkillRage(skill.GetUIType());
 
         activeJoystick = null;
         EnableButtons();
@@ -228,7 +247,8 @@ public class CustomInputManager : InputManager
             skill.TryExecuteSkill();
         }
 
-        directionIndicator.DeactivateIndicator();
+        skillIndicatorsManager.DeactivateIndicator();
+        skillIndicatorsManager.UnsetSkillRage(skill.GetUIType());
     }
 
     private void MapDirectionInputEvents(CustomMMTouchButton button, Skill skill)
@@ -257,31 +277,31 @@ public class CustomInputManager : InputManager
 
     private void ShowAimDirectionSkill(CustomMMTouchJoystick joystick)
     {
-        directionIndicator.InitIndicator(joystick.skill, characterSkillColor);
-
-        directionIndicator.SetConeIndicator();
+        skillIndicatorsManager.InitIndicator(joystick.skill, characterSkillColor);
 
         activeJoystick = joystick;
     }
 
     private void ShowAimDirectionTargetsSkill(Skill skill)
     {
-        directionIndicator.InitIndicator(skill, characterSkillColor);
+        skillIndicatorsManager.InitIndicator(skill, characterSkillColor);
     }
 
     private void AimDirectionSkill(Vector2 direction, CustomMMTouchJoystick joystick)
     {
         if (!canceled)
         {
-            directionIndicator.Rotate(direction.x, direction.y, joystick.skill);
-            directionIndicator.ActivateIndicator(joystick.skill.GetIndicatorType());
+            skillIndicatorsManager.Rotate(direction.x, direction.y, joystick.skill);
+            skillIndicatorsManager.ActivateIndicator(joystick.skill.GetIndicatorType());
+            skillIndicatorsManager.SetSkillRage(joystick.skill.GetUIType());
         }
         activeJoystickStatus = canceled;
     }
 
     private void ExecuteDirectionSkill(Vector2 direction, Skill skill)
     {
-        directionIndicator.DeactivateIndicator();
+        skillIndicatorsManager.DeactivateIndicator();
+        skillIndicatorsManager.UnsetSkillRage(skill.GetUIType());
 
         activeJoystick = null;
         EnableButtons();
@@ -337,16 +357,18 @@ public class CustomInputManager : InputManager
         }
     }
 
-    public void SetCanceled(bool cancelValue, bool dragged, UIIndicatorType indicatorType)
+    public void SetCanceled(bool cancelValue, bool dragged, UIIndicatorType indicatorType, UIType uiType)
     {
         canceled = cancelValue;
-        if (directionIndicator && cancelValue && !dragged)
+        if (skillIndicatorsManager && cancelValue && !dragged)
         {
-            directionIndicator.DeactivateIndicator();
+            skillIndicatorsManager.DeactivateIndicator();
+            skillIndicatorsManager.UnsetSkillRage(uiType);
         }
-        else if (directionIndicator && !cancelValue && dragged)
+        else if (skillIndicatorsManager && !cancelValue && dragged)
         {
-            directionIndicator.ActivateIndicator(indicatorType);
+            skillIndicatorsManager.ActivateIndicator(indicatorType);
+            skillIndicatorsManager.SetSkillRage(uiType);
         }
     }
 

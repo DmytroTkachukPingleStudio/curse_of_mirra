@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using MoreMountains.Tools;
 using UnityEngine;
 
@@ -43,16 +41,18 @@ public class SkillInfo : ScriptableObject
 
     [MMEnumCondition("indicatorType", (int)UIIndicatorType.Cone)]
     public float skillConeAngle;
+    public bool hasArrow;
 
-    [MMEnumCondition("indicatorType", (int)UIIndicatorType.Arrow)]
+    [MMCondition("hasArrow", true)]
     public float arrowWidth;
 
     [MMEnumCondition("indicatorType", (int)UIIndicatorType.Area)]
     public float skillAreaRadius;
+    public float skillOffset;
     public bool usesHitboxAsArea;
     public bool useCooldown;
     public Sprite skillSprite;
-
+    public bool vfxUsesRange;
     [Header("Feedbacks")]
     [SerializeField]
     public List<VfxStep> vfxList;
@@ -60,9 +60,10 @@ public class SkillInfo : ScriptableObject
 
     public void InitWithBackend(ConfigSkill configSkill, string id)
     {
-        this.skillCircleRange = configSkill.TargettingRange == 0 
-            ? this.skillCircleRange  : Utils.TransformBackenUnitToClientUnit(configSkill.TargettingRange);
-        this.skillAreaRadius =  Utils.TransformBackenUnitToClientUnit(configSkill.TargettingRadius);
+        this.skillCircleRange = configSkill.TargettingRange == 0
+            ? this.skillCircleRange : Utils.TransformBackenUnitToClientUnit(configSkill.TargettingRange);
+        this.skillAreaRadius = Utils.TransformBackenUnitToClientUnit(configSkill.TargettingRadius);
+        this.skillOffset = Utils.TransformBackenUnitToClientUnit(configSkill.TargettingOffset);
         this.ownerId = Convert.ToUInt64(id);
         this.staminaCost = useCooldown ? 0 : configSkill.StaminaCost;
     }

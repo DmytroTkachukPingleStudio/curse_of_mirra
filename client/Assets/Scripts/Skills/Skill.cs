@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using MoreMountains.TopDownEngine;
 using UnityEngine;
 using UnityEngine.VFX;
-using static MoreMountains.Tools.MMSoundManager;
 
 public class Skill : CharacterAbility
 {
@@ -263,6 +262,11 @@ public class Skill : CharacterAbility
 
             vfxInstance = Instantiate(vfx, vfxPosition, vfx.transform.rotation);
         }
+        if (skillInfo.vfxUsesRange)
+        {
+            float vfxScale = skillInfo.skillCircleRange;
+            vfxInstance.transform.localScale = new Vector3(vfxScale, vfxScale, vfxScale);
+        }
         vfxInstance
             .GetComponent<PinnedEffectsController>()
             ?.Setup(this.GetComponent<PinnedEffectsManager>());
@@ -333,7 +337,8 @@ public class Skill : CharacterAbility
         _animator.SetBool(animationId, value);
     }
 
-    private void SetSpeed(string speedId, float value) {
+    private void SetSpeed(string speedId, float value)
+    {
         _animator.SetFloat(speedId, value);
     }
 
@@ -416,6 +421,15 @@ public class Skill : CharacterAbility
         return skillInfo.arrowWidth;
     }
 
+    public float GetSkillOffset()
+    {
+        return skillInfo.skillOffset;
+    }
+
+    public UIType GetUIType()
+    {
+        return skillInfo.inputType;
+    }
     public UIIndicatorType GetIndicatorType()
     {
         return skillInfo.indicatorType;
