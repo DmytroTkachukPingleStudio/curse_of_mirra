@@ -53,7 +53,10 @@ MonoBehaviour:
   - {fileID: 6776640412010785172}
   - {fileID: 3954180051779991187}
   indicatorMesh: {fileID: 2045140257765620269}
-  fadeInDuration: 3
+  fadeInDuration: 0.5
+  fadeInPeakDuration: 0.5
+  flickeringDuration: 2
+  fadeOutDuration: 0.5
 --- !u!1001 &2411853564328703983
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -219,6 +219,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 165324771}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &165324776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6140099602079949714, guid: c95daba8707c34401b5765862df547c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 165324771}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &598334956
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,6 +279,12 @@ Transform:
 --- !u!1 &745887041 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6476792331327982724, guid: c95daba8707c34401b5765862df547c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 165324771}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &804978519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7168084223258987863, guid: c95daba8707c34401b5765862df547c0,
     type: 3}
   m_PrefabInstance: {fileID: 165324771}
   m_PrefabAsset: {fileID: 0}
@@ -4297,7 +4309,7 @@ PrefabInstance:
     - target: {fileID: 7657687997589862916, guid: 62eb30154c76d4e0fb902ff01db61581,
         type: 3}
       propertyPath: mapSpikes.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7657687997589862916, guid: 62eb30154c76d4e0fb902ff01db61581,
         type: 3}
@@ -4309,6 +4321,16 @@ PrefabInstance:
       propertyPath: mapSpikes.Array.data[1]
       value: 
       objectReference: {fileID: 888127472}
+    - target: {fileID: 7657687997589862916, guid: 62eb30154c76d4e0fb902ff01db61581,
+        type: 3}
+      propertyPath: mapSpikes.Array.data[2]
+      value: 
+      objectReference: {fileID: 804978519}
+    - target: {fileID: 7657687997589862916, guid: 62eb30154c76d4e0fb902ff01db61581,
+        type: 3}
+      propertyPath: mapSpikes.Array.data[3]
+      value: 
+      objectReference: {fileID: 165324776}
     - target: {fileID: 8266238324260182353, guid: 62eb30154c76d4e0fb902ff01db61581,
         type: 3}
       propertyPath: mapSpikes.Array.size
