@@ -57,10 +57,6 @@ public static class ServerUtils
         PlayerPrefs.SetString(gatewayJwtPref, value);
     }
 
-    public static void SetUserId(string value) {
-        PlayerPrefs.SetString("user_id", value);
-    }
-
     public static IEnumerator GetSelectedCharacter(
         Action<UserCharacterResponse> successCallback,
         Action<string> errorCallback
@@ -363,31 +359,6 @@ public static class ServerUtils
         return new WebSocket(urlWithJwt);
     }
 
-    public static IEnumerator GetUserInformation(
-        Action<UserInformation> successCallback,
-        Action<string> errorCallback
-    )
-    {
-        string url = MakeGatewayHTTPUrl($"/curse/users/" + PlayerPrefs.GetString("user_id"));
-
-        using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
-        {
-            yield return webRequest.SendWebRequest();
-
-            switch (webRequest.result)
-            {
-                case UnityWebRequest.Result.Success:
-                    UserInformation response = JsonUtility.FromJson<UserInformation>(webRequest.downloadHandler.text);
-                    successCallback?.Invoke(response);
-                    webRequest.Dispose();
-                    break;
-                default:
-                    errorCallback?.Invoke(webRequest.error);
-                    break;
-            }
-        }
-    }
-
     [Serializable]
     private class CreateGuestUserRequest
     {
@@ -414,25 +385,6 @@ public static class ServerUtils
     {
         public string user_id;
         public string gateway_jwt;
-    }
-
-    [Serializable]
-    public class Currency
-    {
-        public int amount;
-        public CurrencyDetails currency;
-    }
-
-    [Serializable]
-    public class CurrencyDetails
-    {
-        public string name;
-    }
-
-    [Serializable]
-    public class UserInformation
-    {
-        public Currency[] currencies;
     }
 
     private static T DecodeBase64UrlSafeString<T>(string base64UrlSafeString)

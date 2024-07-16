@@ -208,7 +208,6 @@ public class GoogleSignInController : MonoBehaviour
                         {
                             ServerUtils.TokenResponse response = JsonUtility.FromJson<ServerUtils.TokenResponse>(rawResponse);
                             ServerUtils.SetGatewayToken(response.gateway_jwt);
-                            ServerUtils.SetUserId(response.user_id);
 
                             if (PlayerPrefs.GetString("GoogleUserId") == "")
                             {
