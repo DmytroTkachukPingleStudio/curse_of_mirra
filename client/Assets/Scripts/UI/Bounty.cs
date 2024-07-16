@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using DG.Tweening;
+using MoreMountains.Tools;
 
 public class Bounty : MonoBehaviour
 {
@@ -68,6 +69,7 @@ public class Bounty : MonoBehaviour
 
         GameServerConnectionManager.Instance.SendSelectBounty(bountyInfo.Id);
         GameServerConnectionManager.Instance.bountySelected = bountyInfo;
+        bountyContainer.GetComponent<MMTouchButton>().enabled = false;
 
         Vector2 targetPosition = new Vector2(0, rectTransform.anchoredPosition.y); 
         rectTransform.DOAnchorPos(targetPosition, moveDuration)

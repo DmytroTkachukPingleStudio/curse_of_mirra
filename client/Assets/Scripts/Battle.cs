@@ -41,9 +41,14 @@ public class Battle : MonoBehaviour
     private long lastMovementUpdate;
     private long lastForcedMovementUpdate;
     private bool playersSetupCompleted = false;
+    private bool bountyCompleted = false;
 
     [SerializeField]
     private CustomLevelManager levelManager;
+
+    [SerializeField]
+    private BountyCompletionManager bountyCompletionManager;
+
     private PlayerControls playerControls;
     private PowerUpsManager powerUpsManager;
     private CustomCharacter myClientCharacter = null;
@@ -637,6 +642,11 @@ public class Battle : MonoBehaviour
                     .HandleHit(GameServerConnectionManager.Instance.damageDone[playerUpdate.Id]);
             }
             HandleSkillCooldowns(player, playerUpdate);
+
+            if (playerUpdate.Player.BountyCompleted && !bountyCompleted) {
+                bountyCompletionManager.GenerateBountyCompletionPopUp();
+                bountyCompleted = true;
+            }
         }
     }
 

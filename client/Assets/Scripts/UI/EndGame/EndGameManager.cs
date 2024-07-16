@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using MoreMountains.Tools;
 
 public class EndGameManager : MonoBehaviour
 {
@@ -18,7 +19,10 @@ public class EndGameManager : MonoBehaviour
     Image rankIcon;
 
     [SerializeField]
-    GameObject defeatedByContainer;
+    GameObject defeatedByContainer,
+        bountyContainer,
+        bountyRewardContainer,
+        claimButtonContainer;
 
     [SerializeField]
     Image defeaterImage;
@@ -30,19 +34,17 @@ public class EndGameManager : MonoBehaviour
     GameObject winnerContainer;
 
     [SerializeField]
-    TextMeshProUGUI winnerNameText;
+    TextMeshProUGUI winnerNameText,
+        claimButtonText;
 
     [SerializeField]
     TextMeshProUGUI winnerCharacterText;
 
     [SerializeField] 
-    private Sprite goldRank;
-
-    [SerializeField] 
-    private Sprite silverRank;
-
-    [SerializeField] 
-    private Sprite bronzeRank;
+    private Sprite goldRank,
+        silverRank,
+        bronzeRank,
+        disabledClaimSprite;
 
     [SerializeField]
     private Bounty bounty;
@@ -51,12 +53,13 @@ public class EndGameManager : MonoBehaviour
     private const int SECOND_PLACE_POS = 2;
     private const ulong ZONE_ID = 9999;
     CustomCharacter player;
+    Color disabledButtonColor;
 
     void OnEnable()
     {
         ShowRankingDisplay();
         ShowMatchInfo();
-        bounty.SetBounty(GameServerConnectionManager.Instance.bountySelected);
+        ShowBountyInfo();
     }
 
     public void SetDeathSplashCharacter()
@@ -145,6 +148,29 @@ public class EndGameManager : MonoBehaviour
             // Defeated By Image
             defeaterImage.sprite = GetDefeaterSprite();
         }
+    }
+
+    private void ShowBountyInfo() {
+        var playerId = GameServerConnectionManager.Instance.playerId;
+        var gamePlayer = Utils.GetGamePlayer(playerId);
+
+        if (gamePlayer.Player.BountyCompleted) {
+            bounty.SetBounty(GameServerConnectionManager.Instance.bountySelected);
+            bountyContainer.SetActive(true);
+            MainScreenManager.bountyReward = (int)GameServerConnectionManager.Instance.bountySelected.Reward.Amount;
+        }
+    }
+
+    public void ClaimBounty() {
+        ColorUtility.TryParseHtmlString("#666666", out disabledButtonColor);
+        claimButtonContainer.GetComponent<Image>().sprite = disabledClaimSprite;
+        claimButtonText.color = disabledButtonColor;
+        claimButtonContainer.GetComponent<MMTouchButton>().enabled = false;
+
+        RectTransform rewardRectTransform = bountyRewardContainer.GetComponent<RectTransform>();
+        rewardRectTransform.DOScale(.1f, .1f);
+        bountyRewardContainer.GetComponent<CanvasGroup>().DOFade(1f, .3f);
+        rewardRectTransform.DOScale(1f, .7f);
     }
 
     private ulong GetKillCount()
