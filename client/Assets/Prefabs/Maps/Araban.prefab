@@ -300,7 +300,6 @@ Transform:
   - {fileID: 5568506580232677256}
   - {fileID: 8279741136901844820}
   - {fileID: 4097382846137231652}
-  - {fileID: 1815342149639480520}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -318,6 +317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dangerZone: {fileID: 8222605594406543587}
   dangerZoneRing: {fileID: 7155833603555617735}
+  dangerZoneShadow: {fileID: 3491222318131716623}
 --- !u!114 &9072365715193338854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,81 +482,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2964636547607548518}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &3201187284554546755
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 8260821150174466731}
-    m_Modifications:
-    - target: {fileID: 3845373481546996363, guid: 5d7a268fc4a16ec42911070250a882c0,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845373481546996363, guid: 5d7a268fc4a16ec42911070250a882c0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 5.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845373481546996363, guid: 5d7a268fc4a16ec42911070250a882c0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845373481546996363, guid: 5d7a268fc4a16ec42911070250a882c0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845373481546996363, guid: 5d7a268fc4a16ec42911070250a882c0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845373481546996363, guid: 5d7a268fc4a16ec42911070250a882c0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845373481546996363, guid: 5d7a268fc4a16ec42911070250a882c0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845373481546996363, guid: 5d7a268fc4a16ec42911070250a882c0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845373481546996363, guid: 5d7a268fc4a16ec42911070250a882c0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845373481546996363, guid: 5d7a268fc4a16ec42911070250a882c0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3845373481546996363, guid: 5d7a268fc4a16ec42911070250a882c0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5573104344361784945, guid: 5d7a268fc4a16ec42911070250a882c0,
-        type: 3}
-      propertyPath: m_Name
-      value: BushesCollection
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5d7a268fc4a16ec42911070250a882c0, type: 3}
---- !u!4 &1815342149639480520 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3845373481546996363, guid: 5d7a268fc4a16ec42911070250a882c0,
-    type: 3}
-  m_PrefabInstance: {fileID: 3201187284554546755}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3875148738047981871
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -701,6 +626,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82db4dd499ebdca43b99f68c8c3003e5, type: 3}
+--- !u!23 &3491222318131716623 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1033623741550268051, guid: 82db4dd499ebdca43b99f68c8c3003e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 4479809917110955164}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &7155833603555617735 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 6730026963514672987, guid: 82db4dd499ebdca43b99f68c8c3003e5,
