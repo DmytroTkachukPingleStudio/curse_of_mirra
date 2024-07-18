@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 334569716980402120}
   - component: {fileID: 4506741754299701423}
   - component: {fileID: 4800096345329654537}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Bush1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155605205556013908}
   m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 1.22, y: 0, z: 0.69000006}
+  m_LocalPosition: {x: 1.22, y: 0, z: -0.32}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 9149618650326660225}
   - component: {fileID: 1138206387196190463}
   - component: {fileID: 3031883206875392704}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Bush2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2259667284468986296}
   m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: -0.82, y: 0, z: -0.6}
+  m_LocalPosition: {x: -0.82, y: 0, z: -1.61}
   m_LocalScale: {x: 2.3, y: 2.3, z: 2.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -175,9 +175,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5435847510585873586}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Bushes_02
-  m_TagString: Untagged
+  m_TagString: Hide
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 5813786945603643369}
   - component: {fileID: 275845695210006690}
   - component: {fileID: 7608133850331212752}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Bush4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4656911805298354561}
   m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: -0.71, y: 0, z: 2.1}
+  m_LocalPosition: {x: -0.71, y: 0, z: 1.0899999}
   m_LocalScale: {x: 2.2, y: 2.2, z: 2.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 1532330872154412372}
   - component: {fileID: 2837674944808435477}
   - component: {fileID: 9078398674481213751}
-  m_Layer: 0
+  m_Layer: 25
   m_Name: Bush3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6266969365493163608}
   m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0.59, y: 0, z: -1.53}
+  m_LocalPosition: {x: 0.59, y: 0, z: -2.54}
   m_LocalScale: {x: 2.2, y: 2.2, z: 2.2}
   m_ConstrainProportionsScale: 1
   m_Children: []

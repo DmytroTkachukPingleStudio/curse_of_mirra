@@ -100,6 +100,8 @@ Material:
     - _FresnelPower: 6
     - _FresnelSaturation: 1
     - _FresnelValue: 3
+    - _HideAmount: 0
+    - _HideMax: 0.6
     - _ISTRANSPARENT: 0
     - _LinkDetailsWithBase: 1
     - _MetalicChannelID: 2.79

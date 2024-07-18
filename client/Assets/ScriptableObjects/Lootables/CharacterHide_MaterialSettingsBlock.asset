@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 846f78ba938a3e341b3955e931da6fe0, type: 3}
+  m_Name: CharacterHide_MaterialSettingsBlock
+  m_EditorClassIdentifier: 
+  key: {fileID: 11400000, guid: f6869d7b8d6caa54cb6132adf57e8f5d, type: 2}
+  apply_duration: 0.5
+  controll_property: _HideAmount
+  float_values: []
+  color_values: []
