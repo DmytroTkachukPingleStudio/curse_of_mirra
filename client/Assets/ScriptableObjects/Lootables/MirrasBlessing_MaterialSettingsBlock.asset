@@ -22,8 +22,10 @@ MonoBehaviour:
     value: 10
   - name: _FresnelSaturation
     value: 1
+  - name: _USE_FRASNEL_HUE
+    value: 1
   color_values:
   - name: _FresnelColor
-    value: {r: 2.594569, g: 0, b: 4.867145, a: 0}
+    value: {r: 4, g: 4, b: 4, a: 0}
   - name: _FresnelColorPulse
-    value: {r: 0.6156863, g: 0.0627451, b: 0.87058824, a: 0}
+    value: {r: 1.7796966, g: 8.384347, b: 2.1946476, a: 0}

@@ -9,6 +9,13 @@ public class EffectCharacterMaterialController : MonoBehaviour
     [SerializeField] private EffectMaterialControllerType controller_type = EffectMaterialControllerType.MATERIAL;
 
     private CharacterMaterialManager character_material_manager = null;
+    
+    ///TEST CODE! REMOVE BEFORE MERGE
+    private void Start()
+    {
+      Setup(GetComponentInParent<CharacterMaterialManager>());
+    }
+    ///
 
     public void Setup(CharacterMaterialManager materialManager)
     {
@@ -45,6 +52,15 @@ public class EffectCharacterMaterialController : MonoBehaviour
     private void ApplyEffectProperties()
     {
         character_material_manager?.ApplyEffectByKey(material_settings_key);
+        ///TEST CODE! REMOVE BEFORE MERGE
+        StartCoroutine(impl());
+
+        IEnumerator impl()
+        {
+            yield return new WaitForSeconds(duration);
+            character_material_manager?.DeapplyEffectByKey(material_settings_key);
+        }
+        ///
     }
 }
 

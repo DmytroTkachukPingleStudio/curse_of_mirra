@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_MirrasBlessing_Sparks_0
+  m_Name: M_MirrasBlessing_Sparks_1
   m_Shader: {fileID: -6465566751694194690, guid: bdebc1f55a132c84086008b8f3b674d4,
     type: 3}
   m_ValidKeywords:
@@ -158,7 +158,7 @@ Material:
     - _IndirectLightingMix: 0.5
     - _InvertDissolveTex: 0
     - _LightingWorldPosStrength: 0.2
-    - _MainChannelID: 0
+    - _MainChannelID: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005

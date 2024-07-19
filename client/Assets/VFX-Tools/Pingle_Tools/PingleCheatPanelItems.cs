@@ -105,13 +105,13 @@ public class PingleCheatPanelItems : MonoBehaviour
             scaleCharacters();
         }
 
-        if ( GUI.Button(new Rect( 500, 100, 80, 80 ), "IdleBreak1") )
+        if ( GUI.Button(new Rect( 600, 100, 80, 80 ), "IdleBreak1") )
             triggerBeetleAnimation(0);
 
-        if ( GUI.Button(new Rect( 600, 100, 80, 80 ), "IdleBreak2") )
+        if ( GUI.Button(new Rect( 700, 100, 80, 80 ), "IdleBreak2") )
             triggerBeetleAnimation(1);
 
-        if ( GUI.Button(new Rect( 700, 100, 80, 80 ), "Fly") )
+        if ( GUI.Button(new Rect( 800, 100, 80, 80 ), "Fly") )
             triggerBeetleAnimation(2);
 
     }
@@ -129,9 +129,9 @@ public class PingleCheatPanelItems : MonoBehaviour
             cached_vfx = Instantiate(vfx, character.transform);
             pool.Add( cached_vfx );
         }
-        cached_vfx = Instantiate(vfx, muflus_instances.transform);
-        cached_vfx.transform.localScale = new Vector3(muflus_vfx_scale, muflus_vfx_scale, muflus_vfx_scale);
-        pool.Add( cached_vfx );
+        //cached_vfx = Instantiate(vfx, muflus_instances.transform);
+        //cached_vfx.transform.localScale = new Vector3(muflus_vfx_scale, muflus_vfx_scale, muflus_vfx_scale);
+        //pool.Add( cached_vfx );
     }
 
     private void scaleCharacters()
