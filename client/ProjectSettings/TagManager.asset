@@ -12,6 +12,7 @@ TagManager:
   - Hitbox
   - ZoneParticle
   - UmaSoul1
+  - Hide
   layers:
   - Default
   - TransparentFX
@@ -38,7 +39,7 @@ TagManager:
   - Camera4
   - ZoneParticle
   - NoPostProcess
-  - 
+  - Hide
   - 
   - 
   - 
