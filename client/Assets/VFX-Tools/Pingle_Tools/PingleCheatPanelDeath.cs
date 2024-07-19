@@ -6,6 +6,7 @@ using UnityEngine.VFX;
 
 public class PingleCheatPanelDeath : MonoBehaviour
 {
+    [SerializeField] private Animator char_animator = null;
     [SerializeField] private Renderer char_renderer = null;
     [SerializeField] private Transform vfx_root = null;
     [SerializeField] private GameObject death_vfx = null;
@@ -14,6 +15,7 @@ public class PingleCheatPanelDeath : MonoBehaviour
     [SerializeField] private float crystalisation_offset = 0.5f;
     [SerializeField] private float explosion_time = 1.2f;
     [SerializeField] private float explosion_offset = 1.2f;
+    [SerializeField] private int slow_time = 30;
 
     private List<GameObject> pool = new List<GameObject>();
 
@@ -62,11 +64,19 @@ public class PingleCheatPanelDeath : MonoBehaviour
       {
         char_renderer.material.SetFloat("_DeathProgress", 0);
         char_renderer.material.SetFloat("_ExplosionProgress", 0);
+        char_animator.speed = 1;
         yield return new WaitForSeconds(1.0f);
 
         yield return new WaitForSeconds(crystalisation_time);
 
         death_vfx2.GetComponent<VisualEffect>().Play();
+
+        for(int i = slow_time; i > 0; i--)
+        {
+          char_animator.speed = (float)i / slow_time;
+          yield return null;
+        }
+
         yield return new WaitForSeconds(explosion_offset);
 
         char_renderer.material.DOFloat(1, "_ExplosionProgress", explosion_time);

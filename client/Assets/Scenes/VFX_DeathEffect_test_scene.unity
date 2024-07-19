@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f80b40659d78894997f49b30d33c076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  char_animator: {fileID: 1838094028}
   char_renderer: {fileID: 294024073}
   vfx_root: {fileID: 1436803584}
   death_vfx: {fileID: 3230263420727906358, guid: a5876502e8af4094baf3a34ee5d4d637,
@@ -234,8 +235,9 @@ MonoBehaviour:
   death_vfx2: {fileID: 1303831176070749823}
   crystalisation_time: 0.8
   crystalisation_offset: 0.5
-  explosion_time: 1.2
-  explosion_offset: 1.2
+  explosion_time: 0.6
+  explosion_offset: 1
+  slow_time: 30
 --- !u!1 &648795007
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +364,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Valtimer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1787465996332106805, guid: 394ab5e57256d4b0b999dfa01aff3cf8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1787465996332106948, guid: 394ab5e57256d4b0b999dfa01aff3cf8,
         type: 3}
@@ -793,6 +800,12 @@ PrefabInstance:
 --- !u!4 &1748090260 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7647331132950113910, guid: 394ab5e57256d4b0b999dfa01aff3cf8,
+    type: 3}
+  m_PrefabInstance: {fileID: 759768858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1838094028 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4807904887345521306, guid: 394ab5e57256d4b0b999dfa01aff3cf8,
     type: 3}
   m_PrefabInstance: {fileID: 759768858}
   m_PrefabAsset: {fileID: 0}
