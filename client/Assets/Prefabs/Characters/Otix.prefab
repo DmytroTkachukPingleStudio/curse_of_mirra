@@ -679,6 +679,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7265418775127505143, guid: 73c9de454c5094eeebd71334b308b901,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 73c9de454c5094eeebd71334b308b901,
         type: 3}
       propertyPath: m_Name
@@ -799,6 +804,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7381071467491691310, guid: e7f4173a18a1d4e93ab9872698768799,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -6805708256027595212, guid: e7f4173a18a1d4e93ab9872698768799,
         type: 3}
@@ -940,6 +950,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Otix
+      objectReference: {fileID: 0}
+    - target: {fileID: 1998739371193024961, guid: 8c9875a4f0d5c46dfbbd2ff37bd71612,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9127657705239520577, guid: 8c9875a4f0d5c46dfbbd2ff37bd71612,
         type: 3}
