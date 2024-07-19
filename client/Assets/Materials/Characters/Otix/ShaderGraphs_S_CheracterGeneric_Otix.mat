@@ -42,6 +42,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 8d642fc2ed5794aea99dc5d1ff3e0014, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _CrystalTexture:
+        m_Texture: {fileID: 2800000, guid: bb3f33af22bf3b049a205a8079cdc6f6, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -65,6 +69,14 @@ Material:
     - _EmissiveTexture:
         m_Texture: {fileID: 2800000, guid: ed1a126d8ca17462d83180111e58523e, type: 3}
         m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LavaMaskTexture:
+        m_Texture: {fileID: 2800000, guid: 8bccc276ef0680344bfac00df0873e8d, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _LavaTexture:
+        m_Texture: {fileID: 2800000, guid: d055b37dff2169b4cafa3c05c83be60b, type: 3}
+        m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 2800000, guid: c1a5e90c9b1534f488f58730d2e63ff5, type: 3}
@@ -116,16 +128,22 @@ Material:
     - _AmbientOcclusion: 0.9
     - _Blend: 0
     - _BumpScale: 1
+    - _CharacterSize: 3
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
+    - _CrystalIntencity: 0.75
     - _Cull: 2
     - _Cutoff: 0.5
+    - _DeathProgress: 0
+    - _DeathSoftFactor: 0
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EmissivePower: 1
     - _EnvironmentReflections: 1
+    - _ExplosionProgress: 0
     - _FresnelEffectAmount: 0
+    - _FresnelHueSpeed: 0
     - _FresnelPower: 6
     - _FresnelSaturation: 1
     - _FresnelValue: 3
@@ -133,8 +151,10 @@ Material:
     - _Glossiness: 0.4472136
     - _GlossyReflections: 1
     - _HideAmount: 0
-    - _HideMax: 0.42
+    - _HideMax: 0.6
     - _ISTRANSPARENT: 0
+    - _LavaAmount: 0
+    - _LavaSoftFactor: 0
     - _MetalicChannelID: 2
     - _Metallic: 0
     - _Mode: 0
@@ -154,6 +174,9 @@ Material:
     - _Surface: 0
     - _USEEMISIVEANIMATION: 0
     - _USEFRESNEL: 0
+    - _USE_DEATH: 0
+    - _USE_FRASNEL_HUE: 0
+    - _USE_LAVA: 0
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
@@ -164,8 +187,10 @@ Material:
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 1, g: 1, b: 1, a: 0}
     - _EmissiveNoiseSpeed: {r: 1, g: 1, b: 0, a: 0}
+    - _ExplosionHight: {r: 0, g: 1.5, b: 0, a: 0}
     - _FresnelColor: {r: 1, g: 0.2122642, b: 0.2122642, a: 0}
     - _FresnelColorPulse: {r: 0.1674733, g: 0, b: 1, a: 0}
+    - _LavaColor: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 0}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
