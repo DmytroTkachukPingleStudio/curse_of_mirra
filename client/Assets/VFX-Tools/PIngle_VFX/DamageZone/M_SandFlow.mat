@@ -76,7 +76,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaMultiplier: 0.85
+    - _AlphaMultiplier: 0
     - _AlphaPower: 0.95
     - _ENUM: 0
     - _ENUM_1: 0
