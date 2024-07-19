@@ -40,8 +40,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CrystalTexture:
-        m_Texture: {fileID: 2800000, guid: cfa413ab1c2477d4ab231885699eff37, type: 3}
-        m_Scale: {x: 2, y: 2}
+        m_Texture: {fileID: 2800000, guid: bb3f33af22bf3b049a205a8079cdc6f6, type: 3}
+        m_Scale: {x: 1.37, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailMap:
         m_Texture: {fileID: 0}
@@ -94,7 +94,7 @@ Material:
     - _AlphaCutoff: -41.33
     - _AmbientOcclusion: 0.8
     - _CharacterSize: 4
-    - _CrystalIntencity: 1.2
+    - _CrystalIntencity: 1
     - _DamageColorIntensity: 0
     - _DeathProgress: 0
     - _DeathSoftFactor: 0.2
