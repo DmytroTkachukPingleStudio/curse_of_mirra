@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5698583303958343645
+--- !u!114 &-1607871571115317868
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,14 +20,12 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_S_CheracterGeneric_Uma
+  m_Name: Shader Graphs_S_CheracterGeneric_Otix
   m_Shader: {fileID: -6465566751694194690, guid: 00d6d6cce5b9dae49bf193e93bbbcdf6,
     type: 3}
-  m_ValidKeywords:
-  - _USEFRESNEL
-  - _USE_LAVA
+  m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -36,16 +34,32 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BaseColorMap:
-        m_Texture: {fileID: 2800000, guid: 6d627a179a82f467d885b165e653bdba, type: 3}
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: c1a5e90c9b1534f488f58730d2e63ff5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 8d642fc2ed5794aea99dc5d1ff3e0014, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _CrystalTexture:
         m_Texture: {fileID: 2800000, guid: bb3f33af22bf3b049a205a8079cdc6f6, type: 3}
         m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 0}
-    - _DetailMap:
+    - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 2800000, guid: ed1a126d8ca17462d83180111e58523e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissioveNoiseTexture:
@@ -53,7 +67,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissiveTexture:
-        m_Texture: {fileID: 2800000, guid: f186d14ba5f91492ea613490af0dc1b4, type: 3}
+        m_Texture: {fileID: 2800000, guid: ed1a126d8ca17462d83180111e58523e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _LavaMaskTexture:
@@ -64,24 +78,36 @@ Material:
         m_Texture: {fileID: 2800000, guid: d055b37dff2169b4cafa3c05c83be60b, type: 3}
         m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 0}
-    - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 7365d22618f8848229a5941bb10c9422, type: 3}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: c1a5e90c9b1534f488f58730d2e63ff5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MaskMap:
-        m_Texture: {fileID: 2800000, guid: 5d6b08f4517ab456dbe13ddafe5f52a1, type: 3}
+    - _MainTexture:
+        m_Texture: {fileID: 2800000, guid: c1a5e90c9b1534f488f58730d2e63ff5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetalicTexture:
-        m_Texture: {fileID: 2800000, guid: 83028312bd23b4790a1cbefedeed5d66, type: 3}
+        m_Texture: {fileID: 2800000, guid: a1dc4dede85e0452f8aacde6872d96f0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: 40e15bba0ab9743149609b5e2c447a53, type: 3}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 2800000, guid: a1dc4dede85e0452f8aacde6872d96f0, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalTexture:
-        m_Texture: {fileID: 2800000, guid: bba58683a13b7474bab0592e1d832272, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8d642fc2ed5794aea99dc5d1ff3e0014, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -98,64 +124,73 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AORemapMax: 0.675
-    - _AORemapMin: 0.57
-    - _AlphaCutoff: -41.33
-    - _AmbientOcclusion: 0.8
-    - _CharacterSize: 4.1
-    - _CrystalIntencity: 0.6
-    - _DamageColorIntensity: 0
+    - _AlphaClip: 0
+    - _AmbientOcclusion: 0.9
+    - _Blend: 0
+    - _BumpScale: 1
+    - _CharacterSize: 3
+    - _ClearCoatMask: 0
+    - _ClearCoatSmoothness: 0
+    - _CrystalIntencity: 0.75
+    - _Cull: 2
+    - _Cutoff: 0.5
     - _DeathProgress: 0
     - _DeathSoftFactor: 0
-    - _DetailAlbedoScale: 0.988
-    - _DetailNormalScale: 0.965
-    - _DetailSmoothnessScale: 1
+    - _DetailAlbedoMapScale: 1
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
     - _EmissivePower: 1
-    - _EnableDetail: 0
-    - _ExplosionHight: 0
+    - _EnvironmentReflections: 1
     - _ExplosionProgress: 0
     - _FresnelEffectAmount: 0
-    - _FresnelHueSpeed: 100
+    - _FresnelHueSpeed: 0
     - _FresnelPower: 6
     - _FresnelSaturation: 1
     - _FresnelValue: 3
+    - _GlossMapScale: 1
+    - _Glossiness: 0.4472136
+    - _GlossyReflections: 1
     - _HideAmount: 0
     - _HideMax: 0.6
     - _ISTRANSPARENT: 0
     - _LavaAmount: 0
     - _LavaSoftFactor: 0
-    - _LinkDetailsWithBase: 1
-    - _MetalicChannelID: 2.79
-    - _Metallic: 0.585
+    - _MetalicChannelID: 2
+    - _Metallic: 0
+    - _Mode: 0
     - _NormalOffset: -0.25
     - _NormalPower: 1
-    - _NormalScale: 1
     - _NormalStrength: 3
+    - _OcclusionStrength: 1
     - _OverlayColorIntensity: 0
+    - _Parallax: 0.02
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.3
-    - _SmoothnessRemapMax: 1
-    - _SmoothnessRemapMin: 0.474
-    - _TexWorldScale: 1
+    - _ReceiveShadows: 1
+    - _Smoothness: 0.4472136
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _Surface: 0
     - _USEEMISIVEANIMATION: 0
-    - _USEFRESNEL: 1
+    - _USEFRESNEL: 0
     - _USE_DEATH: 0
     - _USE_FRASNEL_HUE: 0
     - _USE_LAVA: 0
-    - _UVBase: 2.68
-    - _UVDetail: 1.719
-    - _WorldMapping: 0
+    - _UVSec: 0
+    - _WorkflowMode: 1
+    - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 0}
-    - _BaseColorMap_TO: {r: 1, g: 1, b: 0, a: 0}
-    - _DamageColor: {r: 0.85882354, g: 0, b: 0, a: 1}
-    - _DetailMap_TO: {r: 1, g: 1, b: 0, a: 0}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _DamageColor: {r: 0.8588235, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 1, g: 1, b: 1, a: 0}
     - _EmissiveNoiseSpeed: {r: 1, g: 1, b: 0, a: 0}
-    - _ExplosionHight: {r: 0, g: 1, b: 0, a: 0}
-    - _FresnelColor: {r: 2.3461432, g: 2.2934256, b: 0.25453445, a: 0}
-    - _FresnelColorPulse: {r: 0.7254902, g: 0.58431375, b: 0, a: 0}
-    - _LavaColor: {r: 1.4980392, g: 1.4980392, b: 1.4980392, a: 0}
+    - _ExplosionHight: {r: 0, g: 1.5, b: 0, a: 0}
+    - _FresnelColor: {r: 1, g: 0.2122642, b: 0.2122642, a: 0}
+    - _FresnelColorPulse: {r: 0.1674733, g: 0, b: 1, a: 0}
+    - _LavaColor: {r: 2.1185474, g: 2.1185474, b: 2.1185474, a: 0}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _TintColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
