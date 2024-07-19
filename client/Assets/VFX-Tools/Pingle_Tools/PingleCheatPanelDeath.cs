@@ -9,6 +9,7 @@ public class PingleCheatPanelDeath : MonoBehaviour
     [SerializeField] private Transform vfx_root = null;
     [SerializeField] private GameObject death_vfx = null;
     [SerializeField] private float crystalisation_time = 0.8f;
+    [SerializeField] private float crystalisation_offset = 0.5f;
     [SerializeField] private float explosion_time = 1.2f;
 
     private List<GameObject> pool = new List<GameObject>();
@@ -36,7 +37,7 @@ public class PingleCheatPanelDeath : MonoBehaviour
 
 
         char_renderer.material.DOFloat(1, "_DeathProgress", crystalisation_time);
-        yield return new WaitForSeconds(crystalisation_time);
+        yield return new WaitForSeconds(crystalisation_time + crystalisation_offset);
 
         GameObject cached_vfx = null;
         if (death_vfx != null)

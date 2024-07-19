@@ -94,10 +94,10 @@ Material:
     - _AlphaCutoff: -41.33
     - _AmbientOcclusion: 0.8
     - _CharacterSize: 4
-    - _CrystalIntencity: 1
+    - _CrystalIntencity: 0.7
     - _DamageColorIntensity: 0
     - _DeathProgress: 0
-    - _DeathSoftFactor: 0.2
+    - _DeathSoftFactor: 0
     - _DetailAlbedoScale: 0.988
     - _DetailNormalScale: 0.965
     - _DetailSmoothnessScale: 1
