@@ -38,6 +38,7 @@ public class PingleCheatPanelDeath : MonoBehaviour
       StartCoroutine(impl());
       IEnumerator impl()
       {
+        char_renderer.material.EnableKeyword("_USE_DEATH");
         char_renderer.material.SetFloat("_DeathProgress", 0);
         char_renderer.material.SetFloat("_ExplosionProgress", 0);
         yield return new WaitForSeconds(1.0f);
@@ -62,6 +63,7 @@ public class PingleCheatPanelDeath : MonoBehaviour
       StartCoroutine(impl());
       IEnumerator impl()
       {
+        char_renderer.material.EnableKeyword("_USE_DEATH");
         char_renderer.material.SetFloat("_DeathProgress", 0);
         char_renderer.material.SetFloat("_ExplosionProgress", 0);
         char_animator.speed = 1;

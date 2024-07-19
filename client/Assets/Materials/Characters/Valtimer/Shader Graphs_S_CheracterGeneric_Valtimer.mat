@@ -139,7 +139,7 @@ Material:
     - _TexWorldScale: 1
     - _USEEMISIVEANIMATION: 0
     - _USEFRESNEL: 1
-    - _USE_DEATH: 0
+    - _USE_DEATH: 1
     - _USE_FRASNEL_HUE: 0
     - _USE_LAVA: 0
     - _UVBase: 2.68
