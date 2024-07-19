@@ -39,6 +39,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 6d627a179a82f467d885b165e653bdba, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _CrystalTexture:
+        m_Texture: {fileID: 2800000, guid: cfa413ab1c2477d4ab231885699eff37, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
     - _DetailMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -89,12 +93,18 @@ Material:
     - _AORemapMin: 0.57
     - _AlphaCutoff: -41.33
     - _AmbientOcclusion: 0.8
+    - _CharacterSize: 4
+    - _CrystalIntencity: 1.2
     - _DamageColorIntensity: 0
+    - _DeathProgress: 0
+    - _DeathSoftFactor: 0.2
     - _DetailAlbedoScale: 0.988
     - _DetailNormalScale: 0.965
     - _DetailSmoothnessScale: 1
     - _EmissivePower: 1
     - _EnableDetail: 0
+    - _ExplosionHight: 2.5
+    - _ExplosionProgress: 0
     - _FresnelEffectAmount: 0
     - _FresnelPower: 6
     - _FresnelSaturation: 1
@@ -116,6 +126,8 @@ Material:
     - _TexWorldScale: 1
     - _USEEMISIVEANIMATION: 0
     - _USEFRESNEL: 1
+    - _USE_DEATH: 1
+    - _USE_LAVA: 0
     - _UVBase: 2.68
     - _UVDetail: 1.719
     - _WorldMapping: 0
