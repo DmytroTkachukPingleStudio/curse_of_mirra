@@ -684,6 +684,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MinionA_AllAnim
       objectReference: {fileID: 0}
+    - target: {fileID: 4530555808435455783, guid: 73c9de454c5094eeebd71334b308b901,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a5e6a9a27fe397a44bf30b48d6334d0b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73c9de454c5094eeebd71334b308b901, type: 3}
 --- !u!1 &1423307608788717478 stripped
@@ -795,6 +800,11 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -6805708256027595212, guid: e7f4173a18a1d4e93ab9872698768799,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a5e6a9a27fe397a44bf30b48d6334d0b, type: 2}
     - target: {fileID: -5607401457949444925, guid: e7f4173a18a1d4e93ab9872698768799,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -931,6 +941,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Otix
       objectReference: {fileID: 0}
+    - target: {fileID: 9127657705239520577, guid: 8c9875a4f0d5c46dfbbd2ff37bd71612,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a5e6a9a27fe397a44bf30b48d6334d0b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c9875a4f0d5c46dfbbd2ff37bd71612, type: 3}
 --- !u!137 &1964934087240071854 stripped
